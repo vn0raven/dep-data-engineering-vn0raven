@@ -14,3 +14,5 @@ I will explore OpenStreetMap / Overpass API (https://overpass-api.de/) as the ma
 
 ## Possible Final Dashboard
 The dashboard should help the audience quickly see the best estimated commute options from Point A to Point B. It should show the top 3 route options, estimated total commute time, walking time, waiting time, number of transfers, possible tricycle last-mile connections, and a map showing how jeepney, bus, free-ride, and tricycle segments combine into one trip.
+
+ps. i hate davao traffic/commute
