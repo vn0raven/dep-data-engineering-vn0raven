@@ -1,0 +1,35 @@
+{
+  "dataset_name": "OpenStreetMap Davao City transit elements",
+  "raw_file": "osm_davao_transit_elements_20260801T102121Z.json",
+  "ingestion_method": "API",
+  "source_name": "OpenStreetMap data via Overpass API",
+  "source_url": "https://overpass-api.de/api/interpreter",
+  "source_landing_page": "https://overpass-api.de/",
+  "accessed_at_utc": "2026-08-01T10:21:21Z",
+  "query_name": "davao_transit_elements",
+  "query_language": "Overpass QL",
+  "query": "[out:json][timeout:120];\n\narea(3603936841)->.davao;\n\n(\n  node[\"public_transport\"](area.davao);\n  node[\"highway\"=\"bus_stop\"](area.davao);\n  node[\"amenity\"~\"bus_station|ferry_terminal\"](area.davao);\n  way[\"public_transport\"](area.davao);\n  relation[\"type\"=\"route\"](area.davao);\n);\n\nout body geom;\n>;\nout skel qt;",
+  "geographic_scope": {
+    "name": "Davao City, Philippines",
+    "osm_relation_id": 3936841,
+    "overpass_area_id": 3603936841
+  },
+  "request": {
+    "method": "POST",
+    "timeout_seconds": 180,
+    "configured_retries": 4,
+    "user_agent": "dep-data-engineering-vn0raven/2.0 (https://github.com/vn0raven/dep-data-engineering-vn0raven)"
+  },
+  "response": {
+    "status_code": 200,
+    "content_type": "application/json",
+    "elapsed_seconds": 17.335,
+    "byte_count": 21499989,
+    "element_count": 77709,
+    "sha256": "005f91b0d13c39cf7c0e9919c82b574bcaf6d780497c04f5be4997c47b27fe4c"
+  },
+  "producer": {
+    "script": "scripts/ingest.py",
+    "script_version": "2.0.0"
+  }
+}
