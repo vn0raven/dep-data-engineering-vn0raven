@@ -96,25 +96,6 @@ The script:
 - writes files atomically so a failed run does not leave a partial raw file; and
 - returns a nonzero exit code when ingestion fails.
 
-Useful options:
-
-```bash
-python scripts/ingest.py --help
-python scripts/ingest.py --dry-run
-python scripts/ingest.py --timeout 240 --retries 5
-python scripts/ingest.py --raw-dir data/raw
-```
-
-### Milestone 2 pass checklist
-
-| Requirement | Evidence |
-|---|---|
-| Raw data landed successfully | `data/raw/osm_davao_transit_elements_20260708.json` |
-| Ingestion method documented | This README section documents API ingestion through Overpass |
-| Source URL and date recorded | README plus the raw-file metadata sidecar |
-| Repeatable process | Environment setup and `python scripts/ingest.py` command above |
-| Timestamped filenames | Existing date-stamped sample; new runs use full UTC timestamps |
-| Error handling and retries | Implemented in `scripts/ingest.py` |
 
 ## Data Source Notes
 
