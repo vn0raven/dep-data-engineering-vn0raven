@@ -1,0 +1,123 @@
+stop_id,osm_type,osm_id,name,stop_type,latitude,longitude,public_transport,highway,amenity,bus,ferry,evidence,route_member_roles,source_file
+node:25515337,node,25515337,,stop_position,6.0922583,125.1556163,,,,,,route_member,stop,osm_davao_transit_elements_20260708.json
+node:354713868,node,354713868,Sasa,stop_position,7.1346248,125.6634566,stop_position,,ferry_terminal,,yes,tagged,,osm_davao_transit_elements_20260708.json
+node:432026311,node,432026311,,platform,7.0758517,125.6255892,platform,bus_stop,,yes,,tagged,,osm_davao_transit_elements_20260708.json
+node:534081984,node,534081984,Sasa,stop_position,7.1317309,125.6633880,stop_position,,ferry_terminal,,yes,tagged,,osm_davao_transit_elements_20260708.json
+node:1260581113,node,1260581113,,stop_position,8.9585580,125.5356242,,,,,,route_member,stop,osm_davao_transit_elements_20260708.json
+node:1387477683,node,1387477683,,stop_position,7.0636997,125.6048443,stop_position,,ferry_terminal,,yes,tagged,,osm_davao_transit_elements_20260708.json
+node:1387478092,node,1387478092,,stop_position,7.0643225,125.6055883,stop_position,,ferry_terminal,,yes,tagged,,osm_davao_transit_elements_20260708.json
+node:1616260147,node,1616260147,,stop_position,7.0663915,125.6000406,stop_position,,ferry_terminal,,yes,tagged,,osm_davao_transit_elements_20260708.json
+node:1694610835,node,1694610835,,stop_position,8.5077032,125.9788381,,,,,,route_member,stop,osm_davao_transit_elements_20260708.json
+node:1757672623,node,1757672623,Davao City Overland Transport Terminal,stop_position,7.0553442,125.6011580,stop_position,,,yes,,tagged+route_member,stop_entry_only,osm_davao_transit_elements_20260708.json
+node:2122047941,node,2122047941,,stop_position,7.0663767,125.5992374,stop_position,,ferry_terminal,,yes,tagged,,osm_davao_transit_elements_20260708.json
+node:2267875510,node,2267875510,Santa Ana Wharf,stop_position,7.0775493,125.6277600,stop_position,,ferry_terminal,,yes,tagged,,osm_davao_transit_elements_20260708.json
+node:2531985956,node,2531985956,,stop_position,11.2392235,124.9878317,,,,,,route_member,stop,osm_davao_transit_elements_20260708.json
+node:2540588447,node,2540588447,Davao,stop_position,7.1266192,125.6635658,stop_position,,ferry_terminal,,yes,tagged+route_member,stop,osm_davao_transit_elements_20260708.json
+node:2936356921,node,2936356921,,stop_position,7.0563302,125.6010342,stop_position,,,yes,,tagged+route_member,stop_exit_only,osm_davao_transit_elements_20260708.json
+node:2972932777,node,2972932777,,stop_position,13.6193575,123.1895208,,,,,,route_member,stop,osm_davao_transit_elements_20260708.json
+node:3399877783,node,3399877783,Panacan,stop_position,7.1461308,125.6634009,stop_position,,ferry_terminal,,yes,tagged,,osm_davao_transit_elements_20260708.json
+node:3716686755,node,3716686755,,stop_position,10.6875286,122.5809922,,,,,,route_member,stop,osm_davao_transit_elements_20260708.json
+node:4292225492,node,4292225492,,platform,7.0662921,125.6050259,platform,bus_stop,,yes,,tagged,,osm_davao_transit_elements_20260708.json
+node:4529345389,node,4529345389,Island Express,station,7.0782114,125.6228035,station,,bus_station,yes,,tagged,,osm_davao_transit_elements_20260708.json
+node:4550221892,node,4550221892,Jeepney Terminal Tigatto - UM,platform,7.1386738,125.5858794,platform,bus_stop,,yes,,tagged,,osm_davao_transit_elements_20260708.json
+node:4691858168,node,4691858168,,stop_position,14.6022910,120.9577524,,,,,,route_member,stop,osm_davao_transit_elements_20260708.json
+node:4787308935,node,4787308935,Mandug Terminal,bus_station,7.1634940,125.5759590,,,bus_station,,,tagged,,osm_davao_transit_elements_20260708.json
+node:4787310107,node,4787310107,Mandug Terminal,station,7.0742351,125.6123272,station,,bus_station,yes,,tagged,,osm_davao_transit_elements_20260708.json
+node:4948190335,node,4948190335,NCCC Mall,platform,7.0860048,125.6111789,platform,bus_stop,,yes,,tagged,,osm_davao_transit_elements_20260708.json
+node:5219766922,node,5219766922,All Aboard Transport Group Terminal,bus_station,7.1875308,125.4530997,,,bus_station,,,tagged,,osm_davao_transit_elements_20260708.json
+node:5314775477,node,5314775477,Delta Tours Terminal,bus_station,7.1138088,125.4991156,,,bus_station,,,tagged,,osm_davao_transit_elements_20260708.json
+node:5898168186,node,5898168186,,bus_station,7.1872374,125.4537656,,,bus_station,,,tagged,,osm_davao_transit_elements_20260708.json
+node:5911055685,node,5911055685,Calinan Transport Service Cooperative Terminal,bus_station,7.1873281,125.4535682,,,bus_station,,,tagged,,osm_davao_transit_elements_20260708.json
+node:5927884962,node,5927884962,,stop_position,13.1432088,123.7457294,,,,,,route_member,stop,osm_davao_transit_elements_20260708.json
+node:5995809583,node,5995809583,,stop_position,14.5109693,120.9916823,,,,,,route_member,stop_exit_only,osm_davao_transit_elements_20260708.json
+node:6071905557,node,6071905557,,stop_position,9.7626344,125.4844956,,,,,,route_member,stop,osm_davao_transit_elements_20260708.json
+node:6346344223,node,6346344223,Buda,bus_stop,7.5209494,125.2348320,,bus_stop,,,,tagged,,osm_davao_transit_elements_20260708.json
+node:6346344224,node,6346344224,,bus_stop,7.5209827,125.2342580,,bus_stop,,,,tagged,,osm_davao_transit_elements_20260708.json
+node:6379656488,node,6379656488,,stop_position,14.5112652,120.9917610,,,,,,route_member,stop_entry_only,osm_davao_transit_elements_20260708.json
+node:6734448888,node,6734448888,,platform,7.0726759,125.6119508,platform,bus_stop,,yes,,tagged,,osm_davao_transit_elements_20260708.json
+node:6734448986,node,6734448986,,platform,7.0716537,125.6128278,platform,bus_stop,,yes,,tagged,,osm_davao_transit_elements_20260708.json
+node:6734448987,node,6734448987,,platform,7.0716049,125.6127107,platform,bus_stop,,yes,,tagged,,osm_davao_transit_elements_20260708.json
+node:7169491404,node,7169491404,,stop_position,13.4230633,123.4164921,,,,,,route_member,stop,osm_davao_transit_elements_20260708.json
+node:7222658320,node,7222658320,,stop_position,14.3111750,121.0997468,,,,,,route_member,stop_exit_only,osm_davao_transit_elements_20260708.json
+node:7936342865,node,7936342865,,stop_position,9.1172882,125.5476799,,,,,,route_member,stop_entry_only,osm_davao_transit_elements_20260708.json
+node:8211968518,node,8211968518,United Calinan L300 Terminal,station,7.0688287,125.6028298,station,,bus_station,yes,,tagged,,osm_davao_transit_elements_20260708.json
+node:8488598081,node,8488598081,,stop_position,7.0634007,125.6051532,stop_position,,,,yes,tagged,,osm_davao_transit_elements_20260708.json
+node:8488712556,node,8488712556,,stop_position,7.0643778,125.6054842,stop_position,,,,yes,tagged,,osm_davao_transit_elements_20260708.json
+node:8519477450,node,8519477450,,stop_position,14.3110966,121.0995117,,,,,,route_member,stop,osm_davao_transit_elements_20260708.json
+node:8532773079,node,8532773079,Caltransco Terminal,station,7.0686841,125.6021441,station,,bus_station,yes,,tagged,,osm_davao_transit_elements_20260708.json
+node:8660679849,node,8660679849,,platform,7.1007543,125.5817141,platform,,,,,tagged,,osm_davao_transit_elements_20260708.json
+node:9084221636,node,9084221636,Hope Ave-MacArthur Highway,platform,7.0610007,125.5546298,platform,bus_stop,,yes,,tagged,,osm_davao_transit_elements_20260708.json
+node:9206525695,node,9206525695,,platform,7.0640996,125.6074398,platform,bus_stop,,yes,,tagged,,osm_davao_transit_elements_20260708.json
+node:9206525696,node,9206525696,,platform,7.0647361,125.6065597,platform,bus_stop,,yes,,tagged,,osm_davao_transit_elements_20260708.json
+node:9206525697,node,9206525697,,platform,7.0641159,125.6074456,platform,bus_stop,,yes,,tagged+route_member,platform,osm_davao_transit_elements_20260708.json
+node:9206525698,node,9206525698,,platform,7.0631041,125.6092311,platform,bus_stop,,yes,,tagged,,osm_davao_transit_elements_20260708.json
+node:9206525699,node,9206525699,,platform,7.0634380,125.6105401,platform,bus_stop,,yes,,tagged,,osm_davao_transit_elements_20260708.json
+node:9206525700,node,9206525700,,platform,7.0644387,125.6099660,platform,bus_stop,,yes,,tagged,,osm_davao_transit_elements_20260708.json
+node:9206525701,node,9206525701,,platform,7.0652422,125.6090072,platform,bus_stop,,yes,,tagged,,osm_davao_transit_elements_20260708.json
+node:9743400019,node,9743400019,Catalunan Grande,bus_stop,7.0811161,125.5430610,,bus_stop,,,,tagged,,osm_davao_transit_elements_20260708.json
+node:9743406417,node,9743406417,Catalunan Grande,bus_stop,7.0809158,125.5432886,,bus_stop,,,,tagged,,osm_davao_transit_elements_20260708.json
+node:9810532416,node,9810532416,Unittrasco Terminal,bus_stop,7.0176494,125.4943893,,bus_stop,,,,tagged,,osm_davao_transit_elements_20260708.json
+node:10131470879,node,10131470879,Elenita Heights,platform,7.0946749,125.5137217,platform,bus_stop,,,,tagged,,osm_davao_transit_elements_20260708.json
+node:10246254512,node,10246254512,Upper Tamugan,platform,7.1934812,125.4526648,platform,,,,,tagged,,osm_davao_transit_elements_20260708.json
+node:10246254513,node,10246254513,Buda,platform,7.1935359,125.4526148,platform,,,,,tagged,,osm_davao_transit_elements_20260708.json
+node:10246254514,node,10246254514,Inayangan,platform,7.1934593,125.4526848,platform,,,,,tagged,,osm_davao_transit_elements_20260708.json
+node:10246254515,node,10246254515,Saloy,platform,7.1934374,125.4527047,platform,,,,,tagged,,osm_davao_transit_elements_20260708.json
+node:10246254516,node,10246254516,Suawan,platform,7.1934703,125.4526748,platform,,,,,tagged,,osm_davao_transit_elements_20260708.json
+node:10246254517,node,10246254517,Lacson,platform,7.1934265,125.4527147,platform,,,,,tagged,,osm_davao_transit_elements_20260708.json
+node:10246254518,node,10246254518,Lamanan,platform,7.1934484,125.4526948,platform,,,,,tagged,,osm_davao_transit_elements_20260708.json
+node:10246254519,node,10246254519,Tamugan,platform,7.1934921,125.4526548,platform,,,,,tagged,,osm_davao_transit_elements_20260708.json
+node:10246254520,node,10246254520,Capatoda,platform,7.1935031,125.4526448,platform,,,,,tagged,,osm_davao_transit_elements_20260708.json
+node:10246254521,node,10246254521,Camaspo,platform,7.1935140,125.4526348,platform,,,,,tagged,,osm_davao_transit_elements_20260708.json
+node:10246254522,node,10246254522,Gumalang,platform,7.1935250,125.4526248,platform,,,,,tagged,,osm_davao_transit_elements_20260708.json
+node:10246254539,node,10246254539,Tamayong Terminal,station,7.1862035,125.4526274,station,,taxi,,,tagged,,osm_davao_transit_elements_20260708.json
+node:10254129857,node,10254129857,,stop_position,8.9406849,125.5205036,,,,,,route_member,stop_entry_only,osm_davao_transit_elements_20260708.json
+node:10254129858,node,10254129858,,stop_position,8.9407525,125.5209026,,,,,,route_member,stop,osm_davao_transit_elements_20260708.json
+node:10285427459,node,10285427459,,stop_position,12.0623551,124.6116207,,,,,,route_member,stop,osm_davao_transit_elements_20260708.json
+node:10291371475,node,10291371475,Ecoland,platform,7.0568356,125.6004424,platform,bus_stop,,yes,,tagged,,osm_davao_transit_elements_20260708.json
+node:10291371479,node,10291371479,Crossing Ecoland,platform,7.0577509,125.6012607,platform,bus_stop,,yes,,tagged,,osm_davao_transit_elements_20260708.json
+node:10291371481,node,10291371481,Ecoland Provincial Arrivals,platform,7.0563540,125.6009839,platform,bus_stop,,yes,,tagged,,osm_davao_transit_elements_20260708.json
+node:10291371485,node,10291371485,Crossing Ecoland,bus_stop,7.0536470,125.5975895,,bus_stop,,,,tagged,,osm_davao_transit_elements_20260708.json
+node:10291371486,node,10291371486,Crossing Ecoland,bus_stop,7.0545883,125.5993334,,bus_stop,,,,tagged,,osm_davao_transit_elements_20260708.json
+node:10291371488,node,10291371488,Ecoland,platform,7.0574344,125.6021364,platform,bus_stop,,yes,,tagged,,osm_davao_transit_elements_20260708.json
+node:10291371490,node,10291371490,Crossing Ecoland,bus_stop,7.0531967,125.5983183,,bus_stop,,,,tagged,,osm_davao_transit_elements_20260708.json
+node:10291371493,node,10291371493,Crossing Ecoland,platform,7.0539544,125.5995783,platform,bus_stop,,yes,,tagged,,osm_davao_transit_elements_20260708.json
+node:10600199981,node,10600199981,Cabutransco Terminal,station,7.1924727,125.4539638,station,,,,,tagged,,osm_davao_transit_elements_20260708.json
+node:11982361337,node,11982361337,Gaisano Mall,platform,7.0791601,125.6130567,platform,bus_stop,,yes,,tagged,,osm_davao_transit_elements_20260708.json
+node:12006729002,node,12006729002,,platform,7.1097857,125.6165207,platform,bus_stop,,yes,,tagged,,osm_davao_transit_elements_20260708.json
+node:12006729003,node,12006729003,C.P. Garcia – Buhangin District Hall,platform,7.1095668,125.6158109,platform,bus_stop,,yes,,tagged,,osm_davao_transit_elements_20260708.json
+node:12249365099,node,12249365099,Davao Metro Shuttle,station,7.0687915,125.6030206,station,,bus_station,yes,,tagged,,osm_davao_transit_elements_20260708.json
+node:12311417200,node,12311417200,M/B Rocelcas,station,7.0640779,125.6043798,station,,ferry_terminal,,yes,tagged,,osm_davao_transit_elements_20260708.json
+node:12311479496,node,12311479496,ADU Terminal,platform,7.0730379,125.6124046,platform,bus_stop,,yes,,tagged,,osm_davao_transit_elements_20260708.json
+node:12329958022,node,12329958022,,stop_position,7.0641086,125.6044378,stop_position,,,,yes,tagged,,osm_davao_transit_elements_20260708.json
+node:12329958025,node,12329958025,,stop_position,7.0642345,125.6056699,stop_position,,,,yes,tagged,,osm_davao_transit_elements_20260708.json
+node:12363584719,node,12363584719,,platform,7.0729329,125.6107049,platform,bus_stop,,yes,,tagged,,osm_davao_transit_elements_20260708.json
+node:12372822680,node,12372822680,,platform,7.0888292,125.5803373,platform,bus_stop,,yes,,tagged,,osm_davao_transit_elements_20260708.json
+node:12386435597,node,12386435597,M/B RCFM,station,7.0637110,125.6048168,station,,ferry_terminal,,yes,tagged,,osm_davao_transit_elements_20260708.json
+node:12386435598,node,12386435598,M/B Espaldon,station,7.0634368,125.6051403,station,,ferry_terminal,,yes,tagged,,osm_davao_transit_elements_20260708.json
+node:12443768701,node,12443768701,SMTTI Terminal,bus_station,7.0472519,125.5908496,,,bus_station,,,tagged,,osm_davao_transit_elements_20260708.json
+node:12497739757,node,12497739757,United Calinan Transportation Cooperative,bus_station,7.1877438,125.4531120,,,bus_station,,,tagged,,osm_davao_transit_elements_20260708.json
+node:12688667101,node,12688667101,Bachelor Express,bus_stop,7.1562472,125.6574813,,bus_stop,,,,tagged,,osm_davao_transit_elements_20260708.json
+node:12878032207,node,12878032207,KSUVTC Terminal,platform,7.0788161,125.6136674,platform,,,,,tagged,,osm_davao_transit_elements_20260708.json
+node:12878032208,node,12878032208,Monvoda Terminal,platform,7.0788233,125.6137317,platform,,,,,tagged,,osm_davao_transit_elements_20260708.json
+node:12878032209,node,12878032209,Avante Terminal,platform,7.0788310,125.6138004,platform,,,,,tagged,,osm_davao_transit_elements_20260708.json
+node:12878032210,node,12878032210,Mkatco Terminal,platform,7.0788379,125.6138618,platform,,,,,tagged,,osm_davao_transit_elements_20260708.json
+node:12969568642,node,12969568642,GSSD Cooperative Van Terminal,station,7.0509221,125.5871796,station,,bus_station,yes,,tagged,,osm_davao_transit_elements_20260708.json
+node:13080675777,node,13080675777,,platform,7.0129648,125.4898539,platform,bus_stop,,yes,,tagged,,osm_davao_transit_elements_20260708.json
+node:13174832775,node,13174832775,Francisco Bangoy International,platform,7.1328182,125.6428737,platform,bus_stop,,yes,,tagged,,osm_davao_transit_elements_20260708.json
+node:13174838805,node,13174838805,Francisco Bangoy International,platform,7.1325375,125.6428471,platform,bus_stop,,yes,,tagged,,osm_davao_transit_elements_20260708.json
+node:13271467569,node,13271467569,,platform,7.0679498,125.6098614,platform,bus_stop,,yes,,tagged,,osm_davao_transit_elements_20260708.json
+node:13354959657,node,13354959657,,platform,7.0607663,125.5552990,platform,bus_stop,,yes,,tagged,,osm_davao_transit_elements_20260708.json
+node:13694389601,node,13694389601,Mintal Palengke,bus_stop,7.0914353,125.5029073,,bus_stop,,,,tagged,,osm_davao_transit_elements_20260708.json
+way:28996131,way,28996131,Davao City Overland Transport Terminal,station,7.0555399,125.6009867,station,,bus_station,yes,,tagged,,osm_davao_transit_elements_20260708.json
+way:35931818,way,35931818,Gmall Van Terminal,station,7.0788467,125.6137291,station,,bus_station,,,tagged,,osm_davao_transit_elements_20260708.json
+way:304044810,way,304044810,Tagakpan Transport Terminal,station,7.0693446,125.6022494,station,,,,,tagged,,osm_davao_transit_elements_20260708.json
+way:440446297,way,440446297,Mindanao AUV Transport Terminal,station,7.0602826,125.5886516,station,,bus_station,yes,,tagged,,osm_davao_transit_elements_20260708.json
+way:742363647,way,742363647,,platform,,,,,,,,route_member,platform_exit_only,osm_davao_transit_elements_20260708.json
+way:742363649,way,742363649,,platform,,,,,,,,route_member,"platform,platform_entry_only",osm_davao_transit_elements_20260708.json
+way:773783027,way,773783027,,platform,,,,,,,,route_member,platform,osm_davao_transit_elements_20260708.json
+way:773783028,way,773783028,,platform,,,,,,,,route_member,platform_exit_only,osm_davao_transit_elements_20260708.json
+way:1049239445,way,1049239445,L3 Terminal,station,7.0181773,125.5004962,station,,bus_station,,,tagged,,osm_davao_transit_elements_20260708.json
+way:1114836847,way,1114836847,Catalunan Grande Jeepney Terminal,station,7.0741004,125.5466347,station,,,,,tagged,,osm_davao_transit_elements_20260708.json
+way:1120279531,way,1120279531,Northbound Tricycle Terminal,station,7.1934844,125.4526441,station,,taxi,,,tagged,,osm_davao_transit_elements_20260708.json
+way:1130843064,way,1130843064,Puroluda Terminal,platform,7.0510292,125.5403038,platform,,,,,tagged,,osm_davao_transit_elements_20260708.json
+way:1413491484,way,1413491484,Aidoa Terminal,station,7.1924942,125.6039876,station,,,,,tagged,,osm_davao_transit_elements_20260708.json

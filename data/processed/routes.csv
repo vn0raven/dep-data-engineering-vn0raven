@@ -1,0 +1,15 @@
+route_id,osm_relation_id,route_ref,route_name,route_mode,operator,network,origin_name,destination_name,source_file
+relation:5118287,5118287,13,Route 13,bus,,,,,osm_davao_transit_elements_20260708.json
+relation:6736830,6736830,,Route 10,bus,,,,,osm_davao_transit_elements_20260708.json
+relation:6736831,6736831,5,Route 5,bus,,,,,osm_davao_transit_elements_20260708.json
+relation:6736832,6736832,12,Route 12,bus,,,,,osm_davao_transit_elements_20260708.json
+relation:6736833,6736833,1,Route 1,bus,,,,,osm_davao_transit_elements_20260708.json
+relation:6736912,6736912,4,Route 4,bus,,,,,osm_davao_transit_elements_20260708.json
+relation:6736913,6736913,11,Route 11,bus,,,,,osm_davao_transit_elements_20260708.json
+relation:6737034,6737034,8,Route 8,bus,,,,,osm_davao_transit_elements_20260708.json
+relation:8202470,8202470,PITX-DVOC,PITX–Davao City (inbound),bus,"Philtranco Service Enterprises, Inc.",LTFRB Interregional Bus,Davao City,Parañaque Integrated Terminal Exchange,osm_davao_transit_elements_20260708.json
+relation:9235088,9235088,DMS,Davao City → Laak,bus,Davao Metro Shuttle,,Davao City,Laak,osm_davao_transit_elements_20260708.json
+relation:10690422,10690422,PITX-DVOC,PITX–Davao City (outbound),bus,"Philtranco Service Enterprises, Inc.",LTFRB Interregional Bus,PITX,Davao City,osm_davao_transit_elements_20260708.json
+relation:15045923,15045923,PITX-DVOC,PITX–Davao City (outbound),bus,Davao Metro Shuttle,LTFRB Interregional Bus,PITX,Davao City,osm_davao_transit_elements_20260708.json
+relation:15045924,15045924,PITX-DVOC,PITX–Davao City (inbound),bus,Davao Metro Shuttle,LTFRB Interregional Bus,Davao City,PITX,osm_davao_transit_elements_20260708.json
+relation:18311775,18311775,,Manila - Davao City - General Santos - Iloilo - Manila,ferry,2GO Travel,,Manila,Manila,osm_davao_transit_elements_20260708.json
