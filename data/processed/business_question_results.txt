@@ -1,0 +1,80 @@
+================================================================================
+BUSINESS QUESTION 1
+================================================================================
+
+route_id          | route_ref | route_name                                             | route_mode | operator                             | mapped_stop_occurrences
+------------------+-----------+--------------------------------------------------------+------------+--------------------------------------+------------------------
+relation:15045923 | PITX-DVOC | PITX–Davao City (outbound)                             | bus        | Davao Metro Shuttle                  | 10                     
+relation:15045924 | PITX-DVOC | PITX–Davao City (inbound)                              | bus        | Davao Metro Shuttle                  | 10                     
+relation:8202470  | PITX-DVOC | PITX–Davao City (inbound)                              | bus        | Philtranco Service Enterprises, Inc. | 6                      
+relation:10690422 | PITX-DVOC | PITX–Davao City (outbound)                             | bus        | Philtranco Service Enterprises, Inc. | 5                      
+relation:18311775 |           | Manila - Davao City - General Santos - Iloilo - Manila | ferry      | 2GO Travel                           | 4                      
+relation:6736832  | 12        | Route 12                                               | bus        |                                      | 1                      
+relation:9235088  | DMS       | Davao City → Laak                                      | bus        | Davao Metro Shuttle                  | 1                      
+relation:5118287  | 13        | Route 13                                               | bus        |                                      | 0                      
+relation:6736830  |           | Route 10                                               | bus        |                                      | 0                      
+relation:6736831  | 5         | Route 5                                                | bus        |                                      | 0                      
+relation:6736833  | 1         | Route 1                                                | bus        |                                      | 0                      
+relation:6736912  | 4         | Route 4                                                | bus        |                                      | 0                      
+relation:6736913  | 11        | Route 11                                               | bus        |                                      | 0                      
+relation:6737034  | 8         | Route 8                                                | bus        |                                      | 0                      
+
+Rows returned: 14
+
+================================================================================
+BUSINESS QUESTION 2
+================================================================================
+
+stop_id          | name                                   | stop_type     | latitude   | longitude   | route_count
+-----------------+----------------------------------------+---------------+------------+-------------+------------
+node:1757672623  | Davao City Overland Transport Terminal | stop_position | 7.0553442  | 125.601158  | 3          
+node:10285427459 |                                        | stop_position | 12.0623551 | 124.6116207 | 2          
+node:2531985956  |                                        | stop_position | 11.2392235 | 124.9878317 | 2          
+node:2936356921  |                                        | stop_position | 7.0563302  | 125.6010342 | 2          
+node:5927884962  |                                        | stop_position | 13.1432088 | 123.7457294 | 2          
+node:5995809583  |                                        | stop_position | 14.5109693 | 120.9916823 | 2          
+node:6071905557  |                                        | stop_position | 9.7626344  | 125.4844956 | 2          
+node:6379656488  |                                        | stop_position | 14.5112652 | 120.991761  | 2          
+way:742363647    |                                        | platform      |            |             | 2          
+way:742363649    |                                        | platform      |            |             | 2          
+
+Rows returned: 10
+
+================================================================================
+BUSINESS QUESTION 3
+================================================================================
+
+route_id          | route_ref | route_name                                             | from_sequence | from_stop_id     | from_stop_name                         | to_stop_id       | to_stop_name
+------------------+-----------+--------------------------------------------------------+---------------+------------------+----------------------------------------+------------------+-------------
+relation:10690422 | PITX-DVOC | PITX–Davao City (outbound)                             | 1             | node:6379656488  |                                        | way:742363649    |             
+relation:10690422 | PITX-DVOC | PITX–Davao City (outbound)                             | 2             | way:742363649    |                                        | node:8519477450  |             
+relation:10690422 | PITX-DVOC | PITX–Davao City (outbound)                             | 3             | node:8519477450  |                                        | way:773783027    |             
+relation:10690422 | PITX-DVOC | PITX–Davao City (outbound)                             | 4             | way:773783027    |                                        | node:2936356921  |             
+relation:15045923 | PITX-DVOC | PITX–Davao City (outbound)                             | 1             | node:6379656488  |                                        | way:742363649    |             
+relation:15045923 | PITX-DVOC | PITX–Davao City (outbound)                             | 2             | way:742363649    |                                        | node:2972932777  |             
+relation:15045923 | PITX-DVOC | PITX–Davao City (outbound)                             | 3             | node:2972932777  |                                        | node:5927884962  |             
+relation:15045923 | PITX-DVOC | PITX–Davao City (outbound)                             | 4             | node:5927884962  |                                        | node:10285427459 |             
+relation:15045923 | PITX-DVOC | PITX–Davao City (outbound)                             | 5             | node:10285427459 |                                        | node:2531985956  |             
+relation:15045923 | PITX-DVOC | PITX–Davao City (outbound)                             | 6             | node:2531985956  |                                        | node:6071905557  |             
+relation:15045923 | PITX-DVOC | PITX–Davao City (outbound)                             | 7             | node:6071905557  |                                        | node:10254129857 |             
+relation:15045923 | PITX-DVOC | PITX–Davao City (outbound)                             | 8             | node:10254129857 |                                        | node:10254129858 |             
+relation:15045923 | PITX-DVOC | PITX–Davao City (outbound)                             | 9             | node:10254129858 |                                        | node:2936356921  |             
+relation:15045924 | PITX-DVOC | PITX–Davao City (inbound)                              | 1             | node:1757672623  | Davao City Overland Transport Terminal | node:1694610835  |             
+relation:15045924 | PITX-DVOC | PITX–Davao City (inbound)                              | 2             | node:1694610835  |                                        | node:1260581113  |             
+relation:15045924 | PITX-DVOC | PITX–Davao City (inbound)                              | 3             | node:1260581113  |                                        | node:6071905557  |             
+relation:15045924 | PITX-DVOC | PITX–Davao City (inbound)                              | 4             | node:6071905557  |                                        | node:2531985956  |             
+relation:15045924 | PITX-DVOC | PITX–Davao City (inbound)                              | 5             | node:2531985956  |                                        | node:10285427459 |             
+relation:15045924 | PITX-DVOC | PITX–Davao City (inbound)                              | 6             | node:10285427459 |                                        | node:5927884962  |             
+relation:15045924 | PITX-DVOC | PITX–Davao City (inbound)                              | 7             | node:5927884962  |                                        | node:7169491404  |             
+relation:15045924 | PITX-DVOC | PITX–Davao City (inbound)                              | 8             | node:7169491404  |                                        | node:5995809583  |             
+relation:15045924 | PITX-DVOC | PITX–Davao City (inbound)                              | 9             | node:5995809583  |                                        | way:742363647    |             
+relation:18311775 |           | Manila - Davao City - General Santos - Iloilo - Manila | 1             | node:4691858168  |                                        | node:2540588447  | Davao       
+relation:18311775 |           | Manila - Davao City - General Santos - Iloilo - Manila | 2             | node:2540588447  | Davao                                  | node:25515337    |             
+relation:18311775 |           | Manila - Davao City - General Santos - Iloilo - Manila | 3             | node:25515337    |                                        | node:3716686755  |             
+relation:8202470  | PITX-DVOC | PITX–Davao City (inbound)                              | 1             | node:1757672623  | Davao City Overland Transport Terminal | node:7936342865  |             
+relation:8202470  | PITX-DVOC | PITX–Davao City (inbound)                              | 2             | node:7936342865  |                                        | node:7222658320  |             
+relation:8202470  | PITX-DVOC | PITX–Davao City (inbound)                              | 3             | node:7222658320  |                                        | way:773783028    |             
+relation:8202470  | PITX-DVOC | PITX–Davao City (inbound)                              | 4             | way:773783028    |                                        | node:5995809583  |             
+relation:8202470  | PITX-DVOC | PITX–Davao City (inbound)                              | 5             | node:5995809583  |                                        | way:742363647    |             
+
+Rows returned: 30

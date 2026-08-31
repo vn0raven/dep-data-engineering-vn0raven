@@ -1,0 +1,32 @@
+{
+  "cleaning_decisions": {
+    "duplicates": "Keep the richest record for each (OSM type, OSM ID).",
+    "missing_names": "Preserve valid unnamed stops as null.",
+    "missing_route_metadata": "Do not infer missing ref, operator, from, or to values.",
+    "route_geometry": "Unlabelled route relation members are treated as geometry, not stops.",
+    "routes": "Retain route relations whose route mode is bus or ferry.",
+    "stops": "Retain tagged transit stops plus objects explicitly referenced using stop/platform route-member roles."
+  },
+  "duplicate_records_removed": 4,
+  "processed_route_count": 14,
+  "processed_route_modes": [
+    "bus",
+    "ferry"
+  ],
+  "processed_stop_count": 122,
+  "raw_element_count": 77701,
+  "route_modes_observed": {
+    "<missing>": 1,
+    "bicycle": 2,
+    "bus": 13,
+    "ferry": 1,
+    "hiking": 3,
+    "power": 1,
+    "road": 13
+  },
+  "route_stop_occurrence_count": 37,
+  "source_file": "osm_davao_transit_elements_20260708.json",
+  "stops_without_coordinates": 4,
+  "unique_element_count": 77697,
+  "unnamed_stop_count": 52
+}

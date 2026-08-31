@@ -180,3 +180,284 @@ Estimated fares will be clearly labeled as approximations and separated from off
 The dashboard should help the audience quickly see the best estimated commute options from Point A to Point B. It should show the top three route options, estimated total commute time, estimated total fare in PHP, fare breakdown per segment, walking time, waiting time, number of transfers, possible tricycle last-mile connections, and a map showing how jeepney, bus, free-ride, walking, and tricycle segments combine into one trip.
 
 The dashboard should help compare the fastest route, cheapest route, and a balanced route that considers both time and fare.
+
+# Phase 3 / Milestone 3 — Clean Dataset
+
+## Overview
+
+Phase 3 transforms the raw OpenStreetMap transit extract into a clean,
+structured, validated, and reproducible dataset for SQL analysis and future
+routing logic.
+
+Current processed outputs:
+
+- `data/processed/stops.csv`
+- `data/processed/routes.csv`
+- `data/processed/route_stops.csv`
+- `data/processed/processing_summary.json`
+- `data/processed/davao_transit.db`
+- `data/processed/business_question_results.txt`
+
+The full schema design is documented in:
+
+```text
+docs/schema.md
+```
+
+---
+
+## Pipeline
+
+```text
+data/raw/osm_davao_transit_elements_20260708.json
+        |
+        v
+scripts/transform.py
+        |
+        +--> stops.csv
+        +--> routes.csv
+        +--> route_stops.csv
+        +--> processing_summary.json
+        |
+        v
+scripts/load_sqlite.py
+        |
+        v
+davao_transit.db
+        |
+        v
+sql/business_questions.sql
+        |
+        v
+scripts/run_sql.py
+        |
+        v
+business_question_results.txt
+```
+
+---
+
+## Processed Schema
+
+### `stops`
+
+**Grain:** one unique OSM transit stop, platform, station, or stop-like route
+member.
+
+**Primary key:** `stop_id`
+
+**Identifier format:** `<osm_type>:<osm_id>`
+
+Current count:
+
+```text
+122 stops
+```
+
+---
+
+### `routes`
+
+**Grain:** one OSM public-transport route relation.
+
+**Primary key:** `route_id`
+
+**Identifier format:** `relation:<osm_relation_id>`
+
+Current count:
+
+```text
+14 routes
+```
+
+Processed modes:
+
+- 13 bus
+- 1 ferry
+
+---
+
+### `route_stops`
+
+**Grain:** one ordered stop/platform occurrence within one route relation.
+
+**Primary key:** `(route_id, stop_sequence)`
+
+**Foreign keys:**
+
+```text
+route_id -> routes.route_id
+stop_id  -> stops.stop_id
+```
+
+Current count:
+
+```text
+37 route-stop occurrences
+```
+
+---
+
+## Cleaning Decisions
+
+The transform applies the following rules:
+
+- deduplicates records using `(OSM type, OSM ID)`
+- keeps the richer record when duplicates exist
+- retains only `bus` and `ferry` route relations
+- preserves valid unnamed stops as null
+- preserves missing route metadata instead of guessing values
+- keeps route-referenced stops even when they are not independently tagged
+- treats unlabeled route members as route geometry, not stops
+- preserves stops without coordinates instead of fabricating locations
+
+Current data-quality results:
+
+| Metric | Value |
+|---|---:|
+| Raw OSM elements | 77,701 |
+| Unique elements after deduplication | 77,697 |
+| Duplicate records removed | 4 |
+| Processed stops | 122 |
+| Processed routes | 14 |
+| Route-stop occurrences | 37 |
+| Stops missing names | 52 |
+| Stops missing coordinates | 4 |
+
+---
+
+## Validation
+
+Validation checks are built into `scripts/transform.py`.
+
+The pipeline checks:
+
+- non-null and unique stop IDs
+- non-null and unique route IDs
+- unique OSM relation IDs
+- valid latitude and longitude ranges
+- unique `(route_id, stop_sequence)` values
+- valid route and stop foreign-key references
+- processed route mode is only `bus` or `ferry`
+
+SQLite also applies primary-key, foreign-key, unique, and range constraints.
+
+---
+
+## SQL Business Questions
+
+Queries are stored in:
+
+```text
+sql/business_questions.sql
+```
+
+Results are saved in:
+
+```text
+data/processed/business_question_results.txt
+```
+
+The three questions are:
+
+1. Which transit routes have the most explicitly mapped stops?
+2. Which stops are shared by multiple mapped routes?
+3. Which consecutive stop-to-stop connections can be derived from ordered
+   route-stop data?
+
+Current findings:
+
+- only 7 of 14 processed routes contain explicit stop/platform members
+- 10 stops are shared by at least two mapped routes
+- Davao City Overland Transport Terminal is shared by 3 mapped routes
+- 30 consecutive route-stop edges can currently be derived
+
+---
+
+## Known Limitations
+
+The current OSM extract is not yet a complete Davao City transit network.
+
+Important limitations:
+
+- several local numbered bus routes have no explicit stop sequence
+- the source includes both local and intercity routes
+- some stops have missing names
+- 4 stops have no coordinates
+- shared stops are only candidate transfer points, not confirmed transfers
+- fare, schedule, tricycle-zone, walking, waiting-time, and traffic data are not
+  yet integrated
+
+These gaps are preserved as source limitations rather than filled with
+assumptions.
+
+---
+
+## Reproducibility
+
+Running the same transform against the same raw input produced identical
+SHA256 hashes across repeated runs.
+
+Run:
+
+```powershell
+python .\scripts\transform.py --input .\data\raw\osm_davao_transit_elements_20260708.json
+```
+
+Verified outputs:
+
+```text
+stops.csv
+243B289F5094018CD82652E32529B500861F2B81F5DF6072EAA792ABBB22774D
+
+routes.csv
+53FA8F00DD33087DB029DEA66982C11075E55C2923ABEFE4622FA4423E3328E6
+
+route_stops.csv
+C39587E5604D0FA9A8172BEB3A4D4675289754A3DE16BD98CB6DDA5D6D537F64
+
+processing_summary.json
+0023DB0D700D3A30B42102B05079644BF4C3C0356C18568CFFB423806E5929B7
+```
+
+---
+
+## Run the Phase 3 Pipeline
+
+Install dependencies:
+
+```powershell
+pip install -r .\requirements.txt
+```
+
+Transform the raw dataset:
+
+```powershell
+python .\scripts\transform.py --input .\data\raw\osm_davao_transit_elements_20260708.json
+```
+
+Load SQLite:
+
+```powershell
+python .\scripts\load_sqlite.py
+```
+
+Run the SQL questions:
+
+```powershell
+python .\scripts\run_sql.py
+```
+
+---
+
+## Milestone 3 Checklist
+
+- [x] Processed dataset saved in `/data/processed/`
+- [x] Schema plan documented
+- [x] Three SQL business questions documented and executed
+- [x] Missing values and cleaning decisions documented
+- [x] Validation checks integrated into the transform
+- [x] Reproducibility confirmed with matching output hashes
+
+This Phase 3 output is the clean foundation for later integration of fares,
+schedules, traffic, walking, transfers, tricycle zones, and route optimization.
