@@ -461,3 +461,35 @@ python .\scripts\run_sql.py
 
 This Phase 3 output is the clean foundation for later integration of fares,
 schedules, traffic, walking, transfers, tricycle zones, and route optimization.
+
+---
+
+# Milestone 4 — Initial Insights (DEP Open Track)
+
+**Scope:** Exploratory analysis of the committed Milestone 3 OSM transit extract. This is a **mapping-completeness and readiness audit**, not a working route recommender or a report of live bus/jeepney operations.
+
+Run from the repository root (works without internet once dependencies are installed):
+
+```powershell
+pip install -r requirements.txt
+python scripts/m4_insights.py
+python -m unittest discover -s tests -p "test_m4_insights.py" -v
+```
+
+Generated M4 artifacts:
+
+- `notebooks/m4_initial_insights.ipynb` — four figures, explanations, and cautious inference (run interactively with Jupyter if desired).
+- `scripts/m4_insights.py` — reproducible chart + summary + HTML generator.
+- `output/figures/01_route_stop_coverage.png` — ordered stop mapping coverage by route.
+- `output/figures/02_stop_metadata_quality.png` — names and coordinate completeness.
+- `output/figures/03_stop_coordinate_spread.png` — widespread stop coordinates including intercity route members.
+- `output/figures/04_candidate_transfer_stops.png` — shared stop IDs, **not verified transfers**.
+- `data/processed/m4_insights_summary.json` — exact statistics calculated from M3 CSVs.
+- `docs/MILESTONE4_INSIGHTS.md` — interpretations, caveats, and cautious inference.
+- `dashboard/index.html` plus `dashboard/assets/figures/` — responsive **static offline preview** of the findings; open directly in a browser. Assets are kept within `dashboard/` so the existing GitHub Pages workflow can serve them whenever deployed.
+
+**Initial results for the checked-in July 8, 2026 extract:** 122 stops, 14 bus/ferry route relations, 7 routes with explicit stop members, 52 unnamed stops, and 10 candidate shared stop IDs. These are OSM mapping results, **not** counts of active Davao routes or usable transfer points. No actual fare/travel-time optimization can be justified from these data alone.
+
+**Pending for the full commute router:** a reliable city-limited pedestrian graph, verified jeepney/bus/tricycle service boundaries and boarding points, dated fare rules, schedules and waiting-time estimates. There is no community-reporting dependency in this milestone; any future submissions will require moderation and provenance checks.
+
+Source attribution: © OpenStreetMap contributors — Open Database License (ODbL), <https://www.openstreetmap.org/copyright>.

@@ -1,103 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My DEP Project</title>
-  <style>
-    body {
-      font-family: system-ui, sans-serif;
-      max-width: 860px;
-      margin: 2rem auto;
-      padding: 0 1.5rem;
-      color: #1a1a1a;
-      line-height: 1.6;
-    }
-    h1 { font-size: 2rem; margin-bottom: 0.25rem; }
-    .subtitle { color: #555; margin-bottom: 2rem; }
-    section { margin-bottom: 2.5rem; }
-    h2 { font-size: 1.2rem; border-bottom: 2px solid #e5e5e5; padding-bottom: 0.4rem; }
-    .kpi-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    .kpi-card {
-      background: #f5f5f5;
-      border-radius: 8px;
-      padding: 1rem;
-      text-align: center;
-    }
-    .kpi-value { font-size: 1.8rem; font-weight: 700; }
-    .kpi-label { font-size: 0.85rem; color: #666; margin-top: 0.25rem; }
-    .chart-placeholder {
-      background: #f0f0f0;
-      border-radius: 8px;
-      height: 240px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #999;
-      font-size: 0.9rem;
-      margin-top: 1rem;
-    }
-    footer { font-size: 0.8rem; color: #999; margin-top: 3rem; }
-  </style>
-</head>
-<body>
-
-  <h1><!-- Replace: Your Project Title --></h1>
-  <p class="subtitle"><!-- Replace: One-sentence description of what this project measures or predicts --></p>
-
-  <section>
-    <h2>Key Numbers</h2>
-    <div class="kpi-grid">
-      <div class="kpi-card">
-        <div class="kpi-value"><!-- value --></div>
-        <div class="kpi-label"><!-- KPI 1 label --></div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-value"><!-- value --></div>
-        <div class="kpi-label"><!-- KPI 2 label --></div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-value"><!-- value --></div>
-        <div class="kpi-label"><!-- KPI 3 label --></div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h2><!-- Replace: Chart or Analysis Title --></h2>
-    <!--
-      Replace this placeholder with an actual chart.
-      Options:
-        - <img> tag pointing to a saved chart in output/figures/
-        - Inline Chart.js or Plotly script
-        - A table of results
-    -->
-    <div class="chart-placeholder">[ Replace with your chart or table ]</div>
-  </section>
-
-  <section>
-    <h2>Key Findings</h2>
-    <ul>
-      <li><!-- Finding 1 --></li>
-      <li><!-- Finding 2 --></li>
-      <li><!-- Finding 3 --></li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Data Source</h2>
-    <p><!-- Describe your data source: name, URL, date range, format --></p>
-  </section>
-
-  <footer>
-    Built by <!-- Your Name --> &middot; DEP Data Engineering Open Track 2026 &middot;
-    <a href="https://github.com/<!-- your-username/your-repo -->">GitHub Repo</a>
-  </footer>
-
-</body>
-</html>
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light"><title>Davao Commute Router · Milestone 4 Insights</title>
+<style>
+:root{--ink:#142840;--muted:#5b6d82;--bg:#f3f6fa;--card:#fff;--teal:#087e79;--line:#e0e7ef;}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+a{color:#006b79}.hero{padding:3.2rem max(1.5rem,calc((100% - 1100px)/2));background:#112d43;color:white}
+.kicker{text-transform:uppercase;letter-spacing:.16em;color:#8fe0d3;font-size:.78rem;font-weight:750}h1{font-size:clamp(2rem,4vw,3.2rem);margin:.55rem 0 1rem;max-width:790px;line-height:1.12}.hero p{max-width:790px;color:#d0e0e7}
+.wrap{max-width:1100px;margin:auto;padding:1.7rem 1.5rem 4rem}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:-3.2rem;position:relative}
+.stat,.panel,.note{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:0 6px 20px #1428400a}.stat{padding:1.25rem}.stat-label{font-size:.83rem;font-weight:650;color:var(--muted)}.stat strong{display:block;font-size:2.05rem;letter-spacing:-.04em;margin:.35rem 0}.stat small{display:block;color:var(--muted);font-size:.78rem}.section-intro{margin:2.8rem 0 1rem}.section-intro h2{font-size:1.5rem;margin:.2rem 0}.section-intro p{color:var(--muted);margin:.25rem 0}.charts{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}.panel{overflow:hidden}.panel-head{padding:1.4rem 1.5rem 0}.panel-head h2{font-size:1.12rem;margin:.3rem 0 .3rem}.figure-tag{font-size:.69rem;color:var(--teal);font-weight:800;letter-spacing:.1em}.panel img{display:block;width:100%;height:auto;object-fit:contain;background:white}.panel p{padding:0 1.5rem 1.5rem;margin:0;color:var(--muted);font-size:.91rem}
+.note{padding:1.6rem;margin-top:1.4rem;border-left:4px solid var(--teal)}.note h2{margin:0 0 .5rem}.note p{margin:.5rem 0;color:#405468}footer{padding:1.5rem 0;color:var(--muted);font-size:.79rem}
+@media(max-width:850px){.stats{grid-template-columns:repeat(2,1fr)}.charts{grid-template-columns:1fr}}@media(max-width:460px){.stats{grid-template-columns:1fr 1fr}.stat strong{font-size:1.6rem}.wrap{padding:1.6rem 1rem}.hero{padding:2.4rem 1rem 4rem}}
+</style></head>
+<body><header class="hero"><div class="kicker">DEP Engineering Open Track / M4 · Initial insights</div><h1>Davao Commute Router<br>What the available data can actually tell us</h1><p>Four reproducible visualizations of mapped route connectivity, stop completeness, geographic reach and possible interchanges—without inventing fares, travel times or active transport services.</p></header>
+<main class="wrap"><section class="stats" aria-label="Analysis statistics"><article class="stat"><div class="stat-label">Mapped route relations</div><strong>14</strong><small>Not necessarily active local services</small></article><article class="stat"><div class="stat-label">Routes with ordered stops</div><strong>7</strong><small>50.0% of mapped relations</small></article><article class="stat"><div class="stat-label">Mapped stop records</div><strong>122</strong><small>42.6% have no name</small></article><article class="stat"><div class="stat-label">Candidate shared stops</div><strong>10</strong><small>Not verified physical transfers</small></article></section><div class="section-intro"><div class="kicker" style="color:#087e79">OpenStreetMap snapshot analysis</div><h2>Four evidence-based findings</h2><p>Source: osm_davao_transit_elements_20260708.json. Counts describe the processed OSM extract, not officially authorized Davao service.</p></div><section class="charts"><article class="panel" id="chart-01"><div class="panel-head"><span class="figure-tag">FIGURE 01</span><h2>Route sequencing</h2></div><img loading="lazy" src="assets/figures/01_route_stop_coverage.png" alt="Coverage of ordered stops by mapped route" /><p>Only 7 of 14 route relations have ordered stop members. This is an OSM mapping gap, not evidence a service is inactive.</p></article><article class="panel" id="chart-02"><div class="panel-head"><span class="figure-tag">FIGURE 02</span><h2>Metadata quality</h2></div><img loading="lazy" src="assets/figures/02_stop_metadata_quality.png" alt="Completeness of stop names and coordinates" /><p>52 stops have no name; 4 lack usable point coordinates. Both limit offline route search.</p></article><article class="panel" id="chart-03"><div class="panel-head"><span class="figure-tag">FIGURE 03</span><h2>Coordinate spread</h2></div><img loading="lazy" src="assets/figures/03_stop_coordinate_spread.png" alt="Where geocoded mapped stops appear" /><p>Some retained relation members lie outside Davao City. Geographic scope must be verified before making local coverage claims.</p></article><article class="panel" id="chart-04"><div class="panel-head"><span class="figure-tag">FIGURE 04</span><h2>Candidate interchanges</h2></div><img loading="lazy" src="assets/figures/04_candidate_transfer_stops.png" alt="Stops shared by multiple OSM route relations" /><p>10 stop identifiers are shared by multiple routes. They are not verified usable transfers.</p></article></section><aside class="note"><h2>Cautious inference</h2><p>These records reveal a coverage and validation problem, not a finished multimodal transport network. Even though 30 adjacent stop pairs can be derived, no valid basis exists here for estimating actual fare, passenger wait, service status, or fastest door-to-door route. Many retained stop records are associated with nonlocal intercity routes.</p><p><strong>Recommended next step:</strong> verify local route geography and ordered boarding locations, then integrate dated official fares, schedules, pedestrian network and any authorized tricycle zones. Treat shared stop IDs as unverified transfer candidates.</p></aside><footer>Data: © OpenStreetMap contributors · <a href="https://www.openstreetmap.org/copyright">ODbL attribution</a> · <a href="https://github.com/vn0raven/dep-data-engineering-vn0raven">Project repository</a> · Charts and this page work offline once the repository is downloaded.</footer></main></body></html>

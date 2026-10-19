@@ -1,0 +1,23 @@
+{
+  "comparison_scope": "OSM route relations and stop metadata, not confirmed current local operations",
+  "fare_data_available": false,
+  "geocoded_stops": 118,
+  "modes": {
+    "bus": 13,
+    "ferry": 1
+  },
+  "named_stops": 70,
+  "ordered_adjacent_pairs": 30,
+  "route_stop_occurrences": 37,
+  "routes": 14,
+  "routes_with_ordered_stops": 7,
+  "routes_without_ordered_stops": 7,
+  "shared_stops": 10,
+  "shared_stops_named": 1,
+  "shared_stops_without_coordinates": 2,
+  "source_file": "osm_davao_transit_elements_20260708.json",
+  "stops": 122,
+  "stops_without_coordinates": 4,
+  "travel_time_data_available": false,
+  "unnamed_stops": 52
+}
