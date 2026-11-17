@@ -1,7 +1,49 @@
 {
   "comparison_scope": "OSM route relations and stop metadata, not confirmed current local operations",
+  "descriptive_statistics": {
+    "distinct_route_relations_per_stop": {
+      "count": 122,
+      "iqr": 0.0,
+      "max": 3.0,
+      "mean": 0.30327868852459017,
+      "median": 0.0,
+      "min": 0.0,
+      "population_sd": 0.6387660268727545,
+      "q1": 0.0,
+      "q3": 0.0,
+      "range": 3.0,
+      "zero_count": 96
+    },
+    "ordered_stop_occurrences_per_route": {
+      "count": 14,
+      "iqr": 4.75,
+      "max": 10.0,
+      "mean": 2.642857142857143,
+      "median": 0.5,
+      "min": 0.0,
+      "population_sd": 3.5977600741322937,
+      "q1": 0.0,
+      "q3": 4.75,
+      "range": 10.0,
+      "zero_count": 7
+    }
+  },
   "fare_data_available": false,
   "geocoded_stops": 118,
+  "hypothesis_comparison": {
+    "caveat": "Single nonrandom OSM extract; small unequal groups and intercity relation members. Name completeness does not establish a real transfer or active route.",
+    "difference_percentage_points": -51.607142857142854,
+    "hypothesis": "Mapped stop IDs shared by >=2 route relations are more likely to have names",
+    "named_other": 69,
+    "named_shared": 1,
+    "other_definition": "0 or 1 distinct OSM route relations",
+    "other_named_percent": 61.607142857142854,
+    "other_total": 112,
+    "shared_definition": ">=2 distinct OSM route relations",
+    "shared_named_percent": 10.0,
+    "shared_total": 10,
+    "supports_hypothesis": false
+  },
   "modes": {
     "bus": 13,
     "ferry": 1

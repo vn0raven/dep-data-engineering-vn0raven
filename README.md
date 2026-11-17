@@ -493,3 +493,13 @@ Generated M4 artifacts:
 **Pending for the full commute router:** a reliable city-limited pedestrian graph, verified jeepney/bus/tricycle service boundaries and boarding points, dated fare rules, schedules and waiting-time estimates. There is no community-reporting dependency in this milestone; any future submissions will require moderation and provenance checks.
 
 Source attribution: Â© OpenStreetMap contributors â€” Open Database License (ODbL), <https://www.openstreetmap.org/copyright>.
+
+## M4 reviewer corrections — November 2026
+
+M4 uses the original July 2026 OSM extract. It includes four charts,
+descriptive statistics, a hypothesis-based comparison, cautious
+interpretations, and an executed notebook with saved outputs.
+
+See `docs/MILESTONE4_INSIGHTS.md` and `notebooks/m4_initial_insights.ipynb`.
+
+**Phase 5 selected path:** Path B — Segmentation and KPIs.

@@ -30,6 +30,18 @@ class Milestone4Tests(unittest.TestCase):
         self.assertEqual(self.m['shared_stops'], 10)
         self.assertEqual(self.m['ordered_adjacent_pairs'], 30)
 
+    def test_descriptive_stats_and_hypothesis(self):
+        stats = self.m['descriptive_statistics']
+        self.assertEqual(stats['ordered_stop_occurrences_per_route']['count'], 14)
+        self.assertEqual(stats['ordered_stop_occurrences_per_route']['zero_count'], 7)
+        self.assertAlmostEqual(stats['ordered_stop_occurrences_per_route']['mean'], 37 / 14)
+        self.assertEqual(stats['ordered_stop_occurrences_per_route']['max'], 10)
+        c = self.m['hypothesis_comparison']
+        self.assertEqual((c['named_shared'], c['shared_total']), (1, 10))
+        self.assertEqual((c['named_other'], c['other_total']), (69, 112))
+        self.assertAlmostEqual(c['difference_percentage_points'], 10 - 100 * 69 / 112)
+        self.assertFalse(c['supports_hypothesis'])
+
     def test_rejects_broken_foreign_key(self):
         broken = self.rs.copy()
         broken.loc[broken.index[0], 'route_id'] = 'relation:does-not-exist'

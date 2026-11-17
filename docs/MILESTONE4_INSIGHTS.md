@@ -35,6 +35,25 @@
 
 **Interpretation.** These overlaps are *candidate* transfer references only. They do not prove walkability, direction, local relevance, transfer legality, operating hours or current service.
 
+## Descriptive statistics and interpretation
+
+**Unit of analysis:** all 14 OSM route relations for stop occurrences (including zeros), and all 122 unique stop records for distinct-route membership (including zeros). These are *population statistics of the July 2026 extract*, not estimates of all active transport routes. Standard deviation uses `ddof=0`; quartiles use NumPy's linear interpolation.
+
+| Key measure | Mean | Median | Population SD | Q1 | Q3 | IQR | Minimum–maximum | Range | Zeros |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| Ordered stop occurrences per route | 2.64 | 0.50 | 3.60 | 0.00 | 4.75 | 4.75 | 0–10 | 10 | 7 |
+| Distinct route relations per stop | 0.30 | 0.00 | 0.64 | 0.00 | 0.00 | 0.00 | 0–3 | 3 | 96 |
+
+**Interpretation.** Ordered stops have mean 2.64 but median 0.50. The difference and the 7 zero-count relations indicate highly uneven mapping across route relations; a few have many recorded stop members while half have none. Distinct-route membership likewise describes mapping relationships, not confirmed passenger transfers. A median of zero or one is a data gap, not a real-world service claim.
+
+## Hypothesis-based comparison (exploratory, not causal)
+
+**Plain-language hypothesis.** Mapped stop IDs shared by >=2 route relations are more likely to have names.
+
+**Evidence.** Among stop IDs shared by at least two distinct route relations, 1/10 (10.00%) have names. Among stops with zero or one relation, 69/112 (61.61%) have names. The difference (shared minus other) is -51.61 percentage points: **this extract does not support the hypothesis**.
+
+**Caveats.** Single nonrandom OSM extract; small unequal groups and intercity relation members. Name completeness does not establish a real transfer or active route. This comparison was proposed for descriptive exploration; there is no random sample, causal inference or operational transfer verification.
+
 ## Cautious inference and next action
 
 The first barrier to estimating the **fastest and cheapest door-to-door commute** is not algorithm selection: it is data completeness and geographic/service validation. The Milestone 3 data contain **no validated fares, timetables, waiting-time profiles, tricycle operating zones or local walking network**. Therefore, neither commute time nor fare can be calculated responsibly from these tables alone.

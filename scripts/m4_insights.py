@@ -57,6 +57,49 @@ def load_data(processed_dir: Path) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataF
     return stops, routes, route_stops
 
 
+
+
+def distribution(values) -> dict:
+    """Population-level descriptive statistics for this complete OSM snapshot."""
+    numbers = np.asarray(list(values), dtype=float)
+    if numbers.size == 0:
+        raise ValueError('Cannot describe an empty distribution')
+    q1, q3 = np.quantile(numbers, [0.25, 0.75])
+    return {
+        'count': int(numbers.size), 'mean': float(numbers.mean()),
+        'median': float(np.median(numbers)),
+        'population_sd': float(numbers.std(ddof=0)),
+        'min': float(numbers.min()), 'q1': float(q1),
+        'q3': float(q3), 'max': float(numbers.max()),
+        'iqr': float(q3-q1), 'range': float(numbers.max()-numbers.min()),
+        'zero_count': int((numbers == 0).sum()),
+    }
+
+
+def compare_names_by_shared_stop(stops: pd.DataFrame, rs: pd.DataFrame) -> dict:
+    """Named-stop proportions in shared vs <=1 relation, including zero use."""
+    membership = rs.groupby('stop_id')['route_id'].nunique()
+    relation_count = stops['stop_id'].map(membership).fillna(0).astype(int)
+    named = stops['name'].fillna('').astype(str).str.strip().ne('')
+    shared = relation_count >= 2
+    shared_total, other_total = int(shared.sum()), int((~shared).sum())
+    named_shared = int((named & shared).sum())
+    named_other = int((named & ~shared).sum())
+    p_shared = (100 * named_shared / shared_total) if shared_total else None
+    p_other = (100 * named_other / other_total) if other_total else None
+    return {
+        'hypothesis': 'Mapped stop IDs shared by >=2 route relations are more likely to have names',
+        'shared_definition': '>=2 distinct OSM route relations',
+        'other_definition': '0 or 1 distinct OSM route relations',
+        'shared_total': shared_total, 'named_shared': named_shared,
+        'other_total': other_total, 'named_other': named_other,
+        'shared_named_percent': p_shared, 'other_named_percent': p_other,
+        'difference_percentage_points': (p_shared-p_other if p_shared is not None and p_other is not None else None),
+        'supports_hypothesis': (p_shared > p_other if p_shared is not None and p_other is not None else None),
+        'caveat': ('Single nonrandom OSM extract; small unequal groups and intercity relation members. '
+                   'Name completeness does not establish a real transfer or active route.'),
+    }
+
 def summarise(stops: pd.DataFrame, routes: pd.DataFrame, route_stops: pd.DataFrame) -> dict:
     """Calculate all M4 headline numbers from CSVs, never from manually entered data."""
     names = stops['name'].fillna('').astype(str).str.strip().ne('')
@@ -66,6 +109,7 @@ def summarise(stops: pd.DataFrame, routes: pd.DataFrame, route_stops: pd.DataFra
     candidates = route_counts[route_counts >= 2]
     route_stops_count = int(len(route_stops))
     connections = sum(max(int(n)-1, 0) for n in per_route.to_numpy())
+    route_relation_count = route_stops.groupby('stop_id')['route_id'].nunique().reindex(stops['stop_id'], fill_value=0)
     candidate_df = stops[stops['stop_id'].isin(candidates.index)]
     named_shared = candidate_df['name'].fillna('').astype(str).str.strip().ne('')
     return {
@@ -84,6 +128,11 @@ def summarise(stops: pd.DataFrame, routes: pd.DataFrame, route_stops: pd.DataFra
         'shared_stops_named': int(named_shared.sum()),
         'shared_stops_without_coordinates': int((~(candidate_df['latitude'].between(-90, 90) & candidate_df['longitude'].between(-180, 180))).sum()),
         'ordered_adjacent_pairs': int(connections),
+        'descriptive_statistics': {
+            'ordered_stop_occurrences_per_route': distribution(per_route.to_numpy()),
+            'distinct_route_relations_per_stop': distribution(route_relation_count.to_numpy()),
+        },
+        'hypothesis_comparison': compare_names_by_shared_stop(stops, route_stops),
         'comparison_scope': 'OSM route relations and stop metadata, not confirmed current local operations',
         'fare_data_available': False,
         'travel_time_data_available': False,
@@ -214,6 +263,25 @@ def insights_markdown(m: dict)->str:
 **Observation.** {m['shared_stops']} unique stop identifiers occur in two or more route relations; {m['shared_stops_named']} of these records have names, and {m['shared_stops_without_coordinates']} lack point coordinates.
 
 **Interpretation.** These overlaps are *candidate* transfer references only. They do not prove walkability, direction, local relevance, transfer legality, operating hours or current service.
+
+## Descriptive statistics and interpretation
+
+**Unit of analysis:** all {m['routes']} OSM route relations for stop occurrences (including zeros), and all {m['stops']} unique stop records for distinct-route membership (including zeros). These are *population statistics of the July 2026 extract*, not estimates of all active transport routes. Standard deviation uses `ddof=0`; quartiles use NumPy's linear interpolation.
+
+| Key measure | Mean | Median | Population SD | Q1 | Q3 | IQR | Minimum–maximum | Range | Zeros |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| Ordered stop occurrences per route | {m['descriptive_statistics']['ordered_stop_occurrences_per_route']['mean']:.2f} | {m['descriptive_statistics']['ordered_stop_occurrences_per_route']['median']:.2f} | {m['descriptive_statistics']['ordered_stop_occurrences_per_route']['population_sd']:.2f} | {m['descriptive_statistics']['ordered_stop_occurrences_per_route']['q1']:.2f} | {m['descriptive_statistics']['ordered_stop_occurrences_per_route']['q3']:.2f} | {m['descriptive_statistics']['ordered_stop_occurrences_per_route']['iqr']:.2f} | {m['descriptive_statistics']['ordered_stop_occurrences_per_route']['min']:.0f}–{m['descriptive_statistics']['ordered_stop_occurrences_per_route']['max']:.0f} | {m['descriptive_statistics']['ordered_stop_occurrences_per_route']['range']:.0f} | {m['descriptive_statistics']['ordered_stop_occurrences_per_route']['zero_count']} |
+| Distinct route relations per stop | {m['descriptive_statistics']['distinct_route_relations_per_stop']['mean']:.2f} | {m['descriptive_statistics']['distinct_route_relations_per_stop']['median']:.2f} | {m['descriptive_statistics']['distinct_route_relations_per_stop']['population_sd']:.2f} | {m['descriptive_statistics']['distinct_route_relations_per_stop']['q1']:.2f} | {m['descriptive_statistics']['distinct_route_relations_per_stop']['q3']:.2f} | {m['descriptive_statistics']['distinct_route_relations_per_stop']['iqr']:.2f} | {m['descriptive_statistics']['distinct_route_relations_per_stop']['min']:.0f}–{m['descriptive_statistics']['distinct_route_relations_per_stop']['max']:.0f} | {m['descriptive_statistics']['distinct_route_relations_per_stop']['range']:.0f} | {m['descriptive_statistics']['distinct_route_relations_per_stop']['zero_count']} |
+
+**Interpretation.** Ordered stops have mean {m['descriptive_statistics']['ordered_stop_occurrences_per_route']['mean']:.2f} but median {m['descriptive_statistics']['ordered_stop_occurrences_per_route']['median']:.2f}. The difference and the {m['descriptive_statistics']['ordered_stop_occurrences_per_route']['zero_count']} zero-count relations indicate highly uneven mapping across route relations; a few have many recorded stop members while half have none. Distinct-route membership likewise describes mapping relationships, not confirmed passenger transfers. A median of zero or one is a data gap, not a real-world service claim.
+
+## Hypothesis-based comparison (exploratory, not causal)
+
+**Plain-language hypothesis.** {m['hypothesis_comparison']['hypothesis']}.
+
+**Evidence.** Among stop IDs shared by at least two distinct route relations, {m['hypothesis_comparison']['named_shared']}/{m['hypothesis_comparison']['shared_total']} ({m['hypothesis_comparison']['shared_named_percent']:.2f}%) have names. Among stops with zero or one relation, {m['hypothesis_comparison']['named_other']}/{m['hypothesis_comparison']['other_total']} ({m['hypothesis_comparison']['other_named_percent']:.2f}%) have names. The difference (shared minus other) is {m['hypothesis_comparison']['difference_percentage_points']:.2f} percentage points: **this extract {'supports' if m['hypothesis_comparison']['supports_hypothesis'] else 'does not support'} the hypothesis**.
+
+**Caveats.** {m['hypothesis_comparison']['caveat']} This comparison was proposed for descriptive exploration; there is no random sample, causal inference or operational transfer verification.
 
 ## Cautious inference and next action
 
