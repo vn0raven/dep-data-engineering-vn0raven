@@ -1,0 +1,133 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Davao M5 | Data readiness</title><style>body{font:16px/1.6 system-ui;margin:0;background:#f2f6fa;color:#15334a}header,main{max-width:1100px;margin:auto;padding:30px}header{background:#15334a;color:white}section,figure{background:white;padding:20px;border-radius:12px}.charts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:18px}figure{margin:0}img{width:100%}table{border-collapse:collapse;font-size:14px;width:100%}td,th{padding:8px;border:1px solid #ccd8e2}.scroll{overflow:auto}a{color:#197290}</style><header><p>DEP · M5 PATH B</p><h1>Davao Transport Data Observatory</h1><p>201 aggregate segments · 285 Region XI register records · 262 readable linked files</p></header><main><p><a href="index.html">M4 OSM analysis</a> · <a href="m5_data/segmentation.csv">Segmentation CSV</a> · <a href="m5_data/quality_kpis.csv">GIS KPI definitions/results</a> · <a href="m5_data/kpi_history.csv">Dated KPI observations</a> · <a href="m5_data/kpi_definitions.json">Five primary KPI definitions</a></p><section><h2>Use this evidence to prioritize validation</h2><p>LTFRB register records, OSM route relations and DC Bus operational documents describe different populations. No cross-source route equivalence is asserted. Government labels and valid geometry do not establish current operations, stops, fares or travel times.</p><h2>Five primary metadata KPIs: latest OSM snapshot</h2><div class="scroll"><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>kpi</th>
+      <th>snapshot_date</th>
+      <th>numerator</th>
+      <th>denominator</th>
+      <th>value_pct</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>named_stops</td>
+      <td>2026-08-01</td>
+      <td>70</td>
+      <td>122</td>
+      <td>57.38</td>
+    </tr>
+    <tr>
+      <td>geocoded_stops</td>
+      <td>2026-08-01</td>
+      <td>118</td>
+      <td>122</td>
+      <td>96.72</td>
+    </tr>
+    <tr>
+      <td>ordered_routes</td>
+      <td>2026-08-01</td>
+      <td>7</td>
+      <td>14</td>
+      <td>50.00</td>
+    </tr>
+    <tr>
+      <td>origin_routes</td>
+      <td>2026-08-01</td>
+      <td>6</td>
+      <td>14</td>
+      <td>42.86</td>
+    </tr>
+    <tr>
+      <td>destination_routes</td>
+      <td>2026-08-01</td>
+      <td>6</td>
+      <td>14</td>
+      <td>42.86</td>
+    </tr>
+  </tbody>
+</table></div><p>Every percentage uses its own stated numerator and denominator. Historical LTFRB trends and navigation eligibility: <strong>not verified</strong>. OSM comparisons are mapping snapshots, not service changes. Attribution: © OpenStreetMap contributors (ODbL).</p></section><section><h2>Cleaned LTFRB baseline</h2><p>Release 709ce26a035742a54735: 285 records, 266 linked IDs, 262 layers and 266 spatial features. These are distinct grains. 263 features pass structural checks; three remain quarantined. Network X-Ray and the verification workbench are future components, not M5 application features.</p><div class="scroll"><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>kpi</th>
+      <th>numerator</th>
+      <th>denominator</th>
+      <th>value_pct</th>
+      <th>grain</th>
+      <th>status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>identity_fields_complete</td>
+      <td>285.0</td>
+      <td>285</td>
+      <td>100.00</td>
+      <td>workbook route records</td>
+      <td>measured</td>
+    </tr>
+    <tr>
+      <td>complete_source_file_presence</td>
+      <td>264.0</td>
+      <td>266</td>
+      <td>99.25</td>
+      <td>linked unique source IDs</td>
+      <td>measured</td>
+    </tr>
+    <tr>
+      <td>spatial_asset_inspection</td>
+      <td>262.0</td>
+      <td>266</td>
+      <td>98.50</td>
+      <td>linked unique source IDs</td>
+      <td>measured</td>
+    </tr>
+    <tr>
+      <td>consistent_layer_crs</td>
+      <td>262.0</td>
+      <td>262</td>
+      <td>100.00</td>
+      <td>spatial layers</td>
+      <td>measured</td>
+    </tr>
+    <tr>
+      <td>geometry_feature_pass</td>
+      <td>263.0</td>
+      <td>266</td>
+      <td>98.87</td>
+      <td>spatial features</td>
+      <td>measured</td>
+    </tr>
+    <tr>
+      <td>unresolved_populated_direction</td>
+      <td>324.0</td>
+      <td>442</td>
+      <td>73.30</td>
+      <td>populated source direction slots</td>
+      <td>measured</td>
+    </tr>
+    <tr>
+      <td>candidate_length_review</td>
+      <td>0.0</td>
+      <td>118</td>
+      <td>0.00</td>
+      <td>candidate direction-feature pairs</td>
+      <td>measured</td>
+    </tr>
+    <tr>
+      <td>route_review_required</td>
+      <td>171.0</td>
+      <td>285</td>
+      <td>60.00</td>
+      <td>workbook route records</td>
+      <td>measured</td>
+    </tr>
+    <tr>
+      <td>navigation_readiness</td>
+      <td>NaN</td>
+      <td>285</td>
+      <td>NaN</td>
+      <td>workbook route records</td>
+      <td>not_verified</td>
+    </tr>
+  </tbody>
+</table></div><p>324 of 442 populated directions remain unresolved. The 128 explicit loop N/A slots are excluded from that denominator. No historical LTFRB trend or current service verification is inferred.</p></section><div class="charts"><figure><img src="m5_assets/01_modes.png" alt="01_modes"><figcaption>01 modes</figcaption></figure><figure><img src="m5_assets/02_classification.png" alt="02_classification"><figcaption>02 classification</figcaption></figure><figure><img src="m5_assets/03_mode_classification.png" alt="03_mode_classification"><figcaption>03 mode classification</figcaption></figure><figure><img src="m5_assets/04_geography.png" alt="04_geography"><figcaption>04 geography</figcaption></figure><figure><img src="m5_assets/05_gis_status.png" alt="05_gis_status"><figcaption>05 gis status</figcaption></figure><figure><img src="m5_assets/06_direction.png" alt="06_direction"><figcaption>06 direction</figcaption></figure><figure><img src="m5_assets/07_quality.png" alt="07_quality"><figcaption>07 quality</figcaption></figure><figure><img src="m5_assets/08_lengths.png" alt="08_lengths"><figcaption>08 lengths</figcaption></figure><figure><img src="m5_assets/09_trends.png" alt="09_trends"><figcaption>09 trends</figcaption></figure><figure><img src="m5_assets/10_associations.png" alt="10_associations"><figcaption>10 associations</figcaption></figure><figure><img src="m5_assets/11_features.png" alt="11_features"><figcaption>11 features</figcaption></figure><figure><img src="m5_assets/12_review.png" alt="12_review"><figcaption>12 review</figcaption></figure><figure><img src="m5_assets/13_mode_associations.png" alt="13_mode_associations"><figcaption>13 mode associations</figcaption></figure></div></main></html>

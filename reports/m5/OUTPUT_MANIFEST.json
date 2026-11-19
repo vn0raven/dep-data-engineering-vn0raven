@@ -1,0 +1,235 @@
+{
+  "files": [
+    {
+      "path": "dashboard/m5.html",
+      "sha256": "c8f292d5b4539c30aa66f3d9bd14875465b7e96257c09dc9e87bb79ea1806e76",
+      "bytes": 6890
+    },
+    {
+      "path": "dashboard/m5_assets/01_modes.png",
+      "sha256": "359428490dde485a87dc83449cf497647e6a8db0a31e78814dcb031dc1bd735d",
+      "bytes": 22373
+    },
+    {
+      "path": "dashboard/m5_assets/02_classification.png",
+      "sha256": "7f2605bbd79300cfb4b44634f0af1be83f6eccd129e4e8ef1a85510bd45fd85e",
+      "bytes": 21613
+    },
+    {
+      "path": "dashboard/m5_assets/03_mode_classification.png",
+      "sha256": "1fb6c285603798c29e86f8f513897c59f5bc39492ebf676f541ced8f0d295dfb",
+      "bytes": 30562
+    },
+    {
+      "path": "dashboard/m5_assets/04_geography.png",
+      "sha256": "c327af92a8cab476528c8fb458973baabbbfcbaa7231bef38ffc50a2a04b6982",
+      "bytes": 53464
+    },
+    {
+      "path": "dashboard/m5_assets/05_gis_status.png",
+      "sha256": "9ef39c7f92f8d95c7d43e6c03bd4c71df4a0cf1fa37ce84710f51f4266da6097",
+      "bytes": 23968
+    },
+    {
+      "path": "dashboard/m5_assets/06_direction.png",
+      "sha256": "c59b72f44a27ee233a7d2cb83bf2af7d7064c43bbbae9375fc570bca8c20a07b",
+      "bytes": 39278
+    },
+    {
+      "path": "dashboard/m5_assets/07_quality.png",
+      "sha256": "9409a663f69f9b5c68cffb7dd109bbd88202b2bf0dc7efb3d019807e89ce38d9",
+      "bytes": 34812
+    },
+    {
+      "path": "dashboard/m5_assets/08_lengths.png",
+      "sha256": "d748b176399952fa07e09e1f573090819eb864eb7dd6d00b4d2431f39f5859cd",
+      "bytes": 25610
+    },
+    {
+      "path": "dashboard/m5_assets/09_trends.png",
+      "sha256": "5d8a46248f7161e1c5c2a838e1e4cbcd75976e031ae9d174c451a1195d4e5fe2",
+      "bytes": 51523
+    },
+    {
+      "path": "dashboard/m5_assets/10_associations.png",
+      "sha256": "befd07a043d93b533dd2b5ef1a50d285bdfaf3c209554973834e9b8504515a1c",
+      "bytes": 30270
+    },
+    {
+      "path": "dashboard/m5_assets/11_features.png",
+      "sha256": "6ebf58e993eb3679dc2790c941dfe032fbc6c474fcd6fa98f90a8bdb3e6c8b20",
+      "bytes": 24443
+    },
+    {
+      "path": "dashboard/m5_assets/12_review.png",
+      "sha256": "7efda96db02db96628f51ac060e92d27b124c51977f5818f4150cc6abcc0a170",
+      "bytes": 27089
+    },
+    {
+      "path": "dashboard/m5_assets/13_mode_associations.png",
+      "sha256": "c8c285ad2d04d55bea79cf60e3e1d16ad7e8841ebd146538a1fd4dd231da4cd9",
+      "bytes": 35830
+    },
+    {
+      "path": "dashboard/m5_data/cleaned_quality_kpis.csv",
+      "sha256": "4df308881d8ae09d04de3d52d9d95a7a6d0c630ab2208029777a1e421aba94a3",
+      "bytes": 2862
+    },
+    {
+      "path": "dashboard/m5_data/cleaned_quality_kpis.json",
+      "sha256": "5665f0a27e9a0247462486fb9e33defdeda574793b1a6244c24b3e431ba83847",
+      "bytes": 4999
+    },
+    {
+      "path": "dashboard/m5_data/cleaned_release_summary.json",
+      "sha256": "a5d23b67a58ace280c42b62748dd2d51c171439ae11399896405fab1f54d6582",
+      "bytes": 1738
+    },
+    {
+      "path": "dashboard/m5_data/cleaned_segmentation.csv",
+      "sha256": "ef00b6538089c784c9a8e419a087e630c02d801cc363fea3342642cf58efe3da",
+      "bytes": 2229
+    },
+    {
+      "path": "dashboard/m5_data/cleaned_segmentation.json",
+      "sha256": "d46045bff8e61620a8096d4172e00d09c7d54d4d88e52296cbe8aa4898c7ef1e",
+      "bytes": 5027
+    },
+    {
+      "path": "dashboard/m5_data/gis_summary.json",
+      "sha256": "298319319cc0dfbcd91332b1220f333c3765295bd57a7ba17b541fe0c4affe11",
+      "bytes": 1112
+    },
+    {
+      "path": "dashboard/m5_data/kpi_definitions.csv",
+      "sha256": "4e5de804edf64722d6dc31b8f0354993d07965d8fe5eccab1c53bc080e36fa64",
+      "bytes": 2085
+    },
+    {
+      "path": "dashboard/m5_data/kpi_definitions.json",
+      "sha256": "ab624db1c9c53d90eb0adf502eff06569ae33cc6ed003a7ad68becc39079cd70",
+      "bytes": 2826
+    },
+    {
+      "path": "dashboard/m5_data/kpi_history.csv",
+      "sha256": "d182abd508354e0f72f587388ed11d8fe006023160ee49e36afa1631c80aac46",
+      "bytes": 1948
+    },
+    {
+      "path": "dashboard/m5_data/length_screening_summary.csv",
+      "sha256": "ca0dc0999524b4dc9ca9a3ed8efaf91104294a6bbab09476ed68c8c47cc1a963",
+      "bytes": 65
+    },
+    {
+      "path": "dashboard/m5_data/ltfrb_kpis.json",
+      "sha256": "c9a546b9cd9e8eac33b8759124535909c328c021dfe835e7b57e30465df405ba",
+      "bytes": 2593
+    },
+    {
+      "path": "dashboard/m5_data/quality_kpis.csv",
+      "sha256": "10b802490a1fc8400671e19e8c12254ef8b994344d874e9a462a4b0c2de92e23",
+      "bytes": 1934
+    },
+    {
+      "path": "dashboard/m5_data/segmentation.csv",
+      "sha256": "ddc1822d0c26b56c6568946d3ea92bc091947a34c4192d41828b3ae4ee5f8abd",
+      "bytes": 9788
+    },
+    {
+      "path": "dashboard/m5_data/segmentation.json",
+      "sha256": "86c4509bb315b03cf3f4c71958c42898e944d6f2b05d1a5445c86b669b1df43c",
+      "bytes": 26841
+    },
+    {
+      "path": "dashboard/m5_data/source_provenance.json",
+      "sha256": "ee053587d4e83faed23e3b6ad359b75f1fa11f652365046ec7e86e9137302b85",
+      "bytes": 920
+    },
+    {
+      "path": "data/processed/m5/cleaned_quality_kpis.csv",
+      "sha256": "4df308881d8ae09d04de3d52d9d95a7a6d0c630ab2208029777a1e421aba94a3",
+      "bytes": 2862
+    },
+    {
+      "path": "data/processed/m5/cleaned_quality_kpis.json",
+      "sha256": "5665f0a27e9a0247462486fb9e33defdeda574793b1a6244c24b3e431ba83847",
+      "bytes": 4999
+    },
+    {
+      "path": "data/processed/m5/cleaned_release_summary.json",
+      "sha256": "a5d23b67a58ace280c42b62748dd2d51c171439ae11399896405fab1f54d6582",
+      "bytes": 1738
+    },
+    {
+      "path": "data/processed/m5/cleaned_segmentation.csv",
+      "sha256": "ef00b6538089c784c9a8e419a087e630c02d801cc363fea3342642cf58efe3da",
+      "bytes": 2229
+    },
+    {
+      "path": "data/processed/m5/cleaned_segmentation.json",
+      "sha256": "d46045bff8e61620a8096d4172e00d09c7d54d4d88e52296cbe8aa4898c7ef1e",
+      "bytes": 5027
+    },
+    {
+      "path": "data/processed/m5/gis_summary.json",
+      "sha256": "298319319cc0dfbcd91332b1220f333c3765295bd57a7ba17b541fe0c4affe11",
+      "bytes": 1112
+    },
+    {
+      "path": "data/processed/m5/kpi_definitions.csv",
+      "sha256": "4e5de804edf64722d6dc31b8f0354993d07965d8fe5eccab1c53bc080e36fa64",
+      "bytes": 2085
+    },
+    {
+      "path": "data/processed/m5/kpi_definitions.json",
+      "sha256": "ab624db1c9c53d90eb0adf502eff06569ae33cc6ed003a7ad68becc39079cd70",
+      "bytes": 2826
+    },
+    {
+      "path": "data/processed/m5/kpi_history.csv",
+      "sha256": "d182abd508354e0f72f587388ed11d8fe006023160ee49e36afa1631c80aac46",
+      "bytes": 1948
+    },
+    {
+      "path": "data/processed/m5/length_screening_summary.csv",
+      "sha256": "ca0dc0999524b4dc9ca9a3ed8efaf91104294a6bbab09476ed68c8c47cc1a963",
+      "bytes": 65
+    },
+    {
+      "path": "data/processed/m5/ltfrb_kpis.json",
+      "sha256": "c9a546b9cd9e8eac33b8759124535909c328c021dfe835e7b57e30465df405ba",
+      "bytes": 2593
+    },
+    {
+      "path": "data/processed/m5/quality_kpis.csv",
+      "sha256": "10b802490a1fc8400671e19e8c12254ef8b994344d874e9a462a4b0c2de92e23",
+      "bytes": 1934
+    },
+    {
+      "path": "data/processed/m5/segmentation.csv",
+      "sha256": "ddc1822d0c26b56c6568946d3ea92bc091947a34c4192d41828b3ae4ee5f8abd",
+      "bytes": 9788
+    },
+    {
+      "path": "data/processed/m5/segmentation.json",
+      "sha256": "86c4509bb315b03cf3f4c71958c42898e944d6f2b05d1a5445c86b669b1df43c",
+      "bytes": 26841
+    },
+    {
+      "path": "data/processed/m5/source_provenance.json",
+      "sha256": "ee053587d4e83faed23e3b6ad359b75f1fa11f652365046ec7e86e9137302b85",
+      "bytes": 920
+    },
+    {
+      "path": "reports/m5/M5_STAKEHOLDER_BRIEF.md",
+      "sha256": "600786be7b3cb8b44aff6bdbf101d9b0c1dc0a9c1dade466c97fd749d497d5b8",
+      "bytes": 2896
+    },
+    {
+      "path": "notebooks/m5_segmentation_kpis.ipynb",
+      "sha256": "a57022a035ebd40f12c3f614df70d33bae98b00381e7db58c861dfb9a4d9ee92",
+      "bytes": 571018
+    }
+  ],
+  "scope": "Final M5 generated analysis artifacts; excludes private sources"
+}

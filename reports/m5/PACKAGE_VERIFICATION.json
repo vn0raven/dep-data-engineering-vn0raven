@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "candidate_files": 87,
+  "raw_government_data_included": false,
+  "packaged_aggregate_rebuild": "passed",
+  "packaged_tests": "35 passed",
+  "aggregate_products_identical": true,
+  "limitation": "Tests used the existing isolated Python dependencies; government source files were absent from the extracted package.",
+  "source_package_files_tested": 123,
+  "final_archive_files": 124
+}

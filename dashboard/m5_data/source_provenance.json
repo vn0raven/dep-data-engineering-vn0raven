@@ -1,0 +1,21 @@
+{
+  "LTFRB": {
+    "workbook_sha256": "030fdb2b2517961e9798681d88e679f9aeb6bb269d97a3d4ecac02994debdad9",
+    "sheet": "SUMMARY",
+    "scope": "Region XI register records",
+    "source_effective_date": null,
+    "observation_date": "2026-11-18",
+    "confidence": "official source attribution; operational currency unverified",
+    "distribution": "Raw workbook, route metadata and GIS kept private; aggregate publication requires owner review"
+  },
+  "OSM": {
+    "license": "ODbL; contributors attribution required",
+    "scope": "Davao query bus/ferry mapping snapshots; not a service census",
+    "confidence": "community mapping; no operational verification"
+  },
+  "DC Bus": {
+    "file": "Data Request-USeP-Dingal (1).PDF",
+    "status": "Provided separately; not ingested or used for M5 calculations",
+    "confidence": "Document contents not independently validated in this delivery"
+  }
+}

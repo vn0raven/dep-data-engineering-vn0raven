@@ -1,0 +1,5 @@
+-r requirements.txt
+geopandas>=1.0,<2
+shapely>=2.0,<3
+pyproj>=3.5,<4
+pyogrio>=0.9,<1

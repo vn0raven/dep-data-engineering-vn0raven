@@ -1,0 +1,202 @@
+dimension,segment,count,denominator
+mode,PUB,65,285
+mode,PUJ,193,285
+mode,UVE,27,285
+route_classification,EXISTING,181,285
+route_classification,IRIP,104,285
+mode x route_classification,PUB | EXISTING,12,285
+mode x route_classification,PUB | IRIP,53,285
+mode x route_classification,PUJ | EXISTING,168,285
+mode x route_classification,PUJ | IRIP,25,285
+mode x route_classification,UVE | EXISTING,1,285
+mode x route_classification,UVE | IRIP,26,285
+lptrp_classification,IRIP,104,285
+lptrp_classification,Inter-City,2,285
+lptrp_classification,Inter-Municipal,8,285
+lptrp_classification,Intra-City,139,285
+lptrp_classification,Intra-Municipal,1,285
+lptrp_classification,Intra-Provincial,31,285
+LGU label (text proxy),A,5,285
+LGU label (text proxy),Asuncion,2,285
+LGU label (text proxy),Baganga,3,285
+LGU label (text proxy),Balingasag,1,285
+LGU label (text proxy),Balingoag,1,285
+LGU label (text proxy),Bansalan,3,285
+LGU label (text proxy),Baybay,1,285
+LGU label (text proxy),Bayugan,4,285
+LGU label (text proxy),Bayugan City,2,285
+LGU label (text proxy),Boston,1,285
+LGU label (text proxy),Butuan,4,285
+LGU label (text proxy),Butuan City,4,285
+LGU label (text proxy),Cabadbaran,1,285
+LGU label (text proxy),Cabadbaran City,2,285
+LGU label (text proxy),Cagayan de Oro City,1,285
+LGU label (text proxy),Caraga,4,285
+LGU label (text proxy),Carmen,5,285
+LGU label (text proxy),Cateel,2,285
+LGU label (text proxy),Compostela,1,285
+LGU label (text proxy),Cotabato City,2,285
+LGU label (text proxy),Davao City,212,285
+LGU label (text proxy),Digos,1,285
+LGU label (text proxy),Digos City,27,285
+LGU label (text proxy),General Santos City,1,285
+LGU label (text proxy),Gingoog City,1,285
+LGU label (text proxy),Hagonoy,1,285
+LGU label (text proxy),Jabonga,1,285
+LGU label (text proxy),Kabacan,1,285
+LGU label (text proxy),Kidapawan,2,285
+LGU label (text proxy),Kidapawan City,4,285
+LGU label (text proxy),Kitcharao,1,285
+LGU label (text proxy),Koronadal,1,285
+LGU label (text proxy),Libagon,1,285
+LGU label (text proxy),Liloan,1,285
+LGU label (text proxy),Lipata,1,285
+LGU label (text proxy),Lupon,4,285
+LGU label (text proxy),Mabini,4,285
+LGU label (text proxy),Maco,6,285
+LGU label (text proxy),Makilala,1,285
+LGU label (text proxy),Malaybalay,1,285
+LGU label (text proxy),Manay,4,285
+LGU label (text proxy),Maragusan,2,285
+LGU label (text proxy),Maramag,1,285
+LGU label (text proxy),Mati,4,285
+LGU label (text proxy),Mati City,11,285
+LGU label (text proxy),Mawab,13,285
+LGU label (text proxy),Monkayo,7,285
+LGU label (text proxy),Montevista,1,285
+LGU label (text proxy),Municiaplity of Bunawan,2,285
+LGU label (text proxy),Municipality of  Nabunturan,1,285
+LGU label (text proxy),Municipality of Abuyog,1,285
+LGU label (text proxy),Municipality of Asuncion,30,285
+LGU label (text proxy),Municipality of Baganga,2,285
+LGU label (text proxy),Municipality of Banaybanay,12,285
+LGU label (text proxy),Municipality of Bansalan,8,285
+LGU label (text proxy),Municipality of Bayugan,2,285
+LGU label (text proxy),Municipality of Boston,2,285
+LGU label (text proxy),Municipality of Braulio E. Dujali,2,285
+LGU label (text proxy),Municipality of Bunawan,4,285
+LGU label (text proxy),Municipality of Carmen,54,285
+LGU label (text proxy),Municipality of Cateel,6,285
+LGU label (text proxy),Municipality of Compostela,10,285
+LGU label (text proxy),Municipality of Don Marcelino,3,285
+LGU label (text proxy),Municipality of Dulag,1,285
+LGU label (text proxy),Municipality of Governor Generoso,7,285
+LGU label (text proxy),Municipality of Hagonoy,13,285
+LGU label (text proxy),Municipality of Jabonga,2,285
+LGU label (text proxy),Municipality of Jagna,1,285
+LGU label (text proxy),Municipality of Jose Abad Santos,1,285
+LGU label (text proxy),Municipality of Kabacan,3,285
+LGU label (text proxy),Municipality of Kalilangan,1,285
+LGU label (text proxy),Municipality of Kapalong,22,285
+LGU label (text proxy),Municipality of Kiblawan,2,285
+LGU label (text proxy),Municipality of Kitaotao,1,285
+LGU label (text proxy),Municipality of Kitcharao,2,285
+LGU label (text proxy),Municipality of Laak,6,285
+LGU label (text proxy),Municipality of Libagon,1,285
+LGU label (text proxy),Municipality of Lila,1,285
+LGU label (text proxy),Municipality of Liloan,1,285
+LGU label (text proxy),Municipality of Lipata,1,285
+LGU label (text proxy),Municipality of Loay,1,285
+LGU label (text proxy),Municipality of Lupon,16,285
+LGU label (text proxy),Municipality of Mabini,15,285
+LGU label (text proxy),Municipality of Maco,15,285
+LGU label (text proxy),Municipality of Magsaysay,2,285
+LGU label (text proxy),Municipality of Mahaplag,1,285
+LGU label (text proxy),Municipality of Makilala,4,285
+LGU label (text proxy),Municipality of Malalag,4,285
+LGU label (text proxy),Municipality of Malita,6,285
+LGU label (text proxy),Municipality of Malungon,1,285
+LGU label (text proxy),Municipality of Manay,1,285
+LGU label (text proxy),Municipality of Mangagoy,2,285
+LGU label (text proxy),Municipality of Maragusan,7,285
+LGU label (text proxy),Municipality of Maramag,1,285
+LGU label (text proxy),Municipality of Matalam,3,285
+LGU label (text proxy),Municipality of Matanao,8,285
+LGU label (text proxy),Municipality of Mawab,28,285
+LGU label (text proxy),Municipality of Mayorga,1,285
+LGU label (text proxy),Municipality of Midsayap,2,285
+LGU label (text proxy),Municipality of Monkayo,11,285
+LGU label (text proxy),Municipality of Montevista,16,285
+LGU label (text proxy),Municipality of Nabunturan,30,285
+LGU label (text proxy),Municipality of Nasipit,1,285
+LGU label (text proxy),Municipality of New Bataan,3,285
+LGU label (text proxy),Municipality of New Corella,2,285
+LGU label (text proxy),Municipality of Padada,12,285
+LGU label (text proxy),Municipality of Pangantucan,1,285
+LGU label (text proxy),Municipality of Pantukan,12,285
+LGU label (text proxy),Municipality of Pigcawayan,1,285
+LGU label (text proxy),Municipality of Pikit,2,285
+LGU label (text proxy),Municipality of Prosperidad,4,285
+LGU label (text proxy),Municipality of Rosario,4,285
+LGU label (text proxy),Municipality of Samal,1,285
+LGU label (text proxy),Municipality of San Francisco,6,285
+LGU label (text proxy),Municipality of San Isidro,21,285
+LGU label (text proxy),Municipality of Santa Cruz,18,285
+LGU label (text proxy),Municipality of Santa Maria,7,285
+LGU label (text proxy),Municipality of Santo Tomas,2,285
+LGU label (text proxy),Municipality of Sawata,1,285
+LGU label (text proxy),Municipality of Sibagat,3,285
+LGU label (text proxy),Municipality of Sta. Josefa,1,285
+LGU label (text proxy),Municipality of Sto Tomas,4,285
+LGU label (text proxy),Municipality of Sto. Tomas,1,285
+LGU label (text proxy),Municipality of Sulop,10,285
+LGU label (text proxy),Municipality of Sultan Kudarat,1,285
+LGU label (text proxy),Municipality of Tagum,12,285
+LGU label (text proxy),Municipality of Talaingod,5,285
+LGU label (text proxy),Municipality of Tarragona,1,285
+LGU label (text proxy),Municipality of Trento,6,285
+LGU label (text proxy),Municipality of Valencia,1,285
+LGU label (text proxy),Municipality of Veruela,1,285
+LGU label (text proxy),Municipality of Wao,1,285
+LGU label (text proxy),Municipality og Banaybanay,1,285
+LGU label (text proxy),Municpality of Carmen,1,285
+LGU label (text proxy),N,5,285
+LGU label (text proxy),Nabunturan,11,285
+LGU label (text proxy),Nasipit,1,285
+LGU label (text proxy),New Bataan,2,285
+LGU label (text proxy),New Corella,2,285
+LGU label (text proxy),Ormoc,1,285
+LGU label (text proxy),Padada,1,285
+LGU label (text proxy),Panabo City,65,285
+LGU label (text proxy),Pantukan,4,285
+LGU label (text proxy),Pigcawayan,1,285
+LGU label (text proxy),Pikit,1,285
+LGU label (text proxy),Prosperidad,4,285
+LGU label (text proxy),Quezon,1,285
+LGU label (text proxy),Salay,1,285
+LGU label (text proxy),San Francisco,4,285
+LGU label (text proxy),San Isidro,6,285
+LGU label (text proxy),Sibagat,4,285
+LGU label (text proxy),Sta Cruz,4,285
+LGU label (text proxy),Sta. Josefa,1,285
+LGU label (text proxy),Surigao City,2,285
+LGU label (text proxy),Tacloban City.,1,285
+LGU label (text proxy),Tacurong,1,285
+LGU label (text proxy),Tagbilaran City,1,285
+LGU label (text proxy),Tagum,4,285
+LGU label (text proxy),Tagum  City,1,285
+LGU label (text proxy),Tagum City,88,285
+LGU label (text proxy),Tandag City,1,285
+LGU label (text proxy),Tarragona,4,285
+LGU label (text proxy),Trento,4,285
+LGU label (text proxy),a,123,285
+LGU label (text proxy),n,123,285
+GIS file status,audited,262,266
+GIS file status,missing_local_file,2,266
+GIS file status,unrecognized_format,2,266
+mode x route_classification x GIS status,PUB | EXISTING | audited,10,285
+mode x route_classification x GIS status,PUB | EXISTING | unrecognized_format,2,285
+mode x route_classification x GIS status,PUB | IRIP | audited,51,285
+mode x route_classification x GIS status,PUB | IRIP | missing_local_file,2,285
+mode x route_classification x GIS status,PUJ | EXISTING | audited,168,285
+mode x route_classification x GIS status,PUJ | IRIP | audited,25,285
+mode x route_classification x GIS status,UVE | EXISTING | audited,1,285
+mode x route_classification x GIS status,UVE | IRIP | audited,26,285
+mode x direction state,PUB | explicit one-direction loop,5,285
+mode x direction state,PUB | two directions with numeric km,60,285
+mode x direction state,PUJ | explicit one-direction loop,123,285
+mode x direction state,PUJ | two directions with numeric km,70,285
+mode x direction state,UVE | two directions with numeric km,27,285
+mode x metadata state,PUB | complete identity,65,285
+mode x metadata state,PUJ | complete identity,193,285
+mode x metadata state,UVE | complete identity,27,285

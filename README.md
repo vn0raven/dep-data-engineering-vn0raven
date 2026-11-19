@@ -1,3 +1,27 @@
+# Davao Transport Data Observatory
+
+M5 Path B assesses whether documented transport data is complete, spatially consistent and interpretable enough to support future network exploration and verification workflows. The original commuter-routing question below is retained as project history; its data-reliability prerequisite is the current focus.
+
+**M5 conclusion:** We standardized the transport register, measured its completeness and spatial quality, and identified the unresolved associations that the Observatory's verification workflow must address.
+
+Start with [the executed M5 notebook](notebooks/m5_segmentation_kpis.ipynb), [methodology and requirement mapping](docs/M5_PATH_B.md), [stakeholder brief](reports/m5/M5_STAKEHOLDER_BRIEF.md), [QA evidence](reports/m5/QA_REPORT.md), and [submission instructions](docs/REVIEW_AND_RELEASE_CHECKLIST.md). Network X-Ray and the Route Verification Workbench are future M6 application components, not implemented M5 features. M4 passed human review at 26a7f7e and remains preserved.
+
+Public reproduction (Python 3.12, no government source files required for the displayed aggregate analysis):
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements-lock.txt
+.\.venv\Scripts\python.exe scripts/run_m5.py --execute-notebook
+.\.venv\Scripts\python.exe -m pytest -q
+.\.venv\Scripts\python.exe scripts/check_m5_privacy.py
+```
+
+Private-source reproduction and limits are documented in docs/M5_PATH_B.md. Detailed LTFRB releases are restricted pending explicit publication clearance. Only code, documentation and aggregate release candidates are included in the M5 file list. No commit, push, publication or M5 acceptance is claimed.
+
+---
+
+## Original project framing and earlier milestone history
+
 # Davao Commute Router: Estimating the Fastest and Most Affordable Public Transport Route in Davao City
 
 ## Problem Statement
@@ -494,7 +518,7 @@ Generated M4 artifacts:
 
 Source attribution: © OpenStreetMap contributors — Open Database License (ODbL), <https://www.openstreetmap.org/copyright>.
 
-## M4 reviewer corrections � November 2026
+## M4 reviewer corrections — November 2026
 
 M4 uses the original July 2026 OSM extract. It includes four charts,
 descriptive statistics, a hypothesis-based comparison, cautious
@@ -502,4 +526,37 @@ interpretations, and an executed notebook with saved outputs.
 
 See `docs/MILESTONE4_INSIGHTS.md` and `notebooks/m4_initial_insights.ipynb`.
 
-**Phase 5 selected path:** Path B � Segmentation and KPIs.
+**Phase 5 selected path:** Path B — Segmentation and KPIs.
+
+
+## Milestone 5 — Path B: Segmentation and KPIs
+
+M5 adds separate LTFRB source-quality analysis and five OSM mapping KPI comparisons across July 8 and August 1, 2026. It preserves the M4 OSM notebook and four charts. The workbook contains 285 records and 266 linked source IDs; the local audit read 262 GeoPackages, with 259 layers passing basic geometry/CRS screening. Two partial downloads, two SHP sources, three invalid geometries and 324 unpaired direction entries remain explicit review items. None establishes current operations or navigation eligibility.
+
+Start with [the executed M5 notebook](notebooks/m5_segmentation_kpis.ipynb), [methods and rubric](docs/M5_PATH_B.md), [stakeholder brief](reports/m5/M5_STAKEHOLDER_BRIEF.md), [dashboard artifact](dashboard/m5.html), [test evidence](reports/m5/QA_REPORT.md), [submission instructions](docs/REVIEW_AND_RELEASE_CHECKLIST.md), and [M6 roadmap](docs/M6_READINESS_AND_ROADMAP.md). M4 passed human review at commit 26a7f7e; reviewer confirmation was supplied on November 19, 2026. Path B is acknowledged.
+
+Python 3.12 on Windows; activation is unnecessary:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements-lock.txt
+.\.venv\Scripts\python.exe scripts/run_m5.py --execute-notebook
+.\.venv\Scripts\python.exe -m pytest -q
+```
+
+Use requirements.txt for compatible dependency ranges and requirements-lock.txt for the exact tested environment. Full private-source refresh and preview commands: [pipeline guide](docs/LTFRB_PIPELINE.md). Source files and private file-level audits are excluded from Git. [Provenance and permissions](docs/SOURCES_AND_GOVERNANCE.md) remain distinct from geometry quality. Attribution: © OpenStreetMap contributors (ODbL). M6 deployment is prepared but no live URL is claimed by this delivery.
+
+
+## Davao Transport Data Observatory - versioned LTFRB foundation
+
+The Observatory ETL normalizes all 285 source records, preserves original values, audits linked geographic files, and creates immutable private releases with SQLite tables, GeoPackage/GeoJSON, provenance, transformation history and quarantine evidence. Geometry validation and route identity remain separate.
+
+```powershell
+.\.venv\Scripts\python.exe scripts/observatory_etl.py --workbook "C:\Users\dinga\Downloads\LTFRB DATA\LTFRB DATA\REGION 11 ROUTE STRUCTURE DATABASE.xlsx" --gis-dir "C:\Users\dinga\Downloads\LTFRB DATA\LTFRB DATA\LTFRB_GeoPackages"
+.\.venv\Scripts\python.exe scripts/verify_observatory.py
+.\.venv\Scripts\python.exe -m pytest -q
+```
+
+See [pipeline rules and output layout](docs/OBSERVATORY_DATA_PIPELINE.md), [actual execution evidence](reports/OBSERVATORY_EXECUTION_REPORT.md), and [MVP architecture and M6 plan](docs/OBSERVATORY_MVP_ARCHITECTURE.md). Private releases are under data/processed/ltfrb_observatory/ and ignored by Git. No API, durable review service or public deployment is claimed by this data-preparation delivery.
+
+M4 passed human review at 26a7f7e. The accepted analysis, notebook and figures are preserved. The reviewer requested a small follow-up wording correction in docs/MILESTONE4_INSIGHTS.md ("A median of zero or one" to "a median of 0.5 or 0"); this is recorded pending authorization to edit the preserved M4 document. No recheck is required according to the reviewer.

@@ -1,0 +1,198 @@
+[
+  {
+    "count": 1,
+    "denominator": 570,
+    "dimension": "mode x association status",
+    "grain": "source direction slots, including loop N/A",
+    "segment": "PUB | candidate"
+  },
+  {
+    "count": 5,
+    "denominator": 570,
+    "dimension": "mode x association status",
+    "grain": "source direction slots, including loop N/A",
+    "segment": "PUB | not_applicable_loop"
+  },
+  {
+    "count": 124,
+    "denominator": 570,
+    "dimension": "mode x association status",
+    "grain": "source direction slots, including loop N/A",
+    "segment": "PUB | unresolved"
+  },
+  {
+    "count": 117,
+    "denominator": 570,
+    "dimension": "mode x association status",
+    "grain": "source direction slots, including loop N/A",
+    "segment": "PUJ | candidate"
+  },
+  {
+    "count": 123,
+    "denominator": 570,
+    "dimension": "mode x association status",
+    "grain": "source direction slots, including loop N/A",
+    "segment": "PUJ | not_applicable_loop"
+  },
+  {
+    "count": 146,
+    "denominator": 570,
+    "dimension": "mode x association status",
+    "grain": "source direction slots, including loop N/A",
+    "segment": "PUJ | unresolved"
+  },
+  {
+    "count": 54,
+    "denominator": 570,
+    "dimension": "mode x association status",
+    "grain": "source direction slots, including loop N/A",
+    "segment": "UV_EXPRESS | unresolved"
+  },
+  {
+    "count": 1,
+    "denominator": 285,
+    "dimension": "mode x review status",
+    "grain": "workbook route records",
+    "segment": "PUB | candidate_metadata_only"
+  },
+  {
+    "count": 64,
+    "denominator": 285,
+    "dimension": "mode x review status",
+    "grain": "workbook route records",
+    "segment": "PUB | needs_review"
+  },
+  {
+    "count": 113,
+    "denominator": 285,
+    "dimension": "mode x review status",
+    "grain": "workbook route records",
+    "segment": "PUJ | candidate_metadata_only"
+  },
+  {
+    "count": 80,
+    "denominator": 285,
+    "dimension": "mode x review status",
+    "grain": "workbook route records",
+    "segment": "PUJ | needs_review"
+  },
+  {
+    "count": 27,
+    "denominator": 285,
+    "dimension": "mode x review status",
+    "grain": "workbook route records",
+    "segment": "UV_EXPRESS | needs_review"
+  },
+  {
+    "count": 12,
+    "denominator": 285,
+    "dimension": "mode x classification",
+    "grain": "workbook route records",
+    "segment": "PUB | EXISTING"
+  },
+  {
+    "count": 53,
+    "denominator": 285,
+    "dimension": "mode x classification",
+    "grain": "workbook route records",
+    "segment": "PUB | IRIP"
+  },
+  {
+    "count": 168,
+    "denominator": 285,
+    "dimension": "mode x classification",
+    "grain": "workbook route records",
+    "segment": "PUJ | EXISTING"
+  },
+  {
+    "count": 25,
+    "denominator": 285,
+    "dimension": "mode x classification",
+    "grain": "workbook route records",
+    "segment": "PUJ | IRIP"
+  },
+  {
+    "count": 1,
+    "denominator": 285,
+    "dimension": "mode x classification",
+    "grain": "workbook route records",
+    "segment": "UV_EXPRESS | EXISTING"
+  },
+  {
+    "count": 26,
+    "denominator": 285,
+    "dimension": "mode x classification",
+    "grain": "workbook route records",
+    "segment": "UV_EXPRESS | IRIP"
+  },
+  {
+    "count": 2,
+    "denominator": 266,
+    "dimension": "asset status",
+    "grain": "linked unique source IDs",
+    "segment": "incomplete_download"
+  },
+  {
+    "count": 2,
+    "denominator": 266,
+    "dimension": "asset status",
+    "grain": "linked unique source IDs",
+    "segment": "incomplete_shapefile"
+  },
+  {
+    "count": 262,
+    "denominator": 266,
+    "dimension": "asset status",
+    "grain": "linked unique source IDs",
+    "segment": "inspected"
+  },
+  {
+    "count": 263,
+    "denominator": 266,
+    "dimension": "feature status",
+    "grain": "spatial features",
+    "segment": "geometry_pass"
+  },
+  {
+    "count": 3,
+    "denominator": 266,
+    "dimension": "feature status",
+    "grain": "spatial features",
+    "segment": "quarantined"
+  },
+  {
+    "count": 118,
+    "denominator": 570,
+    "dimension": "association status",
+    "grain": "source direction slots, including loop N/A",
+    "segment": "candidate"
+  },
+  {
+    "count": 128,
+    "denominator": 570,
+    "dimension": "association status",
+    "grain": "source direction slots, including loop N/A",
+    "segment": "not_applicable_loop"
+  },
+  {
+    "count": 324,
+    "denominator": 570,
+    "dimension": "association status",
+    "grain": "source direction slots, including loop N/A",
+    "segment": "unresolved"
+  },
+  {
+    "count": 114,
+    "denominator": 285,
+    "dimension": "route review status",
+    "grain": "workbook route records",
+    "segment": "candidate_metadata_only"
+  },
+  {
+    "count": 171,
+    "denominator": 285,
+    "dimension": "route review status",
+    "grain": "workbook route records",
+    "segment": "needs_review"
+  }
+]

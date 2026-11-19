@@ -1,0 +1,85 @@
+{
+  "phase5_path": "B - Segmentation and KPIs",
+  "scope": "LTFRB Region XI workbook route register; source inventory, not verified current public transport operations",
+  "workbook_route_rows": 285,
+  "route_modes": {
+    "PUB": 65,
+    "PUJ": 193,
+    "UVE": 27
+  },
+  "classification": {
+    "EXISTING": 181,
+    "IRIP": 104
+  },
+  "mode_by_classification": [
+    {
+      "mode": "PUB",
+      "classification": "EXISTING",
+      "count": 12
+    },
+    {
+      "mode": "PUB",
+      "classification": "IRIP",
+      "count": 53
+    },
+    {
+      "mode": "PUJ",
+      "classification": "EXISTING",
+      "count": 168
+    },
+    {
+      "mode": "PUJ",
+      "classification": "IRIP",
+      "count": 25
+    },
+    {
+      "mode": "UVE",
+      "classification": "EXISTING",
+      "count": 1
+    },
+    {
+      "mode": "UVE",
+      "classification": "IRIP",
+      "count": 26
+    }
+  ],
+  "lptrp_classification": {
+    "IRIP": 104,
+    "Inter-City": 2,
+    "Inter-Municipal": 8,
+    "Intra-City": 139,
+    "Intra-Municipal": 1,
+    "Intra-Provincial": 31
+  },
+  "unique_linked_geo_packages": 266,
+  "route_records_with_gpkg_link": 285,
+  "lgu_field_mentions_davao_city": 212,
+  "lgu_field_mentions_davao_city_pct": 74.39,
+  "lgu_proxy_caveat": "String mentions in a corridor LGU field are not spatial coverage or operation evidence.",
+  "duplicated_link_ids_count": 16,
+  "duplicate_link_extra_references": 19,
+  "direction_1_filled_with_length": 285,
+  "direction_2_filled_with_length": 157,
+  "one_direction_loop_rows": 128,
+  "record_link_completeness_percent": 100.0,
+  "direction_1_completeness_percent": 100.0,
+  "direction_2_completeness_percent": 55.09,
+  "audit_file_ids_readable": 262,
+  "audit_file_ids_missing_locally": 2,
+  "audit_coverage_percent": 98.5,
+  "audited_gis_layers": 262,
+  "geometry_crs_valid_layers": 259,
+  "geometry_crs_valid_layer_percent": 98.85,
+  "measurable_directional_length_candidates": 118,
+  "directional_length_review_flags": 0,
+  "directional_length_within_screening_tolerance": 118,
+  "gis_evidence_present": true,
+  "osm_m4_distinct_snapshot": {
+    "mapped_route_relations": 14,
+    "mapped_stop_records": 122,
+    "ordered_stop_occurrences": 37
+  },
+  "cross_source_matching": "NOT PERFORMED: LTFRB route register entries and OSM route relations are not equivalent entities",
+  "navigation_eligible_routes": null,
+  "navigation_eligibility_note": "Not assessed. Layer validity and government file provenance cannot establish real boarding or operational service."
+}

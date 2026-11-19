@@ -1,0 +1,29 @@
+dimension,segment,count,denominator,grain
+mode x association status,PUB | candidate,1,570,"source direction slots, including loop N/A"
+mode x association status,PUB | not_applicable_loop,5,570,"source direction slots, including loop N/A"
+mode x association status,PUB | unresolved,124,570,"source direction slots, including loop N/A"
+mode x association status,PUJ | candidate,117,570,"source direction slots, including loop N/A"
+mode x association status,PUJ | not_applicable_loop,123,570,"source direction slots, including loop N/A"
+mode x association status,PUJ | unresolved,146,570,"source direction slots, including loop N/A"
+mode x association status,UV_EXPRESS | unresolved,54,570,"source direction slots, including loop N/A"
+mode x review status,PUB | candidate_metadata_only,1,285,workbook route records
+mode x review status,PUB | needs_review,64,285,workbook route records
+mode x review status,PUJ | candidate_metadata_only,113,285,workbook route records
+mode x review status,PUJ | needs_review,80,285,workbook route records
+mode x review status,UV_EXPRESS | needs_review,27,285,workbook route records
+mode x classification,PUB | EXISTING,12,285,workbook route records
+mode x classification,PUB | IRIP,53,285,workbook route records
+mode x classification,PUJ | EXISTING,168,285,workbook route records
+mode x classification,PUJ | IRIP,25,285,workbook route records
+mode x classification,UV_EXPRESS | EXISTING,1,285,workbook route records
+mode x classification,UV_EXPRESS | IRIP,26,285,workbook route records
+asset status,incomplete_download,2,266,linked unique source IDs
+asset status,incomplete_shapefile,2,266,linked unique source IDs
+asset status,inspected,262,266,linked unique source IDs
+feature status,geometry_pass,263,266,spatial features
+feature status,quarantined,3,266,spatial features
+association status,candidate,118,570,"source direction slots, including loop N/A"
+association status,not_applicable_loop,128,570,"source direction slots, including loop N/A"
+association status,unresolved,324,570,"source direction slots, including loop N/A"
+route review status,candidate_metadata_only,114,285,workbook route records
+route review status,needs_review,171,285,workbook route records

@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "aggregate_and_figure_files_compared": 45,
+  "identical_after_public_rerun": true,
+  "protected_m4_and_original_source_files": 26,
+  "protected_files_unchanged": true,
+  "private_pipeline_executed": true,
+  "private_release_verified": "709ce26a035742a54735",
+  "limitation": "The public rebuild reproduces displayed aggregate analysis; private source reproduction requires restricted inputs."
+}

@@ -1,0 +1,13 @@
+kpi,numerator,denominator,value_pct,formula,threshold,status
+source_metadata,285.0,285,100.0,Rows with all five identity fields / workbook rows,100% target,measured
+file_availability,264.0,266,99.25,Located recognized files / linked unique Drive IDs,100% target; extension does not imply valid GPKG,measured
+successful_file_audit,262.0,266,98.5,Fully readable files / linked unique Drive IDs,100% target; readability is not geometry approval,measured
+clean_geometry_crs,259.0,262,98.85,"Nonempty, CRS-consistent layers without null/empty/invalid features / inspected layers",100% target; overlaps and identity assessed separately,measured
+crs_presence,262.0,262,100.0,Layers declaring CRS / inspected layers,100% target,measured
+length_review,0.0,118,0.0,Flagged candidate direction lengths / measured candidate pairs,"Flag abs difference > max(0.5 km,10% declared km)",measured
+unmatched_direction,324.0,442,73.3,Directions without defensible length pairing / directions with a label or length,Lower is better; source-file pairing is not field confirmation,measured
+duplicate_link,19.0,285,6.67,Extra source-file references / workbook rows,Review only; shared sources may be intentional,measured
+duplicate_file_bytes,0.0,264,0.0,Excess identical SHA-256 files / located linked files,Review only; checksum cannot certify authenticity,measured
+unmatched_route_record,167.0,285,58.6,Workbook rows without any candidate directional length pairing / workbook rows,Lower is better; any paired direction does not establish full route coverage,measured
+duplicate_layer_linework,1.0,259,0.39,Excess normalized linework digests / inspected layers with valid linework digest,"Review only; exact coordinates and CRS, not a complete near-duplicate screen",measured
+navigation_readiness,,285,,"Operationally verified routes with approved stops, topology, schedule and fare evidence / workbook rows",All evidence required,not_verified

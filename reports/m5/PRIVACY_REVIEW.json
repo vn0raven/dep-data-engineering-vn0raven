@@ -1,0 +1,34 @@
+{
+  "status": "passed",
+  "candidate_files": 87,
+  "staged_files": 87,
+  "index_modified": false,
+  "ignored_prefixes": [
+    {
+      "prefix": "data/raw/ltfrb/",
+      "ignored": true
+    },
+    {
+      "prefix": "data/staging/ltfrb/",
+      "ignored": true
+    },
+    {
+      "prefix": "data/processed/ltfrb/",
+      "ignored": true
+    },
+    {
+      "prefix": "data/processed/ltfrb_observatory/",
+      "ignored": true
+    },
+    {
+      "prefix": "reports/ltfrb/",
+      "ignored": true
+    },
+    {
+      "prefix": "reports/observatory-private/",
+      "ignored": true
+    }
+  ],
+  "violations": [],
+  "limitation": "Automated checks support human review; passing is not publication authorization or licensing approval."
+}

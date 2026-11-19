@@ -1,0 +1,26 @@
+name: M5 aggregate QA
+on:
+  workflow_dispatch:
+  pull_request:
+    paths: ['scripts/**', 'tests/**', 'data/processed/m5/**', 'notebooks/m5*', 'requirements*', '.github/workflows/m5-qa.yml']
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - run: python scripts/run_m5.py --execute-notebook
+      - run: python -m pytest -q --junitxml=reports/m5/pytest-ci.xml
+      - run: python scripts/check_m5_privacy.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: m5-qa-evidence
+          path: |
+            reports/m5/
+            notebooks/m5_segmentation_kpis.ipynb

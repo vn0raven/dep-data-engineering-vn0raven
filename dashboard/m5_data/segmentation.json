@@ -1,0 +1,1208 @@
+[
+  {
+    "dimension": "mode",
+    "segment": "PUB",
+    "count": 65,
+    "denominator": 285
+  },
+  {
+    "dimension": "mode",
+    "segment": "PUJ",
+    "count": 193,
+    "denominator": 285
+  },
+  {
+    "dimension": "mode",
+    "segment": "UVE",
+    "count": 27,
+    "denominator": 285
+  },
+  {
+    "dimension": "route_classification",
+    "segment": "EXISTING",
+    "count": 181,
+    "denominator": 285
+  },
+  {
+    "dimension": "route_classification",
+    "segment": "IRIP",
+    "count": 104,
+    "denominator": 285
+  },
+  {
+    "dimension": "mode x route_classification",
+    "segment": "PUB | EXISTING",
+    "count": 12,
+    "denominator": 285
+  },
+  {
+    "dimension": "mode x route_classification",
+    "segment": "PUB | IRIP",
+    "count": 53,
+    "denominator": 285
+  },
+  {
+    "dimension": "mode x route_classification",
+    "segment": "PUJ | EXISTING",
+    "count": 168,
+    "denominator": 285
+  },
+  {
+    "dimension": "mode x route_classification",
+    "segment": "PUJ | IRIP",
+    "count": 25,
+    "denominator": 285
+  },
+  {
+    "dimension": "mode x route_classification",
+    "segment": "UVE | EXISTING",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "mode x route_classification",
+    "segment": "UVE | IRIP",
+    "count": 26,
+    "denominator": 285
+  },
+  {
+    "dimension": "lptrp_classification",
+    "segment": "IRIP",
+    "count": 104,
+    "denominator": 285
+  },
+  {
+    "dimension": "lptrp_classification",
+    "segment": "Inter-City",
+    "count": 2,
+    "denominator": 285
+  },
+  {
+    "dimension": "lptrp_classification",
+    "segment": "Inter-Municipal",
+    "count": 8,
+    "denominator": 285
+  },
+  {
+    "dimension": "lptrp_classification",
+    "segment": "Intra-City",
+    "count": 139,
+    "denominator": 285
+  },
+  {
+    "dimension": "lptrp_classification",
+    "segment": "Intra-Municipal",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "lptrp_classification",
+    "segment": "Intra-Provincial",
+    "count": 31,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "A",
+    "count": 5,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Asuncion",
+    "count": 2,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Baganga",
+    "count": 3,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Balingasag",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Balingoag",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Bansalan",
+    "count": 3,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Baybay",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Bayugan",
+    "count": 4,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Bayugan City",
+    "count": 2,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Boston",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Butuan",
+    "count": 4,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Butuan City",
+    "count": 4,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Cabadbaran",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Cabadbaran City",
+    "count": 2,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Cagayan de Oro City",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Caraga",
+    "count": 4,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Carmen",
+    "count": 5,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Cateel",
+    "count": 2,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Compostela",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Cotabato City",
+    "count": 2,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Davao City",
+    "count": 212,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Digos",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Digos City",
+    "count": 27,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "General Santos City",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Gingoog City",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Hagonoy",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Jabonga",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Kabacan",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Kidapawan",
+    "count": 2,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Kidapawan City",
+    "count": 4,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Kitcharao",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Koronadal",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Libagon",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Liloan",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Lipata",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Lupon",
+    "count": 4,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Mabini",
+    "count": 4,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Maco",
+    "count": 6,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Makilala",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Malaybalay",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Manay",
+    "count": 4,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Maragusan",
+    "count": 2,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Maramag",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Mati",
+    "count": 4,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Mati City",
+    "count": 11,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Mawab",
+    "count": 13,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Monkayo",
+    "count": 7,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Montevista",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municiaplity of Bunawan",
+    "count": 2,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of  Nabunturan",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Abuyog",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Asuncion",
+    "count": 30,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Baganga",
+    "count": 2,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Banaybanay",
+    "count": 12,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Bansalan",
+    "count": 8,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Bayugan",
+    "count": 2,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Boston",
+    "count": 2,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Braulio E. Dujali",
+    "count": 2,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Bunawan",
+    "count": 4,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Carmen",
+    "count": 54,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Cateel",
+    "count": 6,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Compostela",
+    "count": 10,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Don Marcelino",
+    "count": 3,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Dulag",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Governor Generoso",
+    "count": 7,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Hagonoy",
+    "count": 13,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Jabonga",
+    "count": 2,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Jagna",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Jose Abad Santos",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Kabacan",
+    "count": 3,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Kalilangan",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Kapalong",
+    "count": 22,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Kiblawan",
+    "count": 2,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Kitaotao",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Kitcharao",
+    "count": 2,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Laak",
+    "count": 6,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Libagon",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Lila",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Liloan",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Lipata",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Loay",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Lupon",
+    "count": 16,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Mabini",
+    "count": 15,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Maco",
+    "count": 15,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Magsaysay",
+    "count": 2,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Mahaplag",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Makilala",
+    "count": 4,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Malalag",
+    "count": 4,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Malita",
+    "count": 6,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Malungon",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Manay",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Mangagoy",
+    "count": 2,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Maragusan",
+    "count": 7,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Maramag",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Matalam",
+    "count": 3,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Matanao",
+    "count": 8,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Mawab",
+    "count": 28,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Mayorga",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Midsayap",
+    "count": 2,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Monkayo",
+    "count": 11,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Montevista",
+    "count": 16,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Nabunturan",
+    "count": 30,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Nasipit",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of New Bataan",
+    "count": 3,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of New Corella",
+    "count": 2,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Padada",
+    "count": 12,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Pangantucan",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Pantukan",
+    "count": 12,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Pigcawayan",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Pikit",
+    "count": 2,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Prosperidad",
+    "count": 4,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Rosario",
+    "count": 4,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Samal",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of San Francisco",
+    "count": 6,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of San Isidro",
+    "count": 21,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Santa Cruz",
+    "count": 18,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Santa Maria",
+    "count": 7,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Santo Tomas",
+    "count": 2,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Sawata",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Sibagat",
+    "count": 3,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Sta. Josefa",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Sto Tomas",
+    "count": 4,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Sto. Tomas",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Sulop",
+    "count": 10,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Sultan Kudarat",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Tagum",
+    "count": 12,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Talaingod",
+    "count": 5,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Tarragona",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Trento",
+    "count": 6,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Valencia",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Veruela",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality of Wao",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municipality og Banaybanay",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Municpality of Carmen",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "N",
+    "count": 5,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Nabunturan",
+    "count": 11,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Nasipit",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "New Bataan",
+    "count": 2,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "New Corella",
+    "count": 2,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Ormoc",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Padada",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Panabo City",
+    "count": 65,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Pantukan",
+    "count": 4,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Pigcawayan",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Pikit",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Prosperidad",
+    "count": 4,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Quezon",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Salay",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "San Francisco",
+    "count": 4,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "San Isidro",
+    "count": 6,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Sibagat",
+    "count": 4,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Sta Cruz",
+    "count": 4,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Sta. Josefa",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Surigao City",
+    "count": 2,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Tacloban City.",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Tacurong",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Tagbilaran City",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Tagum",
+    "count": 4,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Tagum  City",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Tagum City",
+    "count": 88,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Tandag City",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Tarragona",
+    "count": 4,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "Trento",
+    "count": 4,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "a",
+    "count": 123,
+    "denominator": 285
+  },
+  {
+    "dimension": "LGU label (text proxy)",
+    "segment": "n",
+    "count": 123,
+    "denominator": 285
+  },
+  {
+    "dimension": "GIS file status",
+    "segment": "audited",
+    "count": 262,
+    "denominator": 266
+  },
+  {
+    "dimension": "GIS file status",
+    "segment": "missing_local_file",
+    "count": 2,
+    "denominator": 266
+  },
+  {
+    "dimension": "GIS file status",
+    "segment": "unrecognized_format",
+    "count": 2,
+    "denominator": 266
+  },
+  {
+    "dimension": "mode x route_classification x GIS status",
+    "segment": "PUB | EXISTING | audited",
+    "count": 10,
+    "denominator": 285
+  },
+  {
+    "dimension": "mode x route_classification x GIS status",
+    "segment": "PUB | EXISTING | unrecognized_format",
+    "count": 2,
+    "denominator": 285
+  },
+  {
+    "dimension": "mode x route_classification x GIS status",
+    "segment": "PUB | IRIP | audited",
+    "count": 51,
+    "denominator": 285
+  },
+  {
+    "dimension": "mode x route_classification x GIS status",
+    "segment": "PUB | IRIP | missing_local_file",
+    "count": 2,
+    "denominator": 285
+  },
+  {
+    "dimension": "mode x route_classification x GIS status",
+    "segment": "PUJ | EXISTING | audited",
+    "count": 168,
+    "denominator": 285
+  },
+  {
+    "dimension": "mode x route_classification x GIS status",
+    "segment": "PUJ | IRIP | audited",
+    "count": 25,
+    "denominator": 285
+  },
+  {
+    "dimension": "mode x route_classification x GIS status",
+    "segment": "UVE | EXISTING | audited",
+    "count": 1,
+    "denominator": 285
+  },
+  {
+    "dimension": "mode x route_classification x GIS status",
+    "segment": "UVE | IRIP | audited",
+    "count": 26,
+    "denominator": 285
+  },
+  {
+    "dimension": "mode x direction state",
+    "segment": "PUB | explicit one-direction loop",
+    "count": 5,
+    "denominator": 285
+  },
+  {
+    "dimension": "mode x direction state",
+    "segment": "PUB | two directions with numeric km",
+    "count": 60,
+    "denominator": 285
+  },
+  {
+    "dimension": "mode x direction state",
+    "segment": "PUJ | explicit one-direction loop",
+    "count": 123,
+    "denominator": 285
+  },
+  {
+    "dimension": "mode x direction state",
+    "segment": "PUJ | two directions with numeric km",
+    "count": 70,
+    "denominator": 285
+  },
+  {
+    "dimension": "mode x direction state",
+    "segment": "UVE | two directions with numeric km",
+    "count": 27,
+    "denominator": 285
+  },
+  {
+    "dimension": "mode x metadata state",
+    "segment": "PUB | complete identity",
+    "count": 65,
+    "denominator": 285
+  },
+  {
+    "dimension": "mode x metadata state",
+    "segment": "PUJ | complete identity",
+    "count": 193,
+    "denominator": 285
+  },
+  {
+    "dimension": "mode x metadata state",
+    "segment": "UVE | complete identity",
+    "count": 27,
+    "denominator": 285
+  }
+]

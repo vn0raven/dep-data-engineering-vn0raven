@@ -1,0 +1,52 @@
+[
+  {
+    "kpi": "named_stops",
+    "title": "Named mapped stops",
+    "numerator": "stop records with nonblank name",
+    "denominator": "all mapped stop records",
+    "formula": "100 * numerator / denominator; null if denominator is zero",
+    "decision": "Find missing passenger-facing labels",
+    "target": "100% mapping completeness; analytical target, not official approval",
+    "limitations": "Repeated cross-sections, not a fixed cohort. Mapping changes and extraction differences are not changes in transport operations."
+  },
+  {
+    "kpi": "geocoded_stops",
+    "title": "Geocoded mapped stops",
+    "numerator": "stop records with latitude and longitude",
+    "denominator": "all mapped stop records",
+    "formula": "100 * numerator / denominator; null if denominator is zero",
+    "decision": "Prioritize location verification",
+    "target": "100% mapping completeness; analytical target, not official approval",
+    "limitations": "Repeated cross-sections, not a fixed cohort. Mapping changes and extraction differences are not changes in transport operations."
+  },
+  {
+    "kpi": "ordered_routes",
+    "title": "Routes with ordered stop members",
+    "numerator": "route relations with at least one ordered stop member",
+    "denominator": "bus/ferry route relations",
+    "formula": "100 * numerator / denominator; null if denominator is zero",
+    "decision": "Identify mapping gaps before graph construction",
+    "target": "100% mapping completeness; analytical target, not official approval",
+    "limitations": "Repeated cross-sections, not a fixed cohort. Mapping changes and extraction differences are not changes in transport operations."
+  },
+  {
+    "kpi": "origin_routes",
+    "title": "Routes with origin metadata",
+    "numerator": "route relations with nonblank from tag",
+    "denominator": "bus/ferry route relations",
+    "formula": "100 * numerator / denominator; null if denominator is zero",
+    "decision": "Check directional metadata",
+    "target": "100% mapping completeness; analytical target, not official approval",
+    "limitations": "Repeated cross-sections, not a fixed cohort. Mapping changes and extraction differences are not changes in transport operations."
+  },
+  {
+    "kpi": "destination_routes",
+    "title": "Routes with destination metadata",
+    "numerator": "route relations with nonblank to tag",
+    "denominator": "bus/ferry route relations",
+    "formula": "100 * numerator / denominator; null if denominator is zero",
+    "decision": "Check directional metadata",
+    "target": "100% mapping completeness; analytical target, not official approval",
+    "limitations": "Repeated cross-sections, not a fixed cohort. Mapping changes and extraction differences are not changes in transport operations."
+  }
+]

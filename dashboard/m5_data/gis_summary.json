@@ -1,0 +1,36 @@
+{
+  "dataset_version": "6d4b5b4a52e7",
+  "route_records": 285,
+  "unique_linked_drive_files": 266,
+  "local_files_found": 264,
+  "missing_local_drive_files": 2,
+  "file_status_distribution": {
+    "audited": 262,
+    "missing_local_file": 2,
+    "unrecognized_format": 2
+  },
+  "layers_inspected": 262,
+  "layers_with_declared_crs": 262,
+  "layers_with_invalid_geometries": 3,
+  "layers_with_null_geometries": 0,
+  "layers_with_duplicate_geometry_features": 0,
+  "layers_with_suspicious_overlaps": 0,
+  "layers_with_crs_metadata_mismatch": 0,
+  "candidate_length_comparisons": 118,
+  "length_discrepancies_to_review": 0,
+  "thresholds": {
+    "length_difference_fraction": 0.1,
+    "length_difference_minimum_km": 0.5,
+    "philippines_bbox_longitude": [
+      115,
+      130
+    ],
+    "philippines_bbox_latitude": [
+      4,
+      23
+    ]
+  },
+  "caveat": "All file geometry checks are mapping-quality checks, not government approval, active service or boarding points. Missing local files are unverified.",
+  "duplicate_file_groups": 0,
+  "duplicate_linework_groups": 1
+}

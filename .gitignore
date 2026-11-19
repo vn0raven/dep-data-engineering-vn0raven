@@ -1,2 +1,22 @@
 
 data/processed/*.db
+
+# Private LTFRB raw / staging files and report-level source URLs
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.env
+.venv/
+data/raw/ltfrb/
+data/staging/ltfrb/
+data/processed/ltfrb/
+reports/ltfrb/
+*.gpkg
+*.gpkg-shm
+*.gpkg-wal
+*.sqlite-shm
+*.sqlite-wal
+
+# Private derived Observatory releases and per-source audit caches
+data/processed/ltfrb_observatory/
+reports/observatory-private/

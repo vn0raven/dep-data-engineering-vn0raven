@@ -1,0 +1,60 @@
+{
+  "asset_statuses": {
+    "incomplete_download": 2,
+    "incomplete_shapefile": 2,
+    "inspected": 262
+  },
+  "association_statuses": {
+    "candidate": 118,
+    "not_applicable_loop": 128,
+    "unresolved": 324
+  },
+  "canonical_municipalities_verified": 0,
+  "direction_statuses": {
+    "complete": 442,
+    "not_applicable_loop": 128
+  },
+  "feature_statuses": {
+    "geometry_pass": 263,
+    "quarantined": 3
+  },
+  "geometry_duplicate_groups": 1,
+  "issue_codes": {
+    "conflicting_admin_labels": 2,
+    "duplicate_name_candidate": 10,
+    "empty_lgu_token": 2,
+    "exact_duplicate_geometry": 2,
+    "geometry_quarantine": 3,
+    "incomplete_download": 2,
+    "incomplete_shapefile": 2,
+    "malformed_admin_prefix": 2,
+    "repeated_lgu_label": 8,
+    "shared_source_file": 35,
+    "source_geometry_review": 5,
+    "source_not_spatially_inspected": 4,
+    "unresolved_geometry_association": 324
+  },
+  "length_screening": {
+    "not_applicable": 128,
+    "not_evaluated": 324,
+    "within_screening_tolerance": 118
+  },
+  "lgu_label_rows": 2094,
+  "linked_source_ids": 266,
+  "normalized_route_records": 285,
+  "normalized_unique_names": 280,
+  "release_version": "709ce26a035742a54735",
+  "route_review_statuses": {
+    "candidate_metadata_only": 114,
+    "needs_review": 171
+  },
+  "schema": "m5-cleaned-baseline-1",
+  "source_effective_date": null,
+  "source_route_records": 285,
+  "source_unique_names": 280,
+  "spatial_layers": 262,
+  "spatial_roundtrip_features": 263,
+  "time_scope": "single source baseline; no LTFRB historical trend",
+  "transformation_events": 3248,
+  "workbook_sha256": "030fdb2b2517961e9798681d88e679f9aeb6bb269d97a3d4ecac02994debdad9"
+}
