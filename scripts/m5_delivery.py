@@ -210,7 +210,7 @@ def render():
     dump(p/'kpi_definitions.json',definitions)
     save_table(p/'kpi_definitions.csv',definitions)
     latest=hist.sort_values('snapshot_date').groupby('kpi').tail(1)
-    brief=observatory_brief(k,gis,cleaned)
+    brief=observatory_brief(cleaned)
     (out/'M5_STAKEHOLDER_BRIEF.md').write_text(brief,encoding='utf-8')
     (out/'GIS_QUALITY_SUMMARY.md').write_text('# GIS validation summary\n\n'+json.dumps(gis,indent=2)+'\n\nFull private evidence: reports/ltfrb/QUALITY_ASSESSMENT.md and CSVs. SHA-256 identifies bytes; it does not certify source authenticity. Overlap screen is within-layer only, not a complete inter-route network overlap analysis.\n',encoding='utf-8')
     chart_html=''.join(f'<figure><img src="m5_assets/{f.name}" alt="{escape(f.stem)}"><figcaption>{escape(f.stem.replace("_"," "))}</figcaption></figure>' for f in sorted(figs.glob('*.png')) if f.name!='03_direction_completeness.png')

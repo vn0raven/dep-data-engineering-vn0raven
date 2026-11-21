@@ -7,10 +7,6 @@ import pandas as pd
 
 from scripts.verify_observatory import verify
 
-CONCLUSION = ('We standardized the transport register, measured its completeness and spatial quality, '
-              "and identified the unresolved associations that the Observatory's verification workflow must address.")
-
-
 def aggregate(release):
     release=Path(release)
     checked=verify(release)
@@ -87,21 +83,28 @@ def write_projection(release, destination, expected_workbook_sha=None):
     return summary
 
 
-def brief(k,gis,cleaned):
-    s=cleaned
+def brief(cleaned):
+    associations = cleaned['association_statuses']
+    unresolved = associations['unresolved']
+    populated = unresolved + associations['candidate']
+    match_finding = (
+        f'About {unresolved / populated:.0%} of the route directions we could assess '
+        'still need a map line that can be linked to them with confidence.'
+        if populated else 'The register did not contain any route directions we could assess.'
+    )
     return f'''# Davao Transport Data Observatory — M5 stakeholder brief
 
-**Purpose.** The original commuter-routing question exposed a prerequisite: transport records must be dependable before navigation features can be justified. M5 assesses that foundation for data stewards, researchers and transport planners. Network X-Ray and the Route Verification Workbench are future application components, not implemented M5 features.
+We checked whether the Land Transportation Franchising and Regulatory Board (LTFRB) Region XI route register could be linked to the supplied map files. {match_finding} Planners can use the findings to decide which records to verify before relying on the map.
 
-**Segment findings.** The LTFRB Region XI register contains {k['workbook_route_rows']} records: 193 PUJ, 65 PUB and 27 UV Express. EXISTING/IRIP comparisons differ sharply: PUJ 168/25, PUB 12/53, UV Express 1/26. These are source classifications, not current service counts. All 285 records have first-direction metadata; 157 have second-direction metadata and 128 explicitly describe one-direction loops. LGU text mentions indicate documentary scope, not measured municipal access.
+Most jeepney (PUJ) entries are listed as existing routes. Most bus and UV Express entries are marked IRIP, the register’s label for routes between provinces or regions. These labels describe how routes are recorded. Current service still needs confirmation.
 
-**Quality baseline.** The cleaned release retains all {s['normalized_route_records']} records and logs {s['transformation_events']:,} transformations. Of {s['linked_source_ids']} linked file IDs, 262 spatial assets were inspected; two downloads are partial and two shapefiles lack dependencies. The 262 layers contain 266 features: 263 pass structural checks and three are quarantined without repair. Layer-level screening separately passes 259/262. File, layer, feature and route counts are different denominators.
+Most map lines passed basic checks. Some map files were incomplete, and a few lines had errors that kept them out of the usable map files. A line that passes those checks still needs to be matched to the correct route and direction. OpenStreetMap showed no change in the completeness measures we checked between the July and August snapshots. We had a single LTFRB snapshot, so changes in the register over time remain unknown.
 
-**Unresolved evidence.** Of 442 populated direction slots, 118 have automatic candidate geometry matches and 324 (73.30%) remain unresolved; 128 loop N/A slots are excluded. Candidates comprise 117 PUJ and one PUB direction, with none for UV Express; this describes matching evidence, not service reliability. All 118 candidate lengths fall within max(0.5 km, 10% declared distance); this does not validate the unpaired directions. One exact geometry-duplicate group and {s['route_review_statuses']['needs_review']} route review cases need investigation. Municipality identities remain unverified.
+**Recommended next steps**
 
-**Time comparison.** Five OSM completeness KPIs are unchanged between July 8 and August 1, 2026: named stops 57.38%, geocoded stops 96.72%, ordered-stop routes 50%, origin metadata 42.86%, destination metadata 42.86%. These are mapping cross-sections, not service or ridership trends. LTFRB supplies one separate baseline; historical change is not verified.
+1. **LTFRB Region XI data team** should supply complete copies of the incomplete map files, review lines flagged for errors, and identify which line belongs to each route direction. This gives planners a sound basis for reviewing the network.
+2. **Davao City Transport and Traffic Management Office** should check route paths and boarding points with operators on corridors under planning review. Recording the date of each check helps planners judge how current the evidence is.
+3. **OpenStreetMap contributors** should update missing stop names and stop order where surveys or sources permitted for OpenStreetMap support the change. This makes routes easier to interpret and compare in future map snapshots.
 
-**Priorities.** Complete four source-file exceptions; review invalid/duplicate geometry and direction identity; reconcile locality labels with authoritative context. Keep raw and row-level government-derived records private unless cleared. No boarding, transfers, current schedules, fares, travel times or navigation readiness are established. These findings define the future verification queue; application development belongs to M6.
-
-**Conclusion.** {CONCLUSION}
+The Observatory’s planned review tool can track these checks and the evidence behind each decision. The accompanying notebook and quality report contain the full counts and methods.
 '''

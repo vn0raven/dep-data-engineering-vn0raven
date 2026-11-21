@@ -9,7 +9,7 @@ import pandas as pd
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
-from scripts.m5_release import CONCLUSION
+from scripts.m5_release import brief as render_brief
 from scripts.m5_delivery import temporal
 
 
@@ -54,14 +54,15 @@ class M5SubmissionTests(unittest.TestCase):
             if f.is_file():
                 self.assertEqual(hashlib.sha256(f.read_bytes()).hexdigest(),hashlib.sha256((ROOT/'dashboard/m5_data'/f.name).read_bytes()).hexdigest())
 
-    def test_brief_conclusion_and_cleaned_evidence(self):
+    def test_brief_matches_generated_cleaned_evidence(self):
         brief=(ROOT/'reports/m5/M5_STAKEHOLDER_BRIEF.md').read_text(encoding='utf-8')
-        self.assertIn(CONCLUSION,brief)
-        self.assertIn('263',brief)
-        self.assertIn('324',brief)
-        self.assertIn('259/262',brief)
+        self.assertEqual(render_brief(self.summary),brief)
+        self.assertIn('About 73% of the route directions',brief)
         self.assertLessEqual(len(brief.split()),500)
-        n=json.loads((ROOT/'notebooks/m5_segmentation_kpis.ipynb').read_text())
+        n=json.loads((ROOT/'notebooks/m5_segmentation_kpis.ipynb').read_text(encoding='utf-8'))
+        displayed=[o.get('data', {}).get('text/markdown', [])
+                   for c in n['cells'] for o in c.get('outputs', [])]
+        self.assertIn(brief.strip(), [''.join(output).strip() for output in displayed])
         markdown='\n'.join(''.join(c['source']) for c in n['cells'] if c['cell_type']=='markdown')
         self.assertIn('Davao Transport Data Observatory',markdown)
         self.assertNotIn(chr(65533),markdown)

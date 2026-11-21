@@ -16,7 +16,7 @@ python -m venv .venv
 .\.venv\Scripts\python.exe scripts/check_m5_privacy.py
 ```
 
-Private-source reproduction and limits are documented in docs/M5_PATH_B.md. Detailed LTFRB releases are restricted pending explicit publication clearance. Only code, documentation and aggregate release candidates are included in the M5 file list. No commit, push, publication or M5 acceptance is claimed.
+Private-source reproduction and limits are documented in docs/M5_PATH_B.md. Detailed LTFRB releases are restricted pending explicit publication clearance. Only code, documentation and aggregate release candidates are included in the M5 file list.
 
 ---
 
@@ -552,7 +552,7 @@ Use requirements.txt for compatible dependency ranges and requirements-lock.txt 
 The Observatory ETL normalizes all 285 source records, preserves original values, audits linked geographic files, and creates immutable private releases with SQLite tables, GeoPackage/GeoJSON, provenance, transformation history and quarantine evidence. Geometry validation and route identity remain separate.
 
 ```powershell
-.\.venv\Scripts\python.exe scripts/observatory_etl.py --workbook "C:\Users\dinga\Downloads\LTFRB DATA\LTFRB DATA\REGION 11 ROUTE STRUCTURE DATABASE.xlsx" --gis-dir "C:\Users\dinga\Downloads\LTFRB DATA\LTFRB DATA\LTFRB_GeoPackages"
+.\.venv\Scripts\python.exe scripts/observatory_etl.py --workbook "<path-to-workbook.xlsx>" --gis-dir "<path-to-gis-directory>"
 .\.venv\Scripts\python.exe scripts/verify_observatory.py
 .\.venv\Scripts\python.exe -m pytest -q
 ```

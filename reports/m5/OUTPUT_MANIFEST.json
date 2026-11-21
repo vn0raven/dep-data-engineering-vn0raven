@@ -222,13 +222,13 @@
     },
     {
       "path": "reports/m5/M5_STAKEHOLDER_BRIEF.md",
-      "sha256": "600786be7b3cb8b44aff6bdbf101d9b0c1dc0a9c1dade466c97fd749d497d5b8",
-      "bytes": 2896
+      "sha256": "a6a554f96ea0d0e6750961c2ff7f38db76c4948ba63c6f2961a66966184d8202",
+      "bytes": 2049
     },
     {
       "path": "notebooks/m5_segmentation_kpis.ipynb",
-      "sha256": "a57022a035ebd40f12c3f614df70d33bae98b00381e7db58c861dfb9a4d9ee92",
-      "bytes": 571018
+      "sha256": "705f085dd10f8b98d66635beaa487324f434cf275197f40329d440fc336bd534",
+      "bytes": 570171
     }
   ],
   "scope": "Final M5 generated analysis artifacts; excludes private sources"
