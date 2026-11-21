@@ -5,11 +5,11 @@ Checked November 21, 2026, Asia/Manila. Target December 6, 2026. Baseline branch
 | Official M6 requirement | Status and evidence |
 |---|---|
 | Dashboard or report built and committed | Functional private app and public demo built and tested locally. Publication authorized on November 21, 2026. Existing `dashboard/index.html` remains available. |
-| Public GitHub Pages deployment | Prepared using the existing Pages workflow with a three-file demo allowlist. Deployment verification is pending the current release. |
-| Live URL in README | README links to M5 and the public M6 demo; live M6 verification is recorded below after deployment. |
-| Working links and output | Browser loaded all demo assets from an isolated public checkout. The demo's M5 report link returned HTTP 200. Live M6 paths require a final verification. |
+| Public GitHub Pages deployment | Prepared using the existing Pages workflow with a three-file demo allowlist. Passed: deployment run [44890913579](https://github.com/vn0raven/dep-data-engineering-vn0raven/actions/runs/44890913579) succeeded. |
+| Live URL in README | README links to both live reports; M6 URL and assets verified below. |
+| Working links and output | Browser loaded all demo assets from an isolated public checkout. The demo's M5 report link returned HTTP 200. Live M6 browser checks passed. |
 | Final README and dependencies | The README covers the problem, data, pipeline, analysis, app and setup. Existing locked Python environment passed dependency checks. |
-| 5–10 minute demo | [Seven-minute demo script](DEMO_SCRIPT.md) prepared. |
+| 5â€“10 minute demo | [Seven-minute demo script](DEMO_SCRIPT.md) prepared. |
 
 ## Local results
 
@@ -18,4 +18,15 @@ Checked November 21, 2026, Asia/Manila. Target December 6, 2026. Baseline branch
 - A clean checkout reconstructed from the public baseline plus the candidate code served the demo without a private release. Edge verified mode and classification filters, map selection, positive and empty intersections, invalid bounds, empty route results, a narrow viewport and browser-local review persistence after refresh. The demo issued no API requests. The JavaScript syntax check passed.
 - Full local test suite: 39 passed. Public checkout: 38 passed and one expected skip for the actual private release. These runs used the existing locked Python environment.
 - The public demo uses fictional route coordinates and evidence. The private app uses loopback access and self-declared reviewer names. A shared review store needs a separately approved host and access controls. The coordinate map has no external basemap, and areas are rectangles. The private queue focuses on unresolved direction associations, with other route and direction issues available from route records.
-- Candidate files are enumerated in [RELEASE_FILES.txt](RELEASE_FILES.txt). Existing M4 and M5 artifacts are outside the change set. The private release and scratch stores remain ignored. The final commit, deployment run, verified M6 URL and submission issue are pending.
+- Candidate files are enumerated in [RELEASE_FILES.txt](RELEASE_FILES.txt). Existing M4 and M5 artifacts are outside the change set. The private release and scratch stores remain ignored. The deployment and verified URL are recorded below. The M6 submission issue has not been created.
+
+
+## Verified public deployment
+
+November 21, 2026, Asia/Manila: [Public Observatory](https://vn0raven.github.io/dep-data-engineering-vn0raven/observatory/) is live. Application commit `e75e51bd76f729a7006cdf63f8276f7379d54d21`; deployed workflow-fix commit `308c95bd2050c4370f5e8817a4914db4ac61ba8d`. [Successful Pages run](https://github.com/vn0raven/dep-data-engineering-vn0raven/actions/runs/44890913579).
+
+The first run encountered delayed artifact visibility; retry encountered duplicate artifact names. The workflow now uses attempt-specific names and waits for the artifact before deployment. The corrected run passed. GitHub emits a non-blocking Node 20 action deprecation warning.
+
+Live Edge checks passed: filters, evidence selection, map/list selection, rectangular area comparisons, invalid bounds, empty map evidence, keyboard map controls, narrow layouts and browser-local review persistence. No private API calls were made. The HTML, JavaScript, CSS and preserved M5 report returned HTTP 200 and matched local files after line-ending normalization. Pre-push Python tests: 39 passed. The exact 12 staged release files passed privacy checks; private data and review stores were excluded.
+
+This verification is documented in a follow-up documentation-only commit; the deployed application assets remain those of `308c95b`. M5 remains open and ready for human review, not accepted. No M6 submission or issue comment was posted.
