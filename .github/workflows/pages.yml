@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "dashboard/**"
+      - ".github/workflows/pages.yml"
 
 permissions:
   contents: read
@@ -23,6 +24,12 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+
+      - name: Check Observatory demo publish tree
+        shell: bash
+        run: |
+          diff -u <(printf '%s\n' dashboard/observatory/{app.js,index.html,style.css}) \
+            <(git ls-files -- dashboard/observatory)
 
       - uses: actions/configure-pages@v5
 

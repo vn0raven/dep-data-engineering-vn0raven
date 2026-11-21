@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Davao Transport Data Observatory</title><link rel="stylesheet" href="./style.css"><script src="./app.js" defer></script></head>
+<body data-view="map" data-workspace="network">
+<header><div class="brand"><span class="brandmark" aria-hidden="true">◈</span><div><strong>Davao Transport</strong><span>DATA OBSERVATORY</span></div></div><nav aria-label="Workspace"><button id="network-tab" aria-pressed="true">Network X-Ray</button><button id="verification-tab" aria-pressed="false">Route Verification</button></nav><span id="data-scope" class="badge">Loading workspace…</span></header>
+<div class="utility"><div class="actions"><button id="toggle-browse" class="secondary" aria-expanded="true">Browse panel</button><button id="toggle-inspect" class="secondary" aria-expanded="true">Inspect panel</button></div><details id="release-panel"><summary>Data release</summary><p id="release">Checking data release…</p><p id="release-stats"></p><a href="https://vn0raven.github.io/dep-data-engineering-vn0raven/m5.html">M5 analysis report</a></details></div>
+<p id="notice" role="status" aria-live="polite">Loading documented network…</p>
+<nav class="mobile-tabs" aria-label="Workspace panels"><button data-view="browse">Browse</button><button data-view="map">Map</button><button data-view="inspect">Inspect</button></nav>
+<main class="layout">
+<aside class="browse" aria-label="Find and browse"><h1 id="browse-title">Find and browse</h1><p class="muted">Explore the register and its map evidence.</p>        <form id="filters">
+          <label>Route search<input name="q" maxlength="100" placeholder="Name or route ID"></label>
+          <label>Mode<select name="mode"><option value="">All modes</option><option value="PUJ">Jeepney</option><option value="PUB">Bus</option><option value="UV_EXPRESS">UV Express</option></select></label>
+          <label>Classification<select name="classification"><option value="">All classifications</option><option value="EXISTING">Existing</option><option value="IRIP">IRIP</option></select></label>
+          <button type="submit">Apply filters</button>
+<label>Map evidence<select name="evidence" aria-label="Map evidence"><option value="">All evidence</option><option value="linked">Source-linked line</option><option value="missing">No displayed line</option><option value="candidate">Candidate direction match</option></select></label><button id="clear-filters" type="button" class="secondary">Clear filters</button></form>
+<div id="chips" class="actions" aria-label="Active filters"></div><details><summary>Classification guide</summary><p>EXISTING and IRIP are source register labels. IRIP is retained as supplied; its expansion is not verified here. Neither label confirms current operation.</p></details>
+<div id="route-list"><div class="section-heading"><h2>Route records</h2><span id="record-count" class="badge"></span></div><ul id="routes"></ul><div id="more-routes" class="actions"></div></div>
+<div id="case-list" hidden><h2>Cases to investigate</h2><p class="muted">Unresolved means the evidence does not establish a route-direction match. Project reviews do not change source status.</p><ul id="queue"></ul><div id="more-cases" class="actions"></div></div></aside>
+<section class="map-panel" aria-label="Documented network map"><div class="section-heading"><div><h2 id="map-label">Documented network</h2><span class="muted">Offline coordinate map · no basemap</span></div><span>N ↑</span></div>
+<div class="map-tools" aria-label="Map tools"><button id="pan-tool" aria-pressed="true">Pan / select</button><button id="area-tool" aria-pressed="false">Select area</button><button id="zoom-in" aria-label="Zoom in">+</button><button id="zoom-out" aria-label="Zoom out">−</button><button id="fit-network">Fit network</button><button id="fit-selection">Zoom to selection</button></div>
+<div class="map-wrap"><canvas id="map" tabindex="0" aria-label="Documented route map. Arrow keys pan; plus and minus zoom. Select records using the browse list."></canvas><span id="tooltip" hidden></span><span id="scale"></span></div>
+<div class="legend"><span class="puj">Jeepney</span><span class="pub">Bus</span><span class="uv">UV Express</span><span class="shared">Multiple modes</span><span>Dashed: unconfirmed link</span><span>Thick: selected</span></div><p class="map-hint">Drag to pan · scroll to zoom · select a line to inspect. No external map requests.</p>
+<details id="area-panel"><summary>Area comparison</summary>        <details><summary>Advanced: enter coordinates</summary><form id="area">
+          <label>Area bounds <span>(west, south, east, north)</span><input name="bbox" placeholder="Four decimal coordinates" required></label>
+          <button>Compare area</button>
+        </form></details><button type="button" id="clear-area" class="secondary">Clear area</button>
+        <p id="area-results" aria-live="polite">Select an area to compare intersections with documented lines.</p>
+        <div id="area-records" class="actions" aria-label="Records associated with intersecting lines"></div>
+        <p class="muted">A shared source file suggests a possible link. Service activity, boarding access and transfers require separate evidence.</p>
+</details></section>
+<aside class="inspector" aria-label="Inspect and act"><div class="section-heading"><h2>Inspect and act</h2><span class="badge">Evidence first</span></div><div id="route-detail" aria-live="polite"><div class="empty"><h3>Select a route</h3><p>Choose a line on the map or a route in Browse to inspect its documented directions and supporting evidence.</p></div></div>
+<section id="workbench" hidden><p class="workflow">Choose case · Inspect evidence · Record decision · View history</p>      <div id="case-evidence"><p class="muted">Open a case from a route or the unresolved-case queue.</p></div>
+      <form id="review" hidden>
+        <label>Reviewer name or alias<input name="reviewer" maxlength="80" required></label>
+        <label>Project decision<select name="decision"><option value="keep_unresolved">Keep unresolved</option><option value="request_evidence">Request evidence</option><option value="document_review">Document review</option></select></label>
+        <label class="note">Evidence note<textarea name="note" maxlength="2000" rows="3" required></textarea></label>
+        <button>Save project review</button>
+      </form>
+      <h3>Decision history</h3><ol id="history"></ol>
+      <p class="muted" id="storage-scope"></p>
+<p class="muted">A project review does not constitute government confirmation. Original evidence remains unchanged.</p></section></aside></main></body></html>

@@ -1,5 +1,15 @@
 # Davao Transport Data Observatory
 
+The Observatory helps planners explore documented Davao transport routes and helps data stewards track unresolved route and map evidence. It uses versioned data from the Land Transportation Franchising and Regulatory Board (LTFRB) Region XI and separately reports OpenStreetMap coverage in the [live M5 analysis](https://vn0raven.github.io/dep-data-engineering-vn0raven/m5.html). The [pipeline guide](docs/OBSERVATORY_DATA_PIPELINE.md) explains how private releases are built and verified.
+
+The M6 application includes an interactive map, intersections with documented lines, and a review history saved to SQLite on the local machine. To run it from the project checkout with the private release in place:
+
+```powershell
+.\.venv\Scripts\python.exe -m scripts.observatory_app
+```
+
+Open [the local Observatory](http://127.0.0.1:8766/private/). The public-safe demonstration uses synthetic routes and saves reviews in the visitor’s browser. Open the [public Observatory demo](https://vn0raven.github.io/dep-data-engineering-vn0raven/observatory/). Deployment verification is recorded in the [M6 checklist](reports/m6/CHECKLIST.md). See the [M6 setup, API and release instructions](docs/OBSERVATORY_M6.md) and [demo script](reports/m6/DEMO_SCRIPT.md).
+
 M5 Path B assesses whether documented transport data is complete, spatially consistent and interpretable enough to support future network exploration and verification workflows. The original commuter-routing question below is retained as project history; its data-reliability prerequisite is the current focus.
 
 **M5 conclusion:** We standardized the transport register, measured its completeness and spatial quality, and identified the unresolved associations that the Observatory's verification workflow must address.
@@ -544,7 +554,7 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m pytest -q
 ```
 
-Use requirements.txt for compatible dependency ranges and requirements-lock.txt for the exact tested environment. Full private-source refresh and preview commands: [pipeline guide](docs/LTFRB_PIPELINE.md). Source files and private file-level audits are excluded from Git. [Provenance and permissions](docs/SOURCES_AND_GOVERNANCE.md) remain distinct from geometry quality. Attribution: © OpenStreetMap contributors (ODbL). M6 deployment is prepared but no live URL is claimed by this delivery.
+Use requirements.txt for compatible dependency ranges and requirements-lock.txt for the exact tested environment. Full private-source refresh and preview commands: [pipeline guide](docs/LTFRB_PIPELINE.md). Source files and private file-level audits are excluded from Git. [Provenance and permissions](docs/SOURCES_AND_GOVERNANCE.md) remain distinct from geometry quality. Attribution: © OpenStreetMap contributors (ODbL). The M6 synthetic demo is published separately from restricted local releases.
 
 
 ## Davao Transport Data Observatory - versioned LTFRB foundation
@@ -557,6 +567,6 @@ The Observatory ETL normalizes all 285 source records, preserves original values
 .\.venv\Scripts\python.exe -m pytest -q
 ```
 
-See [pipeline rules and output layout](docs/OBSERVATORY_DATA_PIPELINE.md), [actual execution evidence](reports/OBSERVATORY_EXECUTION_REPORT.md), and [MVP architecture and M6 plan](docs/OBSERVATORY_MVP_ARCHITECTURE.md). Private releases are under data/processed/ltfrb_observatory/ and ignored by Git. No API, durable review service or public deployment is claimed by this data-preparation delivery.
+See [pipeline rules and output layout](docs/OBSERVATORY_DATA_PIPELINE.md), [actual execution evidence](reports/OBSERVATORY_EXECUTION_REPORT.md), and [MVP architecture and M6 plan](docs/OBSERVATORY_MVP_ARCHITECTURE.md). Private releases are under data/processed/ltfrb_observatory/ and ignored by Git. The M6 local API and durable review store are documented above; GitHub Pages serves only the synthetic demonstration.
 
 M4 passed human review at 26a7f7e. The accepted analysis, notebook and figures are preserved. The reviewer requested a small follow-up wording correction in docs/MILESTONE4_INSIGHTS.md ("A median of zero or one" to "a median of 0.5 or 0"); this is recorded pending authorization to edit the preserved M4 document. No recheck is required according to the reviewer.

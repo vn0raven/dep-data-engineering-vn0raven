@@ -1,0 +1,12 @@
+.github/workflows/pages.yml
+README.md
+dashboard/observatory/app.js
+dashboard/observatory/index.html
+dashboard/observatory/style.css
+docs/OBSERVATORY_M6.md
+reports/m6/CHECKLIST.md
+reports/m6/DEMO_SCRIPT.md
+reports/m6/RELEASE_FILES.txt
+scripts/observatory_app.py
+tests/observatory_browser.cjs
+tests/test_observatory_app.py
