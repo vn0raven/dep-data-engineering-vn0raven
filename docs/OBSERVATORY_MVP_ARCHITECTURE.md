@@ -1,3 +1,5 @@
+> Update, 23 November 2026: see [controlled-layer implementation](M6_CONTROLLED_LAYERS.md) for the current local real-data application, publication boundary and commands. Earlier sections below document the prior stage.
+
 # Observatory MVP architecture and M6 delivery
 
 The Davao Transport Data Observatory will support documented-network exploration and evidence review across modes. Its foundation is the private versioned LTFRB ETL. No new UI prototype, live feed, commuter routing engine or prediction model is required to demonstrate this implementation.

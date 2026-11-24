@@ -1,0 +1,9 @@
+{
+  "outputs": {
+    "lines.geojson": "3ae92bfb827c98bf05ac83bc1d89f9c88e9a07782358b15d61e0c85a65dd9943",
+    "provenance.json": "8062d533abdb6e6b9a70c8346a293502f7d5e8530aba130abfa96ced8b982308",
+    "quality.json": "abad8369016e84d1a56dbd4fa7840e3823a87cd5014227b720d2eddc029ec132",
+    "routes.json": "c40d9913b0119c820f079584a6d04dc93b278cdf4a56091e79416819e80b3d26"
+  },
+  "version": "60a7d97ef7b3de73d1ad"
+}

@@ -1,0 +1,236 @@
+[
+  {
+    "government_classification": null,
+    "line_members_exported": 118,
+    "line_members_rejected": 0,
+    "line_members_unavailable": 0,
+    "osm_relation_id": 5118287,
+    "route_id": "osm-relation-5118287",
+    "service_activity": "not_verified",
+    "source_tags": {
+      "name": "Route 13",
+      "ref": "13",
+      "route": "bus"
+    },
+    "source_url": "https://www.openstreetmap.org/relation/5118287",
+    "summed_member_km": 16.281811
+  },
+  {
+    "government_classification": null,
+    "line_members_exported": 9,
+    "line_members_rejected": 0,
+    "line_members_unavailable": 0,
+    "osm_relation_id": 6736830,
+    "route_id": "osm-relation-6736830",
+    "service_activity": "not_verified",
+    "source_tags": {
+      "name": "Route 10",
+      "route": "bus"
+    },
+    "source_url": "https://www.openstreetmap.org/relation/6736830",
+    "summed_member_km": 0.832595
+  },
+  {
+    "government_classification": null,
+    "line_members_exported": 82,
+    "line_members_rejected": 0,
+    "line_members_unavailable": 0,
+    "osm_relation_id": 6736831,
+    "route_id": "osm-relation-6736831",
+    "service_activity": "not_verified",
+    "source_tags": {
+      "name": "Route 5",
+      "ref": "5",
+      "route": "bus"
+    },
+    "source_url": "https://www.openstreetmap.org/relation/6736831",
+    "summed_member_km": 11.501057
+  },
+  {
+    "government_classification": null,
+    "line_members_exported": 107,
+    "line_members_rejected": 0,
+    "line_members_unavailable": 0,
+    "osm_relation_id": 6736832,
+    "route_id": "osm-relation-6736832",
+    "service_activity": "not_verified",
+    "source_tags": {
+      "name": "Route 12",
+      "ref": "12",
+      "route": "bus"
+    },
+    "source_url": "https://www.openstreetmap.org/relation/6736832",
+    "summed_member_km": 12.05218
+  },
+  {
+    "government_classification": null,
+    "line_members_exported": 107,
+    "line_members_rejected": 0,
+    "line_members_unavailable": 0,
+    "osm_relation_id": 6736833,
+    "route_id": "osm-relation-6736833",
+    "service_activity": "not_verified",
+    "source_tags": {
+      "name": "Route 1",
+      "ref": "1",
+      "route": "bus"
+    },
+    "source_url": "https://www.openstreetmap.org/relation/6736833",
+    "summed_member_km": 14.673036
+  },
+  {
+    "government_classification": null,
+    "line_members_exported": 70,
+    "line_members_rejected": 0,
+    "line_members_unavailable": 0,
+    "osm_relation_id": 6736912,
+    "route_id": "osm-relation-6736912",
+    "service_activity": "not_verified",
+    "source_tags": {
+      "name": "Route 4",
+      "ref": "4",
+      "route": "bus"
+    },
+    "source_url": "https://www.openstreetmap.org/relation/6736912",
+    "summed_member_km": 8.532909
+  },
+  {
+    "government_classification": null,
+    "line_members_exported": 73,
+    "line_members_rejected": 0,
+    "line_members_unavailable": 0,
+    "osm_relation_id": 6736913,
+    "route_id": "osm-relation-6736913",
+    "service_activity": "not_verified",
+    "source_tags": {
+      "name": "Route 11",
+      "ref": "11",
+      "route": "bus"
+    },
+    "source_url": "https://www.openstreetmap.org/relation/6736913",
+    "summed_member_km": 11.254922
+  },
+  {
+    "government_classification": null,
+    "line_members_exported": 30,
+    "line_members_rejected": 0,
+    "line_members_unavailable": 0,
+    "osm_relation_id": 6737034,
+    "route_id": "osm-relation-6737034",
+    "service_activity": "not_verified",
+    "source_tags": {
+      "name": "Route 8",
+      "ref": "8",
+      "route": "bus"
+    },
+    "source_url": "https://www.openstreetmap.org/relation/6737034",
+    "summed_member_km": 3.83808
+  },
+  {
+    "government_classification": null,
+    "line_members_exported": 2176,
+    "line_members_rejected": 0,
+    "line_members_unavailable": 0,
+    "osm_relation_id": 8202470,
+    "route_id": "osm-relation-8202470",
+    "service_activity": "not_verified",
+    "source_tags": {
+      "from": "Davao City",
+      "name": "PITX–Davao City (inbound)",
+      "ref": "PITX-DVOC",
+      "route": "bus",
+      "to": "Parañaque Integrated Terminal Exchange"
+    },
+    "source_url": "https://www.openstreetmap.org/relation/8202470",
+    "summed_member_km": 1489.899499
+  },
+  {
+    "government_classification": null,
+    "line_members_exported": 198,
+    "line_members_rejected": 0,
+    "line_members_unavailable": 0,
+    "osm_relation_id": 9235088,
+    "route_id": "osm-relation-9235088",
+    "service_activity": "not_verified",
+    "source_tags": {
+      "from": "Davao City",
+      "name": "Davao City → Laak",
+      "ref": "DMS",
+      "route": "bus",
+      "to": "Laak"
+    },
+    "source_url": "https://www.openstreetmap.org/relation/9235088",
+    "summed_member_km": 111.447714
+  },
+  {
+    "government_classification": null,
+    "line_members_exported": 2207,
+    "line_members_rejected": 0,
+    "line_members_unavailable": 0,
+    "osm_relation_id": 10690422,
+    "route_id": "osm-relation-10690422",
+    "service_activity": "not_verified",
+    "source_tags": {
+      "from": "PITX",
+      "name": "PITX–Davao City (outbound)",
+      "ref": "PITX-DVOC",
+      "route": "bus",
+      "to": "Davao City"
+    },
+    "source_url": "https://www.openstreetmap.org/relation/10690422",
+    "summed_member_km": 1484.556384
+  },
+  {
+    "government_classification": null,
+    "line_members_exported": 2362,
+    "line_members_rejected": 0,
+    "line_members_unavailable": 0,
+    "osm_relation_id": 15045923,
+    "route_id": "osm-relation-15045923",
+    "service_activity": "not_verified",
+    "source_tags": {
+      "from": "PITX",
+      "name": "PITX–Davao City (outbound)",
+      "ref": "PITX-DVOC",
+      "route": "bus",
+      "to": "Davao City"
+    },
+    "source_url": "https://www.openstreetmap.org/relation/15045923",
+    "summed_member_km": 1535.360393
+  },
+  {
+    "government_classification": null,
+    "line_members_exported": 2315,
+    "line_members_rejected": 0,
+    "line_members_unavailable": 0,
+    "osm_relation_id": 15045924,
+    "route_id": "osm-relation-15045924",
+    "service_activity": "not_verified",
+    "source_tags": {
+      "from": "Davao City",
+      "name": "PITX–Davao City (inbound)",
+      "ref": "PITX-DVOC",
+      "route": "bus",
+      "to": "PITX"
+    },
+    "source_url": "https://www.openstreetmap.org/relation/15045924",
+    "summed_member_km": 1516.604851
+  },
+  {
+    "government_classification": null,
+    "line_members_exported": 4,
+    "line_members_rejected": 0,
+    "line_members_unavailable": 0,
+    "osm_relation_id": 18311775,
+    "route_id": "osm-relation-18311775",
+    "service_activity": "not_verified",
+    "source_tags": {
+      "from": "Manila",
+      "name": "Manila - Davao City - General Santos - Iloilo - Manila",
+      "route": "ferry",
+      "to": "Manila"
+    },
+    "source_url": "https://www.openstreetmap.org/relation/18311775",
+    "summed_member_km": 3262.412285
+  }
+]

@@ -5,8 +5,10 @@ on:
     branches: [main]
     paths:
       - "dashboard/**"
+      - ".github/workflows/pages.yml"
 
 permissions:
+  actions: read
   contents: read
   pages: write
   id-token: write
@@ -24,11 +26,33 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Check reviewed Observatory publication boundary
+        run: python scripts/check_observatory_public.py
+
       - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dashboard/
+          name: pages-${{ github.run_attempt }}
+
+      - name: Wait for uploaded artifact visibility
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          RUN_ID: ${{ github.run_id }}
+          ARTIFACT_NAME: pages-${{ github.run_attempt }}
+        run: |
+          for attempt in {1..12}; do
+            count=$(gh api "repos/$REPOSITORY/actions/runs/$RUN_ID/artifacts" \
+              --jq "[.artifacts[] | select(.name == \"$ARTIFACT_NAME\")] | length")
+            if [ "$count" = "1" ]; then exit 0; fi
+            sleep 5
+          done
+          echo "Expected exactly one visible Pages artifact" >&2
+          exit 1
 
       - id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: pages-${{ github.run_attempt }}

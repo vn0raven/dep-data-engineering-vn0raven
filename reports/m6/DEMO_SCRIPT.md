@@ -1,0 +1,9 @@
+# Eight-minute M6 demonstration
+
+1. **0:00–1:00 — Purpose and scope.** Explain the pivot from commuter routing to evidence-led transport analysis. Identify the live synthetic release versus the locally prepared real OSM revision. M4/M5 passed; do not claim M6 acceptance.
+2. **1:00–2:00 — Reproducible data.** Show OSM provenance, snapshot date, original geometry download and manifest checks. Explain 14 relations versus 9,858 members. Explain that intercity relations can extend outside Davao.
+3. **2:00–3:30 — Network X-Ray.** Search, select from map/list, zoom to selection, change source-specific filters and compare a rectangle. Say “documented lines intersecting this area,” not services or transfers. Show the mobile Map/Inspect views.
+4. **3:30–4:30 — Controlled proposal, locally only.** Show the exact LTFRB allowlist and actual samples in the private proposal. Select an unresolved record without geometry, then a candidate. Explain redistribution is unspecified and the publication gate excludes this layer.
+5. **4:30–6:00 — Private verification.** Open a real case in the private workbench, inspect original evidence, save a project review with required note, restart with the same SQLite store and retrieve the history. Clarify self-declared identity and no government confirmation.
+6. **6:00–7:00 — QA and failures.** Show regression results, schema/privacy checks, a failed-save note retained, and a corrupted release rejected. Explain simplified display versus original area comparisons.
+7. **7:00–8:00 — Deployment and next steps.** Show the existing successful Pages workflow and exact pending file list. Distinguish local implementation, current deployed state, approval-dependent publication and future authenticated hosting. Close with limitations, attribution, and source evidence.

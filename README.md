@@ -1,4 +1,20 @@
+> **Live release verified — 23 November 2026:** The [Observatory](https://vn0raven.github.io/dep-data-engineering-vn0raven/observatory/) now serves the maintainer-authorized OSM and selected LTFRB-derived release `9440df8235fdf5f6df7f`, deployed from `7af7487a014997339d5d9fedd25773a2baaadb86`. [Pages run](https://github.com/vn0raven/dep-data-engineering-vn0raven/actions/runs/45159911663) succeeded. Live browser checks passed OSM exploration and LTFRB source/classification filtering, missing geometry and candidate labels. The site states unspecified redistribution terms, no agency endorsement, separate source licensing and a correction/removal commitment. Private originals and review history remain excluded. Earlier preparation notes below are historical.
+
+> **Publication update — 23 November 2026:** The project maintainer explicitly authorized publication of the reviewed OSM and selected LTFRB-derived layer. This is not source-agency permission or an open licence. The exact checked release is `9440df8235fdf5f6df7f`; raw files, private source identifiers, reviewer identities and notes remain excluded. The website includes a correction/removal request link and commitment to take down affected material when necessary, including at the source agency's request. Earlier preparation status below is historical. Deployment verification will be recorded after the authorized push.
+
+> **23 November 2026:** M5 passed human review. The live Pages app remains the synthetic release; the prepared local OSM explorer and isolated LTFRB proposal are documented in [M6 controlled layers](docs/M6_CONTROLLED_LAYERS.md). New publication awaits approval.
+
 # Davao Transport Data Observatory
+
+The Observatory helps planners explore documented Davao transport routes and helps data stewards track unresolved route and map evidence. It uses versioned data from the Land Transportation Franchising and Regulatory Board (LTFRB) Region XI and separately reports OpenStreetMap coverage in the [live M5 analysis](https://vn0raven.github.io/dep-data-engineering-vn0raven/m5.html). The [pipeline guide](docs/OBSERVATORY_DATA_PIPELINE.md) explains how private releases are built and verified.
+
+The M6 application includes an interactive map, intersections with documented lines, and a review history saved to SQLite on the local machine. To run it from the project checkout with the private release in place:
+
+```powershell
+.\.venv\Scripts\python.exe -m scripts.observatory_app
+```
+
+Open [the local Observatory](http://127.0.0.1:8766/private/). The public-safe demonstration uses synthetic routes and saves reviews in the visitor’s browser. Open the [public Observatory demo](https://vn0raven.github.io/dep-data-engineering-vn0raven/observatory/). Deployment verification is recorded in the [M6 checklist](reports/m6/CHECKLIST.md). See the [M6 setup, API and release instructions](docs/OBSERVATORY_M6.md) and [demo script](reports/m6/DEMO_SCRIPT.md).
 
 M5 Path B assesses whether documented transport data is complete, spatially consistent and interpretable enough to support future network exploration and verification workflows. The original commuter-routing question below is retained as project history; its data-reliability prerequisite is the current focus.
 
@@ -544,7 +560,7 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m pytest -q
 ```
 
-Use requirements.txt for compatible dependency ranges and requirements-lock.txt for the exact tested environment. Full private-source refresh and preview commands: [pipeline guide](docs/LTFRB_PIPELINE.md). Source files and private file-level audits are excluded from Git. [Provenance and permissions](docs/SOURCES_AND_GOVERNANCE.md) remain distinct from geometry quality. Attribution: © OpenStreetMap contributors (ODbL). M6 deployment is prepared but no live URL is claimed by this delivery.
+Use requirements.txt for compatible dependency ranges and requirements-lock.txt for the exact tested environment. Full private-source refresh and preview commands: [pipeline guide](docs/LTFRB_PIPELINE.md). Source files and private file-level audits are excluded from Git. [Provenance and permissions](docs/SOURCES_AND_GOVERNANCE.md) remain distinct from geometry quality. Attribution: © OpenStreetMap contributors (ODbL). The M6 synthetic demo is published separately from restricted local releases.
 
 
 ## Davao Transport Data Observatory - versioned LTFRB foundation
@@ -557,6 +573,9 @@ The Observatory ETL normalizes all 285 source records, preserves original values
 .\.venv\Scripts\python.exe -m pytest -q
 ```
 
-See [pipeline rules and output layout](docs/OBSERVATORY_DATA_PIPELINE.md), [actual execution evidence](reports/OBSERVATORY_EXECUTION_REPORT.md), and [MVP architecture and M6 plan](docs/OBSERVATORY_MVP_ARCHITECTURE.md). Private releases are under data/processed/ltfrb_observatory/ and ignored by Git. No API, durable review service or public deployment is claimed by this data-preparation delivery.
+See [pipeline rules and output layout](docs/OBSERVATORY_DATA_PIPELINE.md), [actual execution evidence](reports/OBSERVATORY_EXECUTION_REPORT.md), and [MVP architecture and M6 plan](docs/OBSERVATORY_MVP_ARCHITECTURE.md). Private releases are under data/processed/ltfrb_observatory/ and ignored by Git. The M6 local API and durable review store are documented above; GitHub Pages serves only the synthetic demonstration.
 
 M4 passed human review at 26a7f7e. The accepted analysis, notebook and figures are preserved. The reviewer requested a small follow-up wording correction in docs/MILESTONE4_INSIGHTS.md ("A median of zero or one" to "a median of 0.5 or 0"); this is recorded pending authorization to edit the preserved M4 document. No recheck is required according to the reviewer.
+
+
+The [controlled OSM public export](docs/OSM_PUBLIC_EXPORT.md) prepares a separately licensed, versioned real-data layer from OSM only. It is currently local preparation; the deployed Observatory still uses synthetic examples.

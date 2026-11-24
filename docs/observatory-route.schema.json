@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Controlled Observatory route projection",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "route_id",
+    "route_name",
+    "source",
+    "mode",
+    "classification",
+    "geography",
+    "observed_at",
+    "directions",
+    "quality",
+    "provenance"
+  ],
+  "properties": {
+    "route_id": {
+      "type": "string"
+    },
+    "route_name": {
+      "type": "string"
+    },
+    "mode": {
+      "type": "string"
+    },
+    "classification": {
+      "type": "string"
+    },
+    "observed_at": {
+      "type": "string"
+    },
+    "quality": {
+      "type": "string"
+    },
+    "provenance": {
+      "type": "string"
+    },
+    "source": {
+      "enum": [
+        "OSM",
+        "LTFRB"
+      ]
+    },
+    "geography": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "directions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "ordinal",
+          "direction",
+          "declared_km",
+          "association_status"
+        ],
+        "properties": {
+          "ordinal": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "direction": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "declared_km": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "association_status": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
