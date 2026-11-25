@@ -1,6 +1,7 @@
 name: Deploy Dashboard to GitHub Pages
 
 on:
+  workflow_dispatch:
   push:
     branches: [main]
     paths:
@@ -18,11 +19,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
@@ -34,25 +32,13 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dashboard/
-          name: pages-${{ github.run_attempt }}
 
-      - name: Wait for uploaded artifact visibility
-        env:
-          GH_TOKEN: ${{ github.token }}
-          REPOSITORY: ${{ github.repository }}
-          RUN_ID: ${{ github.run_id }}
-          ARTIFACT_NAME: pages-${{ github.run_attempt }}
-        run: |
-          for attempt in {1..12}; do
-            count=$(gh api "repos/$REPOSITORY/actions/runs/$RUN_ID/artifacts" \
-              --jq "[.artifacts[] | select(.name == \"$ARTIFACT_NAME\")] | length")
-            if [ "$count" = "1" ]; then exit 0; fi
-            sleep 5
-          done
-          echo "Expected exactly one visible Pages artifact" >&2
-          exit 1
-
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - id: deployment
         uses: actions/deploy-pages@v4
-        with:
-          artifact_name: pages-${{ github.run_attempt }}
