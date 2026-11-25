@@ -1,8 +1,0 @@
-{
-  "release_version": "9440df8235fdf5f6df7f",
-  "authority": "project_maintainer_not_source_agency",
-  "authorized_on": "2026-11-23",
-  "scope": "Reviewed OSM plus selected LTFRB-derived register fields and candidate geometry; excludes raw government files, private source identifiers and review history.",
-  "source_terms": "Redistribution conditions not specified; no agency endorsement or open licence claimed.",
-  "removal_policy": "Review correction/removal requests and take down affected material when necessary, including at source agency request."
-}
