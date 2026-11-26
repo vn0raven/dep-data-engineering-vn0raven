@@ -17,19 +17,23 @@ function configureSelect(name, values, title) {
 }
 initialize=async function() {
   if(local){byId('source-filter').hidden=true;byId('geography-filter').hidden=true;return originalInitialize();}
-  notify('Checking OSM release and loading documented geometry…');
+  notify('Checking OSM & boundary release and loading documented geometry…');
   const p=await fetch('./data/latest.json');if(!p.ok)throw Error('Public data release unavailable. Build the static OSM layer before serving.');
   const pointer=await p.json();
   if(!/^[a-f0-9]{20}$/.test(pointer.version)||pointer.release!=='releases/'+pointer.version)throw Error('Invalid release pointer');
   releaseBase='./data/'+pointer.release;
   const response=await fetch(releaseBase+'/manifest.json');if(!response.ok)throw Error('Release manifest unavailable');
   releaseManifest=await response.json();
-  if(releaseManifest.version!==pointer.version || Object.keys(releaseManifest.outputs).sort().join(',')!=='bundle.json,originals.geojson,provenance.json')throw Error('Invalid release manifest');
+  const expectedFiles='barangays.geojson,bundle.json,originals.geojson,provenance.json,roads.geojson';
+  if(releaseManifest.version!==pointer.version || Object.keys(releaseManifest.outputs).sort().join(',')!==expectedFiles)throw Error('Invalid release manifest');
   const identity=hex(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(JSON.stringify(releaseManifest.outputs)))).slice(0,20);
   if(identity!==pointer.version)throw Error('Manifest identity mismatch');
   releaseBundle=await checkedFile('bundle.json');
   if(!['osm_public','maintainer_authorized_ltfrb'].includes(releaseBundle.publication) && !['127.0.0.1','localhost'].includes(location.hostname))throw Error('This LTFRB proposal is not authorized for public hosting.');
   if(releaseBundle.publication==='osm_public' && releaseBundle.routes.some(r=>r.source!=='OSM'))throw Error('Public source boundary violation');
+  const [roadsFc, barangaysFc]=await Promise.all([checkedFile('roads.geojson'), checkedFile('barangays.geojson')]);
+  state.roads=roadsFc.features.map(f=>({...f, _bbox: featureBbox(f)}));
+  state.barangays=barangaysFc.features.map(f=>({...f, _bbox: featureBbox(f), _center: polygonCenter(f)}));
   demoRoutes.splice(0,demoRoutes.length,...releaseBundle.routes);
   demoFeatures.splice(0,demoFeatures.length,...releaseBundle.features);
   for(const r of demoRoutes){modes[r.mode]=display(r.mode);colors[r.mode]=r.source==='OSM'?'#08736f':({PUJ:'#a86a14',PUB:'#22559f',UV_EXPRESS:'#9e4d19'}[r.mode]||'#22559f');}
@@ -41,16 +45,29 @@ initialize=async function() {
     const source=byId('filters').elements.source.value, rows=demoRoutes.filter(r=>!source||r.source===source);
     configureSelect('mode',rows.map(r=>r.mode),'All source modes');configureSelect('classification',rows.map(r=>r.classification),'All source classifications');configureSelect('geography',rows.flatMap(r=>r.geography),'All source geographic labels');
   };
+  const layerMap=[['toggle-layer-routes','routes'],['toggle-layer-roads','roads'],['toggle-layer-barangays','barangays']];
+  for(const [btnId,key] of layerMap){
+    const btn=byId(btnId);
+    if(btn){
+      btn.setAttribute('aria-pressed',String(state.layers[key]));
+      btn.onclick=()=>{
+        state.layers[key]=!state.layers[key];
+        btn.setAttribute('aria-pressed',String(state.layers[key]));
+        paint();
+      };
+    }
+  }
   await originalInitialize();
-  byId('data-scope').textContent=releaseBundle.publication==='osm_public'?'OSM · Historical public data':releaseBundle.publication==='maintainer_authorized_ltfrb'?'OSM + LTFRB · Documented evidence':'LOCAL PREVIEW · OSM + proposed LTFRB';
+  byId('data-scope').textContent=releaseBundle.publication==='osm_public'?'OSM + COD-AB · Open public data':releaseBundle.publication==='maintainer_authorized_ltfrb'?'OSM + LTFRB · Documented evidence':'LOCAL PREVIEW · OSM + proposed LTFRB';
   byId('release').textContent='Checked static release '+pointer.version;
-  byId('release-stats').textContent='OSM snapshot: 1 August 2026. Complete relations can extend outside Davao; the initial viewport is not a city boundary. Display simplified at 10 m; comparisons use original lines.';
+  byId('release-stats').textContent=`${demoRoutes.length} OSM transit relations · ${state.roads.length.toLocaleString()} OSM road ways (ODbL) · ${state.barangays.length} Davao barangays (NAMRIA/PSA CC BY-IGO).`;
   byId('verification-tab').textContent='Verification guide';
-  button(document.querySelector('.map-tools'),'Davao view',()=>{state.extent=[125.45,6.95,125.75,7.30];paint();notify('Davao-area viewport; not an administrative boundary. Fit network shows complete intercity relations.');});
-  document.querySelector('.legend').textContent='Teal: OSM membership · Blue / amber: LTFRB candidates · Thick: selected · Dashed: candidate association';
+  button(document.querySelector('.map-tools'),'Davao view',()=>{state.extent=[125.45,6.95,125.75,7.30];paint();notify('Davao-area viewport; zoom in to reveal secondary, tertiary, and residential streets.');});
   const attribution=byId('attribution');attribution.hidden=false;
-  const download=node('a','Download exported line geometry (unsimplified GeoJSON)',byId('release-panel'));download.href=releaseBase+'/originals.geojson';download.download='';
-  const provenance=node('a','Download provenance and licence',byId('release-panel'));provenance.href=releaseBase+'/provenance.json';
+  const download=node('a','Download exported transit line geometry (unsimplified GeoJSON)',byId('release-panel'));download.href=releaseBase+'/originals.geojson';download.download='';
+  const roadsLink=node('a','Download Davao road hierarchy (GeoJSON · ODbL)',byId('release-panel'));roadsLink.href=releaseBase+'/roads.geojson';roadsLink.download='';
+  const brgyLink=node('a','Download Davao barangay boundaries (GeoJSON · CC BY-IGO)',byId('release-panel'));brgyLink.href=releaseBase+'/barangays.geojson';brgyLink.download='';
+  const provenance=node('a','Download provenance and licences',byId('release-panel'));provenance.href=releaseBase+'/provenance.json';
   const records=node('a','Download selected fields and display data',byId('release-panel'));records.href=releaseBase+'/bundle.json';
   byId('storage-scope').textContent='Public exploration does not write private reviews. Use the local workbench for append-only project decisions.';
 };
@@ -61,10 +78,10 @@ refresh=async function() {
   state.routes=demoRoutes.filter(r=>(!filters.source||r.source===filters.source)&&(!filters.q||(r.route_name+' '+r.route_id).toLowerCase().includes(filters.q))&&(!filters.mode||r.mode===filters.mode)&&(!filters.classification||r.classification===filters.classification)&&(!filters.geography||r.geography.includes(filters.geography)));
   state.routes=state.routes.filter(r=>{const fs=demoFeatures.filter(f=>f.properties.route_ids.includes(r.route_id));return !filters.evidence||filters.evidence==='linked'&&fs.length||filters.evidence==='missing'&&!fs.length||filters.evidence==='candidate'&&fs.some(f=>f.properties.candidate_route_ids.includes(r.route_id));});
   const ids=new Set(state.routes.map(r=>r.route_id));state.features=demoFeatures.filter(f=>f.properties.route_ids.some(id=>ids.has(id)));
-  if(!ids.has(state.selected)){state.selected=null;byId('route-detail').replaceChildren(node('p','Select a documented record to inspect its source evidence.'));}
-  state.extent=state.routes.length===demoRoutes.length?[125.45,6.95,125.75,7.30]:overview(state.features);state.routeCount=30;state.selectedLine=null;state.generation++;
+  if(!ids.has(state.selected)){state.selected=null;if(!state.selectedRoad)byId('route-detail').replaceChildren(node('p','Select a documented route or click a Davao road to inspect its source details.'));}
+  state.extent=state.routes.length===demoRoutes.length?[125.45,6.95,125.75,7.30]:(state.features.length?overview(state.features):[125.45,6.95,125.75,7.30]);state.routeCount=30;state.selectedLine=null;state.generation++;
   byId('chips').replaceChildren();for(const [key,value]of Object.entries(filters))if(value)button(byId('chips'),key+': '+value+' ×',()=>{byId('filters').elements[key].value='';return refresh();});
-  renderRoutes();paint();notify(state.routes.length?'':'No route records match these source filters.');
+  renderRoutes();paint();notify(state.routes.length?'':'No transit routes match these filters (road & barangay layers remain visible).');
   if(state.bounds)await compareArea();
 };
 const privateArea=compareArea;
@@ -76,13 +93,13 @@ compareArea=async function(){
   if(request!==state.areaGeneration)return;
   const visible=new Set(state.features.map(f=>f.id));state.areas=originalFeatures.filter(f=>visible.has(f.id)&&demoIntersects(f,bounds));state.bounds=bounds;
   byId('area-panel').open=true;
-  byId('area-results').textContent=state.areas.length+' documented lines intersecting this area. Counts are grouped OSM relations or LTFRB candidate directions, not services or transfers.';
+  byId('area-results').textContent=state.areas.length+' documented lines intersecting this area. Counts are grouped OSM relations, not services or transfers.';
   routeButtons(byId('area-records'),[...new Set(state.areas.flatMap(f=>f.properties.route_ids))]);paint();notify('Area comparison used unsimplified geometry.');
 };
 openRoute=async function(id){
   if(local)return privateRoute(id);
   const r=demoRoutes.find(r=>r.route_id===id);if(!r)throw Error('Record unavailable');
-  state.selected=id;state.selectedLine=null;renderRoutes();paint();document.body.dataset.view='inspect';byId('workbench').hidden=true;
+  state.selected=id;state.selectedLine=null;state.selectedRoad=null;renderRoutes();paint();document.body.dataset.view='inspect';byId('workbench').hidden=true;
   const detail=byId('route-detail');detail.replaceChildren();node('h3',r.route_name,detail);node('p',r.source+' · '+r.observed_at,detail).className='badge';
   node('h3','Overview',detail);node('p',display(r.mode)+' · '+r.classification,detail);node('p','Source geography: '+(r.geography.join(', ')||'Not supplied'),detail);
   node('h3','Direction evidence',detail);for(const d of r.directions)node('p',(r.source==='OSM'?'Endpoint tags: ':'Direction '+d.ordinal+': ')+(d.direction||'Not supplied').replace('Not supplied to Not supplied','Not supplied')+' · '+display(d.association_status)+(d.declared_km==null?'':' · Source-declared '+d.declared_km+' km'),detail);

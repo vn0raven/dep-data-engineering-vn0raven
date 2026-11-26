@@ -1,0 +1,63 @@
+{
+  "attribution": "© OpenStreetMap contributors",
+  "attribution_url": "https://www.openstreetmap.org/copyright",
+  "checksum_handling": "CRLF normalized to LF only for source checksum verification",
+  "davao_barangays": {
+    "attribution": "NAMRIA and PSA via OCHA COD-AB (faeldon/philippines-json-maps)",
+    "attribution_url": "https://github.com/faeldon/philippines-json-maps",
+    "feature_count": 182,
+    "license": "CC-BY-IGO",
+    "license_url": "https://creativecommons.org/licenses/by/3.0/igo/",
+    "snapshot_accessed_at": "2026-11-26T14:38:50Z",
+    "source": "NAMRIA and PSA via OCHA COD-AB (faeldon/philippines-json-maps)",
+    "source_file": "davao_barangays_cod_ab.geojson",
+    "source_sha256": "7520af6c09b7e7dc95fe0fad6b48909d6402f8485c2ffef7ea9c88ae2df57610",
+    "source_url": "https://raw.githubusercontent.com/faeldon/philippines-json-maps/master/latest/geojson/municities/lowres/bgysubmuns-municity-1130700000.0.001.json"
+  },
+  "exporter_version": "2",
+  "license": "ODbL-1.0",
+  "license_url": "https://opendatacommons.org/licenses/odbl/1-0/",
+  "limitations": [
+    "Historical snapshot, not live service data.",
+    "OSM relations are not LTFRB register records; no cross-source matching performed.",
+    "Separate member lines are not repaired, joined or inferred across gaps.",
+    "Summed member length counts repeated or overlapping members; not a verified trip distance.",
+    "Query selected relations intersecting Davao; member geometry may extend beyond the city.",
+    "No verified boarding access, transfers, service activity or completeness claim."
+  ],
+  "osm_roads": {
+    "attribution": "© OpenStreetMap contributors",
+    "attribution_url": "https://www.openstreetmap.org/copyright",
+    "bbox": [
+      6.92,
+      125.38,
+      7.34,
+      125.72
+    ],
+    "class_counts": {
+      "primary": 662,
+      "residential": 23267,
+      "secondary": 523,
+      "tertiary": 1026,
+      "trunk": 378
+    },
+    "feature_count": 25856,
+    "highway_classes": [
+      "primary",
+      "residential",
+      "secondary",
+      "tertiary",
+      "trunk"
+    ],
+    "license": "ODbL-1.0",
+    "license_url": "https://opendatacommons.org/licenses/odbl/1-0/",
+    "snapshot_accessed_at": "2026-11-26T14:39:39Z",
+    "source": "OpenStreetMap contributors",
+    "source_file": "osm_davao_roads_snapshot.json",
+    "source_sha256": "5a7ffe050e29bd353aa4a6037a14c6270f4818f94c2f7075016abf08d220929f"
+  },
+  "snapshot_accessed_at": "2026-08-01T10:21:21Z",
+  "source": "OpenStreetMap contributors",
+  "source_file": "osm_davao_transit_elements_20260801T102121Z.json",
+  "source_sha256": "005f91b0d13c39cf7c0e9919c82b574bcaf6d780497c04f5be4997c47b27fe4c"
+}

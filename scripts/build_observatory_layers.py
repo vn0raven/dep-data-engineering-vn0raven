@@ -13,6 +13,8 @@ from pyproj import Transformer
 from shapely.geometry import shape, mapping
 from shapely.ops import transform
 from scripts.export_osm_public import export, encoded, digest, OUTPUT, ROOT
+from scripts.fetch_osm_roads import load_osm_roads, ALLOWED_ROAD_KEYS, ALLOWED_HIGHWAY_CLASSES
+from scripts.fetch_davao_barangays import load_davao_barangays, ALLOWED_BARANGAY_KEYS
 from scripts.verify_observatory import verify
 
 WEB = ROOT/'dashboard/observatory'
@@ -51,6 +53,42 @@ def validate(bundle):
         if g.geom_type not in {'LineString','MultiLineString'} or not g.is_valid or g.is_empty:raise ValueError('Invalid line geometry')
     if bundle['publication']=='osm_public' and any(r['source']!='OSM' for r in bundle['routes']):
         raise ValueError('Government detail cannot enter public package')
+
+
+def validate_roads(roads_fc):
+    if roads_fc.get('type') != 'FeatureCollection' or not roads_fc.get('features'):
+        raise ValueError('Invalid roads FeatureCollection')
+    for f in roads_fc['features']:
+        if set(f) != {'type', 'id', 'geometry', 'properties'}:
+            raise ValueError('Road feature schema violation')
+        props = f['properties']
+        if set(props) != ALLOWED_ROAD_KEYS or props['source'] != 'OSM' or props['highway'] not in ALLOWED_HIGHWAY_CLASSES:
+            raise ValueError('Road property boundary violation')
+        if type(props['osm_way_id']) is not int or not isinstance(props['name'], str):
+            raise ValueError('Road property type violation')
+        if re.search(r'ltfrb|https?://|@|[A-Za-z0-9_-]{32,}', json.dumps(props), re.I):
+            raise ValueError('Restricted text in roads layer')
+        g = shape(f['geometry'])
+        if g.geom_type not in {'LineString', 'MultiLineString'} or not g.is_valid or g.is_empty:
+            raise ValueError('Invalid road geometry')
+
+
+def validate_barangays(barangays_fc):
+    if barangays_fc.get('type') != 'FeatureCollection' or not barangays_fc.get('features'):
+        raise ValueError('Invalid barangays FeatureCollection')
+    for f in barangays_fc['features']:
+        if set(f) != {'type', 'id', 'geometry', 'properties'}:
+            raise ValueError('Barangay feature schema violation')
+        props = f['properties']
+        if set(props) != ALLOWED_BARANGAY_KEYS or props['source'] != 'NAMRIA_PSA_COD_AB' or props['municipality'] != 'City of Davao':
+            raise ValueError('Barangay property boundary violation')
+        if not isinstance(props['psgc'], str) or not isinstance(props['name'], str):
+            raise ValueError('Barangay property type violation')
+        if re.search(r'ltfrb|https?://|@|[A-Za-z0-9_-]{32,}', json.dumps(props), re.I):
+            raise ValueError('Restricted text in barangays layer')
+        g = shape(f['geometry'])
+        if g.geom_type not in {'Polygon', 'MultiPolygon'} or not g.is_valid or g.is_empty:
+            raise ValueError('Invalid barangay geometry')
 
 
 def check_osm():
@@ -100,8 +138,14 @@ def ltfrb_bundle():
 def build(proposal=False, authorized=False):
     if proposal and authorized: raise ValueError("Choose local proposal or authorized public build")
     routes,original,provenance=osm_bundle()
+    roads_fc,roads_prov=load_osm_roads()
+    barangays_fc,barangays_prov=load_davao_barangays()
+    validate_roads(roads_fc)
+    validate_barangays(barangays_fc)
     if proposal or authorized:
-        r,f,p=ltfrb_bundle();routes+=r;original+=f;provenance={'OSM':provenance,'LTFRB':p}
+        r,f,p=ltfrb_bundle();routes+=r;original+=f;provenance={'OSM':provenance,'osm_roads':roads_prov,'davao_barangays':barangays_prov,'LTFRB':p}
+    else:
+        provenance={**provenance,'osm_roads':roads_prov,'davao_barangays':barangays_prov}
     display=[];before=after=0
     for f in original:
         g=shape(f['geometry']);before+=sum(len(x.coords) for x in g.geoms) if g.geom_type=='MultiLineString' else len(g.coords)
@@ -110,9 +154,20 @@ def build(proposal=False, authorized=False):
         display.append({**f,'geometry':mapping(simplified)})
     bundle=dict(schema_version=1,publication='local_proposal_not_authorized' if proposal else ('maintainer_authorized_ltfrb' if authorized else 'osm_public'),routes=routes,features=display,provenance=provenance,display={'tolerance_m':10,'crs':'EPSG:32651','original_vertices':before,'display_vertices':after,'area_comparisons':'Original unsimplified geometry; lines grouped per OSM relation or LTFRB candidate direction.'})
     validate(bundle)
-    blobs={'bundle.json':compact(bundle),'originals.geojson':compact({'type':'FeatureCollection','features':original}),'provenance.json':encoded(provenance)}
+    blobs={
+        'bundle.json':compact(bundle),
+        'originals.geojson':compact({'type':'FeatureCollection','features':original}),
+        'roads.geojson':compact(roads_fc),
+        'barangays.geojson':compact(barangays_fc),
+        'provenance.json':encoded(provenance),
+    }
     hashes={k:digest(v) for k,v in blobs.items()};version=digest(compact(hashes))[:20]
     base=PRIVATE/'data' if proposal else WEB/'data';release=base/'releases'/version
+    releases_root=base/'releases'
+    if releases_root.exists():
+        for existing in list(releases_root.iterdir()):
+            if existing.is_dir() and existing.name!=version:
+                shutil.rmtree(existing)
     release.mkdir(parents=True,exist_ok=True)
     blobs['manifest.json']=compact({'version':version,'outputs':hashes})
     for name,body in blobs.items():
@@ -123,7 +178,20 @@ def build(proposal=False, authorized=False):
     if proposal:
         for name in ['index.html','style.css','app.js','explorer.js']:shutil.copyfile(WEB/name,PRIVATE/name)
         (PRIVATE/'REVIEW_SAMPLES.json').write_bytes(encoded({'publication':'NOT AUTHORIZED','examples': [next(r for r in routes if r['source']=='LTFRB'),next(r for r in routes if r['source']=='LTFRB' and not any(r['route_id'] in f['properties']['route_ids'] for f in display))]}))
-    print(json.dumps({'version':version,'proposal':proposal,'routes':len(routes),'features':len(display),'bundle_bytes':len(blobs['bundle.json']),'original_bytes':len(blobs['originals.geojson']),'vertices_before':before,'vertices_after':after}))
+    print(json.dumps({
+        'version':version,
+        'proposal':proposal,
+        'routes':len(routes),
+        'features':len(display),
+        'roads':len(roads_fc['features']),
+        'barangays':len(barangays_fc['features']),
+        'bundle_bytes':len(blobs['bundle.json']),
+        'original_bytes':len(blobs['originals.geojson']),
+        'roads_bytes':len(blobs['roads.geojson']),
+        'barangays_bytes':len(blobs['barangays.geojson']),
+        'vertices_before':before,
+        'vertices_after':after,
+    }))
     return bundle,release
 
 

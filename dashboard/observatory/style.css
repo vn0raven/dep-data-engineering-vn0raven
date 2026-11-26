@@ -5,3 +5,13 @@
 #release-panel a{display:block;margin:8px 0}#attribution{font-size:13px;margin:8px 0}.browse form{gap:8px}.browse label{font-size:13px}.browse input,.browse select{padding:6px 8px}.browse .muted{margin-bottom:8px}
 
 .publication-notice{margin:0;padding:8px 20px;background:#fff8e8;border-bottom:1px solid #dfc58c}.publication-notice p{max-width:1000px;font-size:14px}
+.layer-toggles{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.layer-toggles button{padding:5px 10px;font-size:13px;border-radius:999px;background:white;color:#244556;border-color:#c7d4db}
+.layer-toggles button[aria-pressed=true]{background:#e6f1f0;color:#085c59;border-color:#08736f;box-shadow:inset 0 0 0 1px #08736f}
+.legend .osm-route{border-color:#08736f}
+.legend .road-trunk{border-color:#f59e0b}
+.legend .road-primary{border-color:#facc15}
+.legend .road-secondary{border-color:#eab308}
+.legend .road-tertiary{border-color:#94a3b8}
+.legend .barangay-swatch{border-left:10px dashed #7b8fa3}
+@media(max-width:850px){.layer-toggles button{font-size:12px;padding:5px 8px}}

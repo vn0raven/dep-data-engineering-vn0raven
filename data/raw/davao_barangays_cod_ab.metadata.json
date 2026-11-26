@@ -1,0 +1,14 @@
+{
+  "accessed_at_utc": "2026-11-26T14:38:50Z",
+  "attribution": "NAMRIA and PSA via OCHA COD-AB (faeldon/philippines-json-maps)",
+  "attribution_url": "https://github.com/faeldon/philippines-json-maps",
+  "license": "CC-BY-IGO",
+  "license_url": "https://creativecommons.org/licenses/by/3.0/igo/",
+  "response": {
+    "bytes": 106204,
+    "sha256": "7520af6c09b7e7dc95fe0fad6b48909d6402f8485c2ffef7ea9c88ae2df57610"
+  },
+  "source_file_remote": "bgysubmuns-municity-1130700000.0.001.json",
+  "source_name": "NAMRIA and PSA via OCHA COD-AB (faeldon/philippines-json-maps)",
+  "source_url": "https://raw.githubusercontent.com/faeldon/philippines-json-maps/master/latest/geojson/municities/lowres/bgysubmuns-municity-1130700000.0.001.json"
+}

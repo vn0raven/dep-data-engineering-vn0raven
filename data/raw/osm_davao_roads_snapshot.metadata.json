@@ -1,0 +1,19 @@
+{
+  "accessed_at_utc": "2026-11-26T14:39:39Z",
+  "attribution": "© OpenStreetMap contributors",
+  "attribution_url": "https://www.openstreetmap.org/copyright",
+  "bbox": [
+    6.92,
+    125.38,
+    7.34,
+    125.72
+  ],
+  "license": "ODbL-1.0",
+  "license_url": "https://opendatacommons.org/licenses/odbl/1-0/",
+  "response": {
+    "bytes": 20775269,
+    "sha256": "5a7ffe050e29bd353aa4a6037a14c6270f4818f94c2f7075016abf08d220929f"
+  },
+  "source_name": "OpenStreetMap data via Overpass API",
+  "source_url": "https://overpass-api.de/api/interpreter"
+}

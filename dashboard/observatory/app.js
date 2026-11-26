@@ -27,9 +27,60 @@ const demoFeatures = fixtures.filter(entry => entry[4]).map(([id, , , , coordina
 }));
 
 const byId = id => document.getElementById(id);
-const state = {routes: [], features: [], areas: [], selected: null, selectedLine: null,
+const state = {routes: [], features: [], roads: [], barangays: [], areas: [], selected: null, selectedLine: null, selectedRoad: null,
+  layers: {routes: true, roads: true, barangays: true},
   bounds: null, case: null, extent: null, routeCount: 30, caseCount: 20, active: null,
   filters: {}, generation: 0, areaGeneration: 0, selection: 0, caseSelection: 0};
+
+const ROAD_HIERARCHY = ['residential', 'tertiary', 'secondary', 'primary', 'trunk'];
+const ROAD_STYLES = {
+  trunk:       {maxKm: Infinity, casing: '#c26a0a', casingWidth: 5.5, fill: '#f59e0b', fillWidth: 3.5},
+  primary:     {maxKm: Infinity, casing: '#ca8a04', casingWidth: 4.5, fill: '#facc15', fillWidth: 2.7},
+  secondary:   {maxKm: 14,       casing: '#b89c4c', casingWidth: 3.6, fill: '#fef08a', fillWidth: 2.1},
+  tertiary:    {maxKm: 7,        casing: '#94a3b8', casingWidth: 2.8, fill: '#ffffff', fillWidth: 1.6},
+  residential: {maxKm: 2.8,      casing: '#cbd5e1', casingWidth: 1.8, fill: '#ffffff', fillWidth: 1.0},
+};
+
+function featureBbox(feature) {
+  const b = [Infinity, Infinity, -Infinity, -Infinity];
+  const visit = ring => { for (const [x, y] of ring) { if (x < b[0]) b[0] = x; if (y < b[1]) b[1] = y; if (x > b[2]) b[2] = x; if (y > b[3]) b[3] = y; } };
+  const g = feature.geometry;
+  if (g.type === 'LineString') visit(g.coordinates);
+  else if (g.type === 'MultiLineString' || g.type === 'Polygon') g.coordinates.forEach(visit);
+  else if (g.type === 'MultiPolygon') g.coordinates.forEach(p => p.forEach(visit));
+  return b;
+}
+
+function polygonCenter(feature) {
+  const g = feature.geometry;
+  const rings = g.type === 'Polygon' ? [g.coordinates[0]] : g.coordinates.map(p => p[0]);
+  let best = rings[0], bestLen = 0;
+  for (const r of rings) if (r.length > bestLen) { best = r; bestLen = r.length; }
+  let sx = 0, sy = 0;
+  for (const [x, y] of best) { sx += x; sy += y; }
+  return best.length ? [sx / best.length, sy / best.length] : [125.6, 7.07];
+}
+
+function pointInRing(x, y, ring) {
+  let inside = false;
+  for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+    const [xi, yi] = ring[i], [xj, yj] = ring[j];
+    if (((yi > y) !== (yj > y)) && (x < (xj - xi) * (y - yi) / ((yj - yi) || 1e-12) + xi)) inside = !inside;
+  }
+  return inside;
+}
+
+function pointInFeature(x, y, feature) {
+  const b = feature._bbox;
+  if (b && (x < b[0] || x > b[2] || y < b[1] || y > b[3])) return false;
+  const g = feature.geometry;
+  const polys = g.type === 'Polygon' ? [g.coordinates] : g.coordinates;
+  return polys.some(poly => pointInRing(x, y, poly[0]) && !poly.slice(1).some(hole => pointInRing(x, y, hole)));
+}
+
+function bboxOverlaps(b, w, s, e, n) {
+  return !b || !(b[2] < w || b[0] > e || b[3] < s || b[1] > n);
+}
 
 function node(tag, text, target) {
   const element = document.createElement(tag);
@@ -131,8 +182,11 @@ function paint() {
   context.scale(pixelRatio, pixelRatio);
   context.font = "12px system-ui";
   context.fillStyle = "#496173";
-  if (!state.extent || !state.features.length) {
-    context.fillText("No documented lines match these filters.", 18, 28);
+  const hasVisibleContent = (state.layers.routes && state.features.length) ||
+    (state.layers.roads && state.roads.length) ||
+    (state.layers.barangays && state.barangays.length);
+  if (!state.extent || !hasVisibleContent) {
+    context.fillText("No documented lines or map layers match these filters.", 18, 28);
     state.active = null; byId("scale").textContent = "";
     return;
   }
@@ -144,33 +198,126 @@ function paint() {
   const project = ([lon, lat]) => [width / 2 + (lon - mx) * scale * correction, height / 2 - (lat - my) * scale];
   const inverse = (x, y) => [mx + (x - width / 2) / (scale * correction), my - (y - height / 2) / scale];
   state.active = {project, inverse};
-  context.strokeStyle = "#dae8e9";
+  const [viewW, viewN] = inverse(0, 0), [viewE, viewS] = inverse(width, height);
+  const kmPer100px = 100 / scale * 111.2;
+
+  if (state.layers.roads || state.layers.barangays) {
+    context.fillStyle = "#eef2f5";
+    context.fillRect(0, 0, width, height);
+  }
+  context.strokeStyle = "#dae4e8";
+  context.lineWidth = 1;
   for (let n = 1; n < 5; n++) {
     context.beginPath();
     context.moveTo(n * width / 5, 0); context.lineTo(n * width / 5, height);
     context.moveTo(0, n * height / 5); context.lineTo(width, n * height / 5);
     context.stroke();
   }
-  context.fillText("N ↑", 15, 21);
-  const hits = new Set(state.areas.map(feature => feature.id));
-  const catalog = new Map(state.routes.map(route => [route.route_id, route.mode]));
-  const selected = feature => feature.id === state.selectedLine || feature.properties.route_ids.includes(state.selected);
-  for (const feature of [...state.features].sort((a, b) => Number(selected(a)) - Number(selected(b)))) {
-    const categories = new Set(feature.properties.route_ids.map(id => catalog.get(id)));
-    context.strokeStyle = selected(feature) ? "#102d43" : hits.has(feature.id) ? "#aa6215" :
-      categories.size === 1 ? colors[[...categories][0]] || "#625786" : "#625786";
-    context.lineWidth = selected(feature) || hits.has(feature.id) ? 4 : 2;
+
+  // 1. Barangay boundaries layer (CC BY-IGO)
+  if (state.layers.barangays && state.barangays.length) {
+    context.fillStyle = "rgba(148, 163, 184, 0.07)";
+    context.strokeStyle = "#7b8fa3";
+    context.lineWidth = 1;
+    context.setLineDash([4, 3]);
+    for (const brgy of state.barangays) {
+      if (!bboxOverlaps(brgy._bbox, viewW, viewS, viewE, viewN)) continue;
+      const polys = brgy.geometry.type === "Polygon" ? [brgy.geometry.coordinates] : brgy.geometry.coordinates;
+      for (const poly of polys) {
+        context.beginPath();
+        for (const ring of poly) {
+          ring.forEach((pt, idx) => (idx ? context.lineTo(...project(pt)) : context.moveTo(...project(pt))));
+          context.closePath();
+        }
+        context.fill();
+        context.stroke();
+      }
+    }
+    context.setLineDash([]);
+    if (kmPer100px < 7) {
+      context.font = "11px system-ui";
+      context.textAlign = "center";
+      for (const brgy of state.barangays) {
+        if (!bboxOverlaps(brgy._bbox, viewW, viewS, viewE, viewN) || !brgy._center) continue;
+        const [cx, cy] = project(brgy._center);
+        if (cx < -40 || cx > width + 40 || cy < -20 || cy > height + 20) continue;
+        context.lineWidth = 2.5;
+        context.strokeStyle = "rgba(255,255,255,0.85)";
+        context.strokeText(brgy.properties.name, cx, cy);
+        context.fillStyle = "#475569";
+        context.fillText(brgy.properties.name, cx, cy);
+      }
+      context.textAlign = "start";
+      context.font = "12px system-ui";
+    }
+  }
+
+  // 2. Google Maps–style Davao road hierarchy layer (ODbL)
+  if (state.layers.roads && state.roads.length) {
+    context.lineCap = "round";
     context.lineJoin = "round";
-    context.setLineDash(feature.properties.source === 'OSM' ? [] : [7, 3]);
-    context.globalAlpha = selected(feature) || hits.has(feature.id) ? 1 : .66;
-    for (const line of lines(feature)) {
+    for (const cls of ROAD_HIERARCHY) {
+      const style = ROAD_STYLES[cls];
+      if (kmPer100px >= style.maxKm) continue;
+      const visible = state.roads.filter(r => r.properties.highway === cls && bboxOverlaps(r._bbox, viewW, viewS, viewE, viewN));
+      if (!visible.length) continue;
+      // Casing pass
+      context.strokeStyle = style.casing;
+      context.lineWidth = style.casingWidth;
       context.beginPath();
-      line.forEach((point, index) => (index ? context.lineTo(...project(point)) : context.moveTo(...project(point))));
+      for (const r of visible) {
+        for (const line of lines(r)) {
+          line.forEach((pt, idx) => (idx ? context.lineTo(...project(pt)) : context.moveTo(...project(pt))));
+        }
+      }
+      context.stroke();
+      // Fill pass
+      context.strokeStyle = style.fill;
+      context.lineWidth = style.fillWidth;
+      context.beginPath();
+      for (const r of visible) {
+        for (const line of lines(r)) {
+          line.forEach((pt, idx) => (idx ? context.lineTo(...project(pt)) : context.moveTo(...project(pt))));
+        }
+      }
+      context.stroke();
+    }
+    if (state.selectedRoad) {
+      context.strokeStyle = "#102d43";
+      context.lineWidth = 5;
+      context.beginPath();
+      for (const line of lines(state.selectedRoad)) {
+        line.forEach((pt, idx) => (idx ? context.lineTo(...project(pt)) : context.moveTo(...project(pt))));
+      }
       context.stroke();
     }
   }
+
+  // 3. OSM Transit Routes overlay
+  if (state.layers.routes && state.features.length) {
+    const hits = new Set(state.areas.map(feature => feature.id));
+    const catalog = new Map(state.routes.map(route => [route.route_id, route.mode]));
+    const selected = feature => feature.id === state.selectedLine || feature.properties.route_ids.includes(state.selected);
+    for (const feature of [...state.features].sort((a, b) => Number(selected(a)) - Number(selected(b)))) {
+      const categories = new Set(feature.properties.route_ids.map(id => catalog.get(id)));
+      context.strokeStyle = selected(feature) ? "#102d43" : hits.has(feature.id) ? "#aa6215" :
+        categories.size === 1 ? colors[[...categories][0]] || "#625786" : "#625786";
+      context.lineWidth = selected(feature) || hits.has(feature.id) ? 4.5 : 2.5;
+      context.lineJoin = "round";
+      context.setLineDash(feature.properties.source === 'OSM' ? [] : [7, 3]);
+      context.globalAlpha = selected(feature) || hits.has(feature.id) ? 1 : .78;
+      for (const line of lines(feature)) {
+        context.beginPath();
+        line.forEach((point, index) => (index ? context.lineTo(...project(point)) : context.moveTo(...project(point))));
+        context.stroke();
+      }
+    }
+  }
+
+  context.fillStyle = "#496173";
+  context.fillText("N ↑", 15, 21);
   context.globalAlpha = 1; context.setLineDash([]);
-  byId("scale").textContent = "≈ " + (100 / scale * 111.2).toFixed(1) + " km";
+  byId("scale").textContent = "≈ " + kmPer100px.toFixed(1) + " km";
   if (state.bounds) {
     const [w, s, e, n] = state.bounds, [x, y] = project([w, n]), [right, bottom] = project([e, s]);
     context.strokeStyle = "#aa6215";
@@ -391,6 +538,55 @@ function formAction(id, action) {
   });
 }
 
+function nearestRoad(point, maxDist) {
+  if (!state.layers.roads || !state.roads.length || !state.extent) return null;
+  const [west, south, east, north] = state.extent;
+  const canvas = byId("map");
+  const correction = Math.cos((north + south) * Math.PI / 360);
+  const scale = Math.min((canvas.clientWidth - 60) / (Math.max(east - west, .001) * correction),
+                         (canvas.clientHeight - 56) / Math.max(north - south, .001));
+  const kmPer100px = 100 / scale * 111.2;
+  const [lon, lat] = state.active.inverse(point[0], point[1]);
+  const pad = Math.max((east - west) * 0.03, 0.002);
+  let chosen = null, best = maxDist;
+  for (const road of state.roads) {
+    const style = ROAD_STYLES[road.properties.highway];
+    if (!style || kmPer100px >= style.maxKm) continue;
+    if (!bboxOverlaps(road._bbox, lon - pad, lat - pad, lon + pad, lat + pad)) continue;
+    for (const line of lines(road)) {
+      for (let i = 1; i < line.length; i++) {
+        const [x, y] = state.active.project(line[i - 1]), [xx, yy] = state.active.project(line[i]);
+        const dx = xx - x, dy = yy - y;
+        const w = Math.max(0, Math.min(1, ((point[0] - x) * dx + (point[1] - y) * dy) / (dx * dx + dy * dy || 1)));
+        const dist = Math.hypot(point[0] - x - w * dx, point[1] - y - w * dy);
+        if (dist < best) { chosen = road; best = dist; }
+      }
+    }
+  }
+  return chosen;
+}
+
+function inspectRoad(road) {
+  state.selected = null; state.selectedLine = null; state.selectedRoad = road;
+  renderRoutes(); paint();
+  document.body.dataset.view = 'inspect';
+  byId('workbench').hidden = true;
+  const detail = byId('route-detail');
+  detail.replaceChildren();
+  node('h3', road.properties.name || 'Unnamed road', detail);
+  node('p', 'OSM Road · ' + display(road.properties.highway), detail).className = 'badge';
+  node('h3', 'Road details', detail);
+  node('p', 'Highway class: ' + road.properties.highway, detail);
+  node('p', 'OSM Way ID: ' + road.properties.osm_way_id, detail);
+  const linkP = node('p', undefined, detail);
+  const link = node('a', 'View way on OpenStreetMap', linkP);
+  link.href = 'https://www.openstreetmap.org/way/' + road.properties.osm_way_id;
+  link.target = '_blank';
+  link.rel = 'noopener noreferrer';
+  node('p', 'Source: OpenStreetMap contributors (ODbL 1.0).', detail);
+  notify('Selected OSM road: ' + (road.properties.name || 'Unnamed ' + road.properties.highway));
+}
+
 function wireMap() {
   const canvas = byId("map");
   let start;
@@ -416,20 +612,26 @@ function wireMap() {
       return;
     }
     let chosen, nearest = 9;
-    for (const feature of state.features) for (const line of lines(feature)) for (let i = 1; i < line.length; i++) {
-      const [x, y] = state.active.project(line[i - 1]), [xx, yy] = state.active.project(line[i]);
-      const dx = xx - x, dy = yy - y;
-      const w = Math.max(0, Math.min(1, ((point[0] - x) * dx + (point[1] - y) * dy) / (dx * dx + dy * dy || 1)));
-      const distance = Math.hypot(point[0] - x - w * dx, point[1] - y - w * dy);
-      if (distance < nearest) { chosen = feature; nearest = distance; }
+    if (state.layers.routes) {
+      for (const feature of state.features) for (const line of lines(feature)) for (let i = 1; i < line.length; i++) {
+        const [x, y] = state.active.project(line[i - 1]), [xx, yy] = state.active.project(line[i]);
+        const dx = xx - x, dy = yy - y;
+        const w = Math.max(0, Math.min(1, ((point[0] - x) * dx + (point[1] - y) * dy) / (dx * dx + dy * dy || 1)));
+        const distance = Math.hypot(point[0] - x - w * dx, point[1] - y - w * dy);
+        if (distance < nearest) { chosen = feature; nearest = distance; }
+      }
     }
-    if (!chosen) return;
-    openRoute(chosen.properties.route_ids[0]).then(() => {
-      state.selectedLine = chosen.id; paint();
-      byId("area-results").textContent = "Selected line · " + display(chosen.properties.status) +
-        " · " + chosen.properties.candidate_route_ids.length + " candidate route matches";
-      routeButtons(byId("area-records"), chosen.properties.route_ids);
-    }).catch(showError);
+    if (chosen) {
+      openRoute(chosen.properties.route_ids[0]).then(() => {
+        state.selectedLine = chosen.id; paint();
+        byId("area-results").textContent = "Selected line · " + display(chosen.properties.status) +
+          " · " + chosen.properties.candidate_route_ids.length + " candidate route matches";
+        routeButtons(byId("area-records"), chosen.properties.route_ids);
+      }).catch(showError);
+      return;
+    }
+    const road = nearestRoad(point, 8);
+    if (road) inspectRoad(road);
   });
   canvas.addEventListener('wheel', event => { event.preventDefault(); zoom(event.deltaY > 0 ? 1.15 : .87); }, {passive:false});
   canvas.addEventListener('keydown', event => {
@@ -439,13 +641,34 @@ function wireMap() {
   canvas.addEventListener('pointermove', event => {
     if (start || !state.active) return;
     let found;
-    for (const feature of state.features) for (const line of lines(feature)) for(let i=1;i<line.length;i++) {
-      const [x,y]=state.active.project(line[i-1]),[xx,yy]=state.active.project(line[i]),dx=xx-x,dy=yy-y;
-      const t=Math.max(0,Math.min(1,((event.offsetX-x)*dx+(event.offsetY-y)*dy)/(dx*dx+dy*dy||1)));
-      if(Math.hypot(event.offsetX-x-t*dx,event.offsetY-y-t*dy)<7) found=feature;
+    if (state.layers.routes) {
+      for (const feature of state.features) for (const line of lines(feature)) for(let i=1;i<line.length;i++) {
+        const [x,y]=state.active.project(line[i-1]),[xx,yy]=state.active.project(line[i]),dx=xx-x,dy=yy-y;
+        const t=Math.max(0,Math.min(1,((event.offsetX-x)*dx+(event.offsetY-y)*dy)/(dx*dx+dy*dy||1)));
+        if(Math.hypot(event.offsetX-x-t*dx,event.offsetY-y-t*dy)<7) found=feature;
+      }
     }
-    byId('tooltip').hidden=!found;
-    if(found) byId('tooltip').textContent=(state.routes.find(r=>found.properties.route_ids.includes(r.route_id))?.route_name || 'Documented line') + (found.properties.source === 'OSM' ? ' · OSM membership' : ' · Candidate association');
+    if (found) {
+      byId('tooltip').hidden = false;
+      byId('tooltip').textContent = (state.routes.find(r=>found.properties.route_ids.includes(r.route_id))?.route_name || 'Documented line') + (found.properties.source === 'OSM' ? ' · OSM membership' : ' · Candidate association');
+      return;
+    }
+    const road = nearestRoad([event.offsetX, event.offsetY], 7);
+    if (road) {
+      byId('tooltip').hidden = false;
+      byId('tooltip').textContent = (road.properties.name || 'Unnamed road') + ' · ' + display(road.properties.highway) + ' (OSM)';
+      return;
+    }
+    if (state.layers.barangays && state.barangays.length) {
+      const [lon, lat] = state.active.inverse(event.offsetX, event.offsetY);
+      const brgy = state.barangays.find(b => pointInFeature(lon, lat, b));
+      if (brgy) {
+        byId('tooltip').hidden = false;
+        byId('tooltip').textContent = 'Brgy. ' + brgy.properties.name + ' (NAMRIA/PSA COD-AB)';
+        return;
+      }
+    }
+    byId('tooltip').hidden = true;
   });
   canvas.addEventListener('pointerleave',()=>byId('tooltip').hidden=true);
   new ResizeObserver(paint).observe(canvas);
